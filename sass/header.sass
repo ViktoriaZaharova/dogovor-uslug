@@ -1,0 +1,56 @@
+@import "vars"
+
+header
+    padding: 16px 0
+    background: #F8F9FA
+    .logo
+        margin: 0 auto 0 0
+
+.logo
+    max-width: 324px
+    width: 100%
+    @include d-flex
+
+.mail
+    display: flex
+    align-items: center
+    font-size: 16px
+    font-weight: 500
+    color: $accent
+    &:hover
+        color: $blue-grey
+    svg
+        fill: none
+        stroke: $accent
+        margin: 0 8px 0 0
+        width: 24px
+        height: 24px
+        min-width: 24px
+
+.header-contacts
+    font-weight: 500
+    color: #9CA3AF
+    margin: 0 auto
+    &__text
+        padding: 0 0 0 32px
+        font-size: 12px
+        margin: -1px 0 0
+        display: block
+
+.nav-menu
+    margin: 0 0 0 auto
+
+.menu
+    display: flex
+    align-items: stretch
+    line-height: 150%
+    font-size: 16px
+    li
+        margin: 0
+        a
+            padding: 16px
+            color: #252525
+            &:hover
+                color: $accent
+            &:focus
+                color: $blue-grey

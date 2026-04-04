@@ -1,0 +1,84 @@
+header {
+  padding: 16px 0;
+  background: #F8F9FA;
+}
+header .logo {
+  margin: 0 auto 0 0;
+}
+
+.logo {
+  max-width: 324px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0000CD;
+}
+.mail:hover {
+  color: #2C4068;
+}
+.mail svg {
+  fill: none;
+  stroke: #0000CD;
+  margin: 0 8px 0 0;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+}
+
+.header-contacts {
+  font-weight: 500;
+  color: #9CA3AF;
+  margin: 0 auto;
+}
+.header-contacts__text {
+  padding: 0 0 0 32px;
+  font-size: 12px;
+  margin: -1px 0 0;
+  display: block;
+}
+
+.nav-menu {
+  margin: 0 0 0 auto;
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  line-height: 150%;
+  font-size: 16px;
+}
+.menu li {
+  margin: 0;
+}
+.menu li a {
+  padding: 16px;
+  color: #252525;
+}
+.menu li a:hover {
+  color: #0000CD;
+}
+.menu li a:focus {
+  color: #2C4068;
+}
