@@ -1,35 +1,101 @@
-@font-face {
-  font-family: "PlayfairDisplay";
-  font-weight: 500;
-  font-style: normal;
-  src: url("../fonts/PlayfairDisplay/PlayfairDisplay-Medium.eot");
-  src: url("../fonts/PlayfairDisplay/PlayfairDisplay-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/PlayfairDisplay/PlayfairDisplay-Medium.woff") format("woff"), url("../fonts/PlayfairDisplay/PlayfairDisplay-Medium.ttf") format("truetype");
+footer {
+  background: #0000CD;
+  color: #DFE2E8;
+  position: relative;
+  z-index: 1;
 }
-@font-face {
-  font-family: "Inter";
-  font-weight: 400;
-  font-style: normal;
-  src: url("../fonts/Inter/Inter-Regular.eot");
-  src: url("../fonts/Inter/Inter-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Inter/Inter-Regular.woff") format("woff"), url("../fonts/Inter/Inter-Regular.ttf") format("truetype");
+footer .menu {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
-@font-face {
-  font-family: "Inter";
-  font-weight: 500;
-  font-style: normal;
-  src: url("../fonts/Inter/Inter-Medium.eot");
-  src: url("../fonts/Inter/Inter-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Inter/Inter-Medium.woff") format("woff"), url("../fonts/Inter/Inter-Medium.ttf") format("truetype");
+footer .menu li {
+  margin: 0 0 8px;
 }
-@font-face {
-  font-family: "Inter";
-  font-weight: 600;
-  font-style: normal;
-  src: url("../fonts/Inter/Inter-SemiBold.eot");
-  src: url("../fonts/Inter/Inter-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Inter/Inter-SemiBold.woff") format("woff"), url("../fonts/Inter/Inter-SemiBold.ttf") format("truetype");
+footer .menu li:last-child {
+  margin: 0;
 }
-@font-face {
-  font-family: "Inter";
-  font-weight: 700;
-  font-style: normal;
-  src: url("../fonts/Inter/Inter-Bold.eot");
-  src: url("../fonts/Inter/Inter-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Inter/Inter-Bold.woff") format("woff"), url("../fonts/Inter/Inter-Bold.ttf") format("truetype");
+footer .menu li a {
+  padding: 0;
+  color: #DFE2E8;
+}
+footer .header-contacts {
+  padding-left: 40px;
+}
+footer .header-contacts .mail {
+  color: #FFFFFF;
+}
+footer .header-contacts .mail svg {
+  stroke: #FFFFFF;
+}
+
+.footer-top {
+  padding: 24px 0;
+}
+.footer-top .text-small {
+  margin: 40px 0 0;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+.footer-bottom {
+  padding: 24px 0;
+  border-top: 1px solid #F9FAFB;
+}
+
+.menu-footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 12px;
+  line-height: 150%;
+}
+.menu-footer li a {
+  color: #DFE2E8;
+}
+.menu-footer li a:hover {
+  color: #fff;
+}
+
+.btn-top-scroll {
+  position: absolute;
+  right: 52px;
+  top: 8px;
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 8px;
+  fill: none;
+  stroke: #0000CD;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.btn-top-scroll svg {
+  width: 30px;
+  height: 15px;
+}
+.btn-top-scroll:hover {
+  stroke: #fff;
+  background: #000080;
 }

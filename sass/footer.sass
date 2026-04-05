@@ -1,3 +1,69 @@
-@import "fonts"
 @import "vars"
 
+footer
+    background: $accent
+    color: #DFE2E8
+    position: relative
+    z-index: 1 
+    .menu
+        flex-direction: column
+        align-items: flex-start
+        li
+            margin: 0 0 8px
+            &:last-child
+                margin: 0
+            a
+                padding: 0
+                color: #DFE2E8
+    .header-contacts
+        padding-left: 40px
+        .mail
+            color: #FFFFFF
+            svg
+                stroke: #FFFFFF
+
+.footer-top
+    padding: 24px 0
+    .text-small
+        margin: 40px 0 0
+        font-size: 12px
+        line-height: 150%
+
+.footer-bottom
+    padding: 24px 0
+    border-top: 1px solid #F9FAFB  
+
+.menu-footer
+    width: 100%
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    justify-content: space-between
+    font-size: 12px
+    line-height: 150%
+    li
+        a
+            color: #DFE2E8
+            &:hover
+                color: #fff
+
+
+.btn-top-scroll
+    position: absolute
+    right: 52px
+    top: 8px
+    // bottom: 200px
+    z-index: 10
+    width: 60px
+    height: 60px
+    background: #fff
+    border-radius: 8px
+    fill: none
+    stroke: #0000CD
+    @include d-flex
+    svg
+        width: 30px
+        height: 15px
+    &:hover
+        stroke: #fff
+        background: $blue
