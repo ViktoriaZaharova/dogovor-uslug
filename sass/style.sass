@@ -116,7 +116,7 @@ button, .btn
   margin: 0
   border: 1px solid transparent
   border-radius: 0
-  
+
   &:hover, &:focus
     outline: none
     box-shadow: none
@@ -137,7 +137,7 @@ button, .btn
 .btn-accent
   border-color: $accent
   background: $accent
-  color: #fff 
+  color: #fff
   .btn-icon
     stroke: #fff
   &:hover
@@ -161,7 +161,6 @@ button, .btn
     box-shadow: 0px 1px 2px 0px rgba(#101828,.4)
     .btn-icon
       stroke: #979AA0
-  
 
 .btn-icon
   fill: none
@@ -169,7 +168,6 @@ button, .btn
   min-width: 24px
   height: 24px
   margin: 0 0 0 8px
-
 
 strong, b
   font-weight: bold
@@ -192,37 +190,40 @@ ul, ol
 .row
   margin: 0 -12px
   &>*
-    padding: 0 12px 
+    padding: 0 12px
 
 .p-64
   padding: 64px 0
 
+.p-40
+  padding: 40px 0
+
 .mb-40
-  margin-bottom: 40px  
+  margin-bottom: 40px
 
 .mb-24
-  margin-bottom: 24px  
+  margin-bottom: 24px
 
 .mb-8
-  margin-bottom: 8px  
+  margin-bottom: 8px
 
-.bg-white 
-  background: #fff     
+.bg-white
+  background: #fff
 
 .bg-light-grey
   background: #F8F9FA
 
-.color-blue-grey  
+.color-blue-grey
   color: $blue-grey
 
 .color-accent
-  color: $accent  
+  color: $accent
 
 .color-grey
-  color: #68727D  
+  color: #68727D
 
 .font-title
-  font-family: $title-font  
+  font-family: $title-font
 
 .font-italic
   font-style: italic
@@ -231,7 +232,7 @@ ul, ol
   font-weight: 500
 
 .d-inline-block
-  display: inline-block      
+  display: inline-block
 
 h1, .h1
   width: 100%
@@ -254,14 +255,14 @@ h3, .h3
   font-size: 28px
   font-weight: 700
   line-height: 120%
-  margin: 0 0 4px  
+  margin: 0 0 4px
 
 h5, .h5
   width: 100%
   font-size: 20px
   font-weight: 600
   line-height: 120%
-  margin: 0 0 12px  
+  margin: 0 0 12px
 
 h6, .h6
   width: 100%
@@ -269,7 +270,6 @@ h6, .h6
   font-weight: 500
   line-height: 120%
   margin: 0 0 8px
-
 
 .subtitle
   width: 100%
@@ -285,7 +285,7 @@ h6, .h6
   padding: 8px
   background: #F1F2F5
   border-radius: 8px
-  width: fit-content  
+  width: fit-content
 
 .box-text
   font-size: 16px
@@ -297,9 +297,56 @@ h6, .h6
 
 .text-lgsmall
   font-size: 18px
-  line-height: 150%    
+  line-height: 150%
 
+.text-xlsmall
+  font-size: 20px
+  line-height: 120%
 
+.nav-breadcrumb
+  padding: 10px 0
+  width: 100%
+
+.breadcrumb
+  margin: 0
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+  font-size: 14px
+  line-height: 150%
+  color: $blue
+  li
+    padding: 0
+    a
+      display: flex
+      align-items: center
+      color: #68727D
+      &:after
+        content: ''
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 16px
+        height: 16px
+        background: url('../img/arrow-right.svg') no-repeat center
+        background-size: 100%
+        margin: 0 4px
+    svg
+      width: 16px
+      height: 16px
+      min-width: 16px
+      fill: none
+      stroke: #68727D
+      
+
+.breadcrumb-item.active
+  color: $blue      
+
+.breadcrumb-item+.breadcrumb-item
+  padding: 0
+
+.breadcrumb-item+.breadcrumb-item::before
+  display: none
 
 // slick
 .slick-slider

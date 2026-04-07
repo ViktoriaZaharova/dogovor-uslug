@@ -162,6 +162,15 @@
     display: -ms-flexbox;
     display: flex;
   }
+  .p-40 {
+    padding: 24px 0;
+  }
+  .error-page {
+    padding: 0 0 32px;
+  }
+  .error-page__icon {
+    margin: 0 auto 24px;
+  }
 }
 @media only screen and (max-width: 576px) {
   .btn-top-scroll {

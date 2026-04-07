@@ -295,6 +295,10 @@ ul, ol {
   padding: 64px 0;
 }
 
+.p-40 {
+  padding: 40px 0;
+}
+
 .mb-40 {
   margin-bottom: 40px;
 }
@@ -419,6 +423,79 @@ h6, .h6 {
 .text-lgsmall {
   font-size: 18px;
   line-height: 150%;
+}
+
+.text-xlsmall {
+  font-size: 20px;
+  line-height: 120%;
+}
+
+.nav-breadcrumb {
+  padding: 10px 0;
+  width: 100%;
+}
+
+.breadcrumb {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 14px;
+  line-height: 150%;
+  color: #000080;
+}
+.breadcrumb li {
+  padding: 0;
+}
+.breadcrumb li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #68727D;
+}
+.breadcrumb li a:after {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: url("../img/arrow-right.svg") no-repeat center;
+  background-size: 100%;
+  margin: 0 4px;
+}
+.breadcrumb li svg {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  fill: none;
+  stroke: #68727D;
+}
+
+.breadcrumb-item.active {
+  color: #000080;
+}
+
+.breadcrumb-item + .breadcrumb-item {
+  padding: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  display: none;
 }
 
 .slick-slider {
