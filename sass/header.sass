@@ -5,6 +5,7 @@ header
     background: #F8F9FA
     .logo
         margin: 0 auto 0 0
+        
 
 .logo
     max-width: 324px
@@ -37,8 +38,11 @@ header
         margin: -1px 0 0
         display: block
 
+
 .nav-menu
     margin: 0 0 0 auto
+    .header-contacts
+        display: none
 
 .menu
     display: flex
@@ -54,3 +58,19 @@ header
                 color: $accent
             &:focus
                 color: $blue-grey
+
+.btn-burger
+    width: 32px
+    height: 32px
+    min-width: 32px
+    border-radius: 8px
+    background: $accent url('../img/burger-icon.svg') center center no-repeat
+    background-size: 20px
+    display: none
+    margin-left: auto
+    &:hover
+        background: $blue url('../img/burger-icon.svg') center center no-repeat
+    &.click
+        background: $accent url('../img/close-icon.svg') center center no-repeat
+        &:hover
+            background: $blue url('../img/close-icon.svg') center center no-repeat

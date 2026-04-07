@@ -8,3 +8,15 @@ $('.btn-top-scroll').on('click', function (e) {
         scrollTop: 0
     });
 });
+
+$('.btn-burger').on('click', function (e) {
+    e.preventDefault
+    $(this).toggleClass('click');      
+    $('.nav-menu').fadeToggle();
+    // $('.header-contacts').toggleClass('active');
+});
+
+// $('.nav-menu a').on('click', function () {
+//     $('.btn-burger').removeClass('click');      
+//     $('.nav-menu').fadeOut();
+// });

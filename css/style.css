@@ -350,6 +350,9 @@ h1, .h1 {
   line-height: 120%;
   margin: 0 0 16px;
 }
+h1 span, .h1 span {
+  font-size: 44px;
+}
 
 h2, .h2 {
   width: 100%;

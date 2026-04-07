@@ -1,16 +1,153 @@
 /*==========  Desktop First  ==========*/
 
 /* Large Devices, Wide Screens */
+@media only screen and (max-width: 1300px)
+    .btn-top-scroll
+        right: 10px
+        width: 40px
+        height: 40px
+        svg
+            width: 20px
+            height: 10px
+
 @media only screen and (max-width: 1200px)
+    footer
+        .header-contacts
+            padding: 0
 
 @media only screen and (max-width: 992px)
+    footer
+        .header-contacts, .nav-menu
+            padding: 0 0 0 24px
+            margin: 40px 0 0
+        .logo
+            max-width: 343px
+
+    .footer-top
+        padding: 16px 0 8px
+
+    .menu-footer
+        flex-direction: column
+        align-items: flex-start
+        li
+            margin: 0 0 8px
+            &:last-child
+                margin: 0
+
+    .stage-work-box
+        padding: 16px
+        &__number
+            margin: 0 0 12px
+        .box-text
+            font-size: 14px
+
+    .advantages
+        padding: 16px 0 8px
+        .mb-24
+            margin-bottom: 8px
+
+    .advantages-item
+        border: none
+        padding: 8px
+
+    .text-lgsmall
+        font-size: 13px
+        line-height: 110%
+
+    header
+        .logo
+            max-width: 200px
 
 @media only screen and (max-width: 768px)
+    .container
+        padding: 0 16px
+
+    .row
+        margin: 0 -8px
+        >*
+            padding: 0 8px
+
+    .mb-40  
+        margin-bottom: 24px
+
+    h1, .h1
+        margin: 0 0 8px
+        span
+            font-size: 32px
+
+    h6, .h6
+        font-size: 16px
+
+    .subtitle-decor
+        font-size: 13px
+        padding: 4px
+
+    .btn
+        height: 40px
+        padding: 8px 24px
+        font-size: 14px
+        line-height: 150%
+
+    .btn-icon
+        margin: 0 0 0 4px        
+
+    .home
+        padding: 64px 0 24px        
+
+    .home-item
+        padding: 8px
+        max-width: none
+        &:first-child
+            margin-top: 16px
+
+    header
+        position: relative
+        z-index: 1
+        padding: 8px
+        .logo
+            max-width: 259px
+        .header-contacts
+            display: none
+            padding: 16px
+            background: #F8F9FA
+        .nav-menu
+            display: none
+            position: absolute
+            left: 0
+            top: 100%
+            width: 100%
+            background: #fff
+            z-index: 5
+            box-shadow: 0px 10px 15px -3px rgba(#101828, .1)
+            .header-contacts
+                display: block
+        .menu
+            flex-direction: column
+            align-items: start
+            li
+                width: 100%
+                a
+                    width: 100%
+                    padding: 8px
+
+    .btn-burger
+        display: flex
 
 @media only screen and (max-width: 576px)
+    .btn-top-scroll
+        display: none
+
+    h2, .h2
+        margin: 0 0 50px
 
 @media only screen and (max-width: 480px)
 
 @media only screen and (max-width: 420px)
+    .advantages-item
+        h3
+            font-size: 24px
 
-@media only screen and (max-width: 370px)	
+    header .logo
+        max-width: 220px
+        
+@media only screen and (max-width: 370px)

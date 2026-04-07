@@ -58,6 +58,9 @@ header .logo {
 .nav-menu {
   margin: 0 0 0 auto;
 }
+.nav-menu .header-contacts {
+  display: none;
+}
 
 .menu {
   display: -webkit-box;
@@ -81,4 +84,24 @@ header .logo {
 }
 .menu li a:focus {
   color: #2C4068;
+}
+
+.btn-burger {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 8px;
+  background: #0000CD url("../img/burger-icon.svg") center center no-repeat;
+  background-size: 20px;
+  display: none;
+  margin-left: auto;
+}
+.btn-burger:hover {
+  background: #000080 url("../img/burger-icon.svg") center center no-repeat;
+}
+.btn-burger.click {
+  background: #0000CD url("../img/close-icon.svg") center center no-repeat;
+}
+.btn-burger.click:hover {
+  background: #000080 url("../img/close-icon.svg") center center no-repeat;
 }

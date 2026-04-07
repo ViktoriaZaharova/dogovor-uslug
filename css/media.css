@@ -1,2 +1,181 @@
 /*==========  Desktop First  ==========*/
 /* Large Devices, Wide Screens */
+@media only screen and (max-width: 1300px) {
+  .btn-top-scroll {
+    right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+  .btn-top-scroll svg {
+    width: 20px;
+    height: 10px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  footer .header-contacts {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 992px) {
+  footer .header-contacts, footer .nav-menu {
+    padding: 0 0 0 24px;
+    margin: 40px 0 0;
+  }
+  footer .logo {
+    max-width: 343px;
+  }
+  .footer-top {
+    padding: 16px 0 8px;
+  }
+  .menu-footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .menu-footer li {
+    margin: 0 0 8px;
+  }
+  .menu-footer li:last-child {
+    margin: 0;
+  }
+  .stage-work-box {
+    padding: 16px;
+  }
+  .stage-work-box__number {
+    margin: 0 0 12px;
+  }
+  .stage-work-box .box-text {
+    font-size: 14px;
+  }
+  .advantages {
+    padding: 16px 0 8px;
+  }
+  .advantages .mb-24 {
+    margin-bottom: 8px;
+  }
+  .advantages-item {
+    border: none;
+    padding: 8px;
+  }
+  .text-lgsmall {
+    font-size: 13px;
+    line-height: 110%;
+  }
+  header .logo {
+    max-width: 200px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  .row {
+    margin: 0 -8px;
+  }
+  .row > * {
+    padding: 0 8px;
+  }
+  .mb-40 {
+    margin-bottom: 24px;
+  }
+  h1, .h1 {
+    margin: 0 0 8px;
+  }
+  h1 span, .h1 span {
+    font-size: 32px;
+  }
+  h6, .h6 {
+    font-size: 16px;
+  }
+  .subtitle-decor {
+    font-size: 13px;
+    padding: 4px;
+  }
+  .btn {
+    height: 40px;
+    padding: 8px 24px;
+    font-size: 14px;
+    line-height: 150%;
+  }
+  .btn-icon {
+    margin: 0 0 0 4px;
+  }
+  .home {
+    padding: 64px 0 24px;
+  }
+  .home-item {
+    padding: 8px;
+    max-width: none;
+  }
+  .home-item:first-child {
+    margin-top: 16px;
+  }
+  header {
+    position: relative;
+    z-index: 1;
+    padding: 8px;
+  }
+  header .logo {
+    max-width: 259px;
+  }
+  header .header-contacts {
+    display: none;
+    padding: 16px;
+    background: #F8F9FA;
+  }
+  header .nav-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background: #fff;
+    z-index: 5;
+    -webkit-box-shadow: 0px 10px 15px -3px rgba(16, 24, 40, 0.1);
+            box-shadow: 0px 10px 15px -3px rgba(16, 24, 40, 0.1);
+  }
+  header .nav-menu .header-contacts {
+    display: block;
+  }
+  header .menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  header .menu li {
+    width: 100%;
+  }
+  header .menu li a {
+    width: 100%;
+    padding: 8px;
+  }
+  .btn-burger {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .btn-top-scroll {
+    display: none;
+  }
+  h2, .h2 {
+    margin: 0 0 50px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .advantages-item h3 {
+    font-size: 24px;
+  }
+  header .logo {
+    max-width: 220px;
+  }
+}
