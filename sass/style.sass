@@ -90,7 +90,6 @@ input, textarea, select
     box-shadow: none
     border: 1px solid #000080
     box-shadow: 0px 0px 0px 3px #B2D5FF
-  
 
 input[type="radio"], input[type="checkbox"]
   width: auto
@@ -109,7 +108,7 @@ label
 .error-label
   input
     box-shadow: 0px 0px 0px 3px #FDDDDC
-    border: 1px solid #E33B32  
+    border: 1px solid #E33B32
   .error-text
     display: flex
 
@@ -130,7 +129,6 @@ label
     min-width: 16px
     height: 16px
     margin: 0 4px 0 0
-
 
 .label-title
   width: 100%
@@ -300,24 +298,6 @@ ul, ol
   &>*
     padding: 0 12px
 
-.p-64
-  padding: 64px 0
-
-.p-40
-  padding: 40px 0
-
-.m-24
-  margin: 24px 0
-
-.mb-40
-  margin-bottom: 40px
-
-.mb-24
-  margin-bottom: 24px
-
-.mb-8
-  margin-bottom: 8px
-
 .bg-white
   background: #fff
 
@@ -361,6 +341,10 @@ h2, .h2
   line-height: 120%
   margin: 0 0 64px
 
+.h2
+  font-weight: 500
+  font-size: 36px
+
 h3, .h3
   width: 100%
   font-size: 28px
@@ -382,6 +366,27 @@ h6, .h6
   line-height: 120%
   margin: 0 0 8px
 
+.p-64
+  padding: 64px 0
+
+.p-40
+  padding: 40px 0
+
+.m-24
+  margin: 24px 0
+
+.mb-40
+  margin-bottom: 40px
+
+.mb-24
+  margin-bottom: 24px
+
+.mb-8
+  margin-bottom: 8px
+
+.mb-16
+  margin-bottom: 16px
+
 .subtitle
   width: 100%
   font-size: 20px
@@ -401,6 +406,14 @@ h6, .h6
 .box-text
   font-size: 16px
   line-height: 150%
+  p
+    margin: 0 0 16px
+    &:last-child
+      margin: 0
+  ul, ol
+    margin: 0 0 16px
+    &:last-child
+      margin: 0
 
 .text-small
   font-size: 14px
@@ -409,6 +422,14 @@ h6, .h6
 .text-lgsmall
   font-size: 18px
   line-height: 150%
+  p
+    margin: 0 0 16px
+    &:last-child
+      margin: 0
+  ul, ol
+    margin: 0 0 16px
+    &:last-child
+      margin: 0
 
 .text-xlsmall
   font-size: 20px

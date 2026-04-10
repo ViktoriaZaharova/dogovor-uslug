@@ -437,30 +437,6 @@ ul, ol {
   padding: 0 12px;
 }
 
-.p-64 {
-  padding: 64px 0;
-}
-
-.p-40 {
-  padding: 40px 0;
-}
-
-.m-24 {
-  margin: 24px 0;
-}
-
-.mb-40 {
-  margin-bottom: 40px;
-}
-
-.mb-24 {
-  margin-bottom: 24px;
-}
-
-.mb-8 {
-  margin-bottom: 8px;
-}
-
 .bg-white {
   background: #fff;
 }
@@ -516,6 +492,11 @@ h2, .h2 {
   margin: 0 0 64px;
 }
 
+.h2 {
+  font-weight: 500;
+  font-size: 36px;
+}
+
 h3, .h3 {
   width: 100%;
   font-size: 28px;
@@ -538,6 +519,34 @@ h6, .h6 {
   font-weight: 500;
   line-height: 120%;
   margin: 0 0 8px;
+}
+
+.p-64 {
+  padding: 64px 0;
+}
+
+.p-40 {
+  padding: 40px 0;
+}
+
+.m-24 {
+  margin: 24px 0;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
 }
 
 .subtitle {
@@ -564,6 +573,18 @@ h6, .h6 {
   font-size: 16px;
   line-height: 150%;
 }
+.box-text p {
+  margin: 0 0 16px;
+}
+.box-text p:last-child {
+  margin: 0;
+}
+.box-text ul, .box-text ol {
+  margin: 0 0 16px;
+}
+.box-text ul:last-child, .box-text ol:last-child {
+  margin: 0;
+}
 
 .text-small {
   font-size: 14px;
@@ -573,6 +594,18 @@ h6, .h6 {
 .text-lgsmall {
   font-size: 18px;
   line-height: 150%;
+}
+.text-lgsmall p {
+  margin: 0 0 16px;
+}
+.text-lgsmall p:last-child {
+  margin: 0;
+}
+.text-lgsmall ul, .text-lgsmall ol {
+  margin: 0 0 16px;
+}
+.text-lgsmall ul:last-child, .text-lgsmall ol:last-child {
+  margin: 0;
 }
 
 .text-xlsmall {
