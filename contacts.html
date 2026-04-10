@@ -65,7 +65,7 @@
     </div>
   </header>
 
-  <section class="error-page thanks-payment">
+  <section class="contacts-page">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -74,65 +74,105 @@
               <li class="breadcrumb-item"><a href="index.html"><svg class="svg-icon">
                     <use xlink:href="img/sprite.svg#home-icon"></use>
                   </svg></a></li>
-              <li class="breadcrumb-item active" aria-current="page">Спасибо за оплату</li>
+              <li class="breadcrumb-item active" aria-current="page">Наши контакты</li>
             </ol>
           </nav>
-
         </div>
       </div>
+
       <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 col-lg-8 offset-lg-2 text-center">
           <div class="error-page__content text-center w-100 p-40">
-            <div class="error-page__icon"><img src="img/check-icon.svg" alt=""></div>
-            <h1>Ваша оплата прошла успешно!</h1>
+            <h1>Наши контакты</h1>
             <div class="text-xlsmall mb-40 color-blue-grey">
-              <p>Скачайте документ по ссылке ниже или же отправьте на email.</p>
+              <p>Для решения любых вопросов связанных с оплатой или с работой сервиса пожалуйста обращайтесь по
+                контактнам указанным ниже</p>
             </div>
-
           </div>
-
-          <div class="btn-group d-flex justify-content-center flex-wrap align-items-center">
-            <a href="#" class="btn btn-accent" download="">
-              <span>Скачать документ</span>
-              <svg class="svg-icon btn-icon stroke-none">
-                <use xlink:href="img/sprite.svg#download-icon"></use>
-              </svg>
-            </a>
-
-            <a href="#" class="btn btn-light-blue">
-              <span>Редактировать документ</span>
-              <svg class="svg-icon btn-icon stroke-none">
-                <use xlink:href="img/sprite.svg#edit-icon"></use>
-              </svg>
-            </a>
-          </div>
-
-          <div class="box-text m-24 font-500 text-center">
-            <p>или отправьте себе на почту</p>
-          </div>
-        </div>
-
-        <div class="col-12">
-          <form class="form form-payment" method="post">
-            <div class="label-title">Почта</div>
-            <div class="form-group">
-              <label>
-                <input type="text" name="mail" placeholder="Введите ваш email" required>
-                <span class="error-text"><img src="img/error-icon-min.svg" alt="">Ошибка</span>
-              </label>
-              <button type="submit" class="btn btn-accent">
-                <span>Отправить на почту</span>
-                <svg class="svg-icon btn-icon">
-                  <use xlink:href="img/sprite.svg#arrow-right"></use>
-                </svg>
-              </button>
-            </div>
-          </form>
         </div>
       </div>
     </div>
   </section>
 
+  <div class="contacts-requisites">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6 mb-16">
+          <div class="contacts-requisites-card">
+            <h4>Бесплатная консультация</h4>
+            <div class="box-text color-blue-grey mb-16">
+              <p>По всем вопросам работы сервиса, полученных документов или оплаты обращаться на адрес эл. почты</p>
+            </div>
+            <div class="header-contacts">
+              <a href="mailto:support@dogovor-uslug.ru" class="mail">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#mail-icon"></use>
+                </svg>
+                <span>support@dogovor-uslug.ru</span>
+              </a>
+              <span class="header-contacts__text">служба поддержки</span>
+            </div>
+            <div class="header-contacts">
+              <a href="https://yandex.com/maps/213/moscow/house/likhov_pereulok_3s2/Z04YcAZhTkwBQFtvfXt2c3xmZQ==/?ll=37.611796%2C55.772051&z=16"
+                target="_blank" class="mail">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#map-icon"></use>
+                </svg>
+                <span>Россия, Москва, Лихов переулок, 3, стр. 2 офис 265</span>
+              </a>
+              <span class="header-contacts__text">Наш адрес</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6 mb-16">
+          <div class="contacts-requisites-card">
+            <h4>Задайте вопрос</h4>
+            <div class="box-text color-blue-grey mb-16">
+              <p>По всем вопросам работы сервиса, полученных документов или оплаты обращаться на адрес эл. почты</p>
+            </div>
+
+            <form method="post" class="form form-contacts">
+              <div class="label-title">Как вас зовут</div>
+              <label>
+                <input type="text" placeholder="Как вас зовут" name="name" required>
+                <span class="error-text"><img src="img/error-icon-min.svg" alt="">Ошибка</span>
+              </label>
+
+              <div class="label-title">Почта</div>
+              <label>
+                <input type="text" placeholder="Ваша почта" name="mail" required>
+                <span class="error-text"><img src="img/error-icon-min.svg" alt="">Ошибка</span>
+              </label>
+
+              <div class="label-title">Ваш вопрос</div>
+              <label>
+                <textarea name="message" placeholder="Ваш вопрос или предложение"></textarea>
+                <span class="error-text"><img src="img/error-icon-min.svg" alt="">Ошибка</span>
+              </label>
+
+              <button type="submit" class="btn btn-accent w-100">
+                <span>Задать вопрос</span>
+                <svg class="svg-icon btn-icon">
+                  <use xlink:href="img/sprite.svg#arrow-right"></use>
+                </svg>
+              </button>
+
+              <div class="consent">
+                <label class="label-checkbox">
+                  <input type="checkbox" name="consent" required checked>
+                  <span class="label-checkbox__custom"></span>
+                  <span class="label-checkbox__text">Согласен с условиями сервиса и политикой обработки персональных
+                    данных</span>
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-top">
