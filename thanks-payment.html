@@ -74,7 +74,7 @@
               <li class="breadcrumb-item"><a href="index.html"><svg class="svg-icon">
                     <use xlink:href="img/sprite.svg#home-icon"></use>
                   </svg></a></li>
-              <li class="breadcrumb-item active" aria-current="page">Ошибка 404</li>
+              <li class="breadcrumb-item active" aria-current="page">Спасибо за оплату</li>
             </ol>
           </nav>
 
@@ -83,20 +83,51 @@
       <div class="row">
         <div class="col-12 text-center">
           <div class="error-page__content text-center w-100 p-40">
-            <div class="error-page__icon"><img src="img/error-icon.svg" alt=""></div>
-            <h1>Страница не найдена</h1>
+            <div class="error-page__icon"><img src="img/check-icon.svg" alt=""></div>
+            <h1>Ваша оплата прошла успешно!</h1>
             <div class="text-xlsmall mb-40">
-              <p>Проверьте правильность написания URL или перейдите на главную страницу.</p>
+              <p>Скачайте документ по ссылке ниже или же отправьте на email.</p>
             </div>
-           
+
           </div>
 
-           <a href="index.html" class="btn btn-accent m-auto">
-              <span>Перейти на главную</span>
-              <svg class="svg-icon btn-icon">
-                <use xlink:href="img/sprite.svg#arrow-right"></use>
+          <div class="btn-group d-flex justify-content-center flex-wrap align-items-center">
+            <a href="#" class="btn btn-accent" download="">
+              <span>Скачать документ</span>
+              <svg class="svg-icon btn-icon stroke-none">
+                <use xlink:href="img/sprite.svg#download-icon"></use>
               </svg>
             </a>
+
+            <a href="#" class="btn btn-light-blue">
+              <span>Редактировать документ</span>
+              <svg class="svg-icon btn-icon stroke-none">
+                <use xlink:href="img/sprite.svg#edit-icon"></use>
+              </svg>
+            </a>
+          </div>
+
+          <div class="box-text m-24 font-500 text-center">
+            <p>или отправьте себе на почту</p>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <form class="form form-payment">
+            <div class="label-title">Почта</div>
+            <div class="form-group">
+              <label>
+                <input type="email" placeholder="Введите ваш email" required>
+                <span class="error-text"><img src="img/error-icon-min.svg" alt="">Ошибка</span>
+              </label>
+              <button type="submit" class="btn btn-accent">
+                <span>Отправить на почту</span>
+                <svg class="svg-icon btn-icon">
+                  <use xlink:href="img/sprite.svg#arrow-right"></use>
+                </svg>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

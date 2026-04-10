@@ -68,23 +68,29 @@ input, textarea, select
   outline: none
   box-shadow: none
   appearance: none
-  padding: 0 15px
+  padding: 0 16px
   box-sizing: border-box
   font-family: $default-font
-  border: none
-  border-radius: 10px
+  border: 1px solid #EAECF0
+  border-radius: 8px
   width: 100%
-  height: 54px
-  background: transparent
-  color: #000
-  font-size: 15px
+  height: 56px
+  background: #F8F9FA
+  color: #68727D
+  font-size: 16px
+  line-height: 150%
+  font-weight: normal
   cursor: pointer
+  transition: .3s ease
   &::placeholder
-    color: #595959
+    color: #68727D
 
   &:hover, &:focus
     outline: none
     box-shadow: none
+    border: 1px solid #000080
+    box-shadow: 0px 0px 0px 3px #B2D5FF
+  
 
 input[type="radio"], input[type="checkbox"]
   width: auto
@@ -96,8 +102,42 @@ input[type="radio"], input[type="checkbox"]
 label
   display: block
   width: 100%
-  margin: 0 0 13px
+  margin: 0 0 8px
+  &:last-child
+    margin: 0
 
+.error-label
+  input
+    box-shadow: 0px 0px 0px 3px #FDDDDC
+    border: 1px solid #E33B32  
+  .error-text
+    display: flex
+
+.error-text
+  display: none
+  align-items: center
+  margin: 12px 0 0
+  background: #FFEFEE
+  padding: 6px 4px
+  width: 100%
+  color: #E33B32
+  font-size: 13px
+  line-height: 150%
+  font-weight: normal
+  border-radius: 8px
+  img
+    width: 16px
+    min-width: 16px
+    height: 16px
+    margin: 0 4px 0 0
+
+
+.label-title
+  width: 100%
+  margin: 0 0 8px
+  font-size: 14px
+  font-weight: 600
+  line-height: 150%
   &:last-child
     margin: 0
 
@@ -105,6 +145,9 @@ textarea
   resize: none
   padding: 12px 17px
   height: 103px
+
+.form
+  width: 100%
 
 button, .btn
   outline: none
@@ -131,7 +174,7 @@ button, .btn
   font-weight: 500
   height: 56px
   border-radius: 8px
-  box-shadow: 0px 1px 2px 0px rgba(#101828,.4)
+  box-shadow: 0px 1px 2px 0px rgba(#101828,.04)
   transition: 0.3s ease
 
 .btn-accent
@@ -140,27 +183,76 @@ button, .btn
   color: #fff
   .btn-icon
     stroke: #fff
+    &.stroke-none
+      fill: #fff
+      stroke: none
   &:hover
     background: #000080
     color: #fff
     border-color: #000080
-    box-shadow: 0px 1px 2px 0px rgba(#101828,.4)
+    box-shadow: 0px 1px 2px 0px rgba(#101828,.04)
     .btn-icon
       stroke: #fff
+      &.stroke-none
+        fill: #fff
+        stroke: none
   &:focus, &:active
     background: #fff
     color: #000080
     border-color: #000080
-    box-shadow: 0px 1px 2px 0px rgba(#101828,.4)
+    box-shadow: 0px 1px 2px 0px rgba(#101828,.04)
     .btn-icon
       stroke: #000080
+      &.stroke-none
+        stroke: none
+        fill: #000080
   &.disabled
     background: #DFE2E8
     border-color: #DFE2E8
     color: #979AA0
-    box-shadow: 0px 1px 2px 0px rgba(#101828,.4)
+    box-shadow: 0px 1px 2px 0px rgba(#101828,.04)
     .btn-icon
       stroke: #979AA0
+      &.stroke-none
+        fill: #979AA0
+        stroke: none
+
+.btn-light-blue
+  box-shadow: 0px 1px 2px 0px rgba(#101828,.04)
+  background: #E2EFFF
+  color: $blue
+  .btn-icon
+    stroke: $blue
+    &.stroke-none
+      fill: $blue
+      stroke: none
+  &:hover
+    background: #C9E4FF
+    color: $blue
+    box-shadow: 0px 1px 2px 0px rgba(#101828,.04)
+    .btn-icon
+      stroke: $blue
+      &.stroke-none
+        fill: $blue
+        stroke: none
+  &:focus, &:active
+    background: #C9E4FF
+    color: $blue
+    box-shadow: 0px 1px 2px 0px rgba(#101828,.04)
+    .btn-icon
+      stroke: $blue
+      &.stroke-none
+        fill: $blue
+        stroke: none
+  &.disabled
+    background: #DFE2E8
+    color: #979AA0
+    box-shadow: 0px 1px 2px 0px rgba(#101828,.04)
+    .btn-icon
+      stroke: #979AA0
+      &.stroke-none
+        fill: #979AA0
+        stroke: none
 
 .btn-icon
   fill: none
@@ -168,6 +260,22 @@ button, .btn
   min-width: 24px
   height: 24px
   margin: 0 0 0 8px
+  &.stroke-none
+    stroke: none
+
+.btn-group
+  .btn
+    flex: none
+    border-radius: 8px
+    margin: 0 8px 0 0
+    &:last-child
+      margin: 0
+      border-radius: 8px
+    &:first-child
+      border-radius: 8px
+
+.btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn.dropdown-toggle-split:first-child, .btn-group>.btn:not(:last-child):not(.dropdown-toggle)
+  border-radius: 8px
 
 strong, b
   font-weight: bold
@@ -197,6 +305,9 @@ ul, ol
 
 .p-40
   padding: 40px 0
+
+.m-24
+  margin: 24px 0
 
 .mb-40
   margin-bottom: 40px
@@ -337,10 +448,9 @@ h6, .h6
       min-width: 16px
       fill: none
       stroke: #68727D
-      
 
 .breadcrumb-item.active
-  color: $blue      
+  color: $blue
 
 .breadcrumb-item+.breadcrumb-item
   padding: 0

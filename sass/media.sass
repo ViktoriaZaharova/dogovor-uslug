@@ -67,7 +67,7 @@
         >*
             padding: 0 8px
 
-    .mb-40  
+    .mb-40
         margin-bottom: 24px
 
     h1, .h1
@@ -89,10 +89,10 @@
         line-height: 150%
 
     .btn-icon
-        margin: 0 0 0 4px        
+        margin: 0 0 0 4px
 
     .home
-        padding: 64px 0 24px        
+        padding: 64px 0 24px
 
     .home-item
         padding: 8px
@@ -139,7 +139,19 @@
     .error-page
         padding: 0 0 32px
         &__icon
-            margin: 0 auto 24px    
+            margin: 0 auto 24px
+
+    .form-payment
+        max-width: 255px
+        .form-group
+            flex-direction: column
+            align-items: flex-start
+            label
+                margin: 0 0 8px
+                &:last-child
+                    margin: 0
+        [type='submit']
+            width: 100%
 
 @media only screen and (max-width: 576px)
     .btn-top-scroll
@@ -147,6 +159,9 @@
 
     h2, .h2
         margin: 0 0 50px
+
+    .m-24
+        margin: 16px 0
 
 @media only screen and (max-width: 480px)
 
@@ -156,6 +171,6 @@
             font-size: 24px
 
     header .logo
-        max-width: 220px
+            max-width: 220px
 
 @media only screen and (max-width: 370px)

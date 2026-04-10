@@ -171,6 +171,27 @@
   .error-page__icon {
     margin: 0 auto 24px;
   }
+  .form-payment {
+    max-width: 255px;
+  }
+  .form-payment .form-group {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .form-payment .form-group label {
+    margin: 0 0 8px;
+  }
+  .form-payment .form-group label:last-child {
+    margin: 0;
+  }
+  .form-payment [type=submit] {
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 576px) {
   .btn-top-scroll {
@@ -178,6 +199,9 @@
   }
   h2, .h2 {
     margin: 0 0 50px;
+  }
+  .m-24 {
+    margin: 16px 0;
   }
 }
 @media only screen and (max-width: 420px) {
