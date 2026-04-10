@@ -58,6 +58,12 @@
         .logo
             max-width: 200px
 
+    .payment-rules, .service-details
+        padding: 30px 0 60px
+        .text-lgsmall
+            font-size: 16px
+            line-height: 150%
+
 @media only screen and (max-width: 768px)
     .container
         padding: 0 16px
@@ -153,6 +159,11 @@
         [type='submit']
             width: 100%
 
+    .requisites-list
+        li
+            padding: 8px 8px 10px
+
+
 @media only screen and (max-width: 576px)
     .btn-top-scroll
         display: none
@@ -163,6 +174,9 @@
     h2, .h2
         margin: 0 0 50px
         font-size: 38px
+
+    .mb-16
+        margin-bottom: 8px
 
     .m-24
         margin: 16px 0
@@ -186,7 +200,13 @@
                 &:last-child
                     margin: 0
 
+    .payment-rules, .service-details
+        padding: 24px 0 16px
+
 @media only screen and (max-width: 480px)
+    .requisites-list
+        p
+            min-width: 155px
 
 @media only screen and (max-width: 420px)
     .advantages-item
@@ -197,3 +217,14 @@
             max-width: 220px
 
 @media only screen and (max-width: 370px)
+    .requisites-list
+        li
+            flex-direction: column
+            align-items: flex-start
+        p
+            min-width: auto
+            width: 100%  
+            margin: 0 0 8px
+        span
+            display: block
+              

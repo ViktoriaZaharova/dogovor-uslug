@@ -68,6 +68,13 @@
   header .logo {
     max-width: 200px;
   }
+  .payment-rules, .service-details {
+    padding: 30px 0 60px;
+  }
+  .payment-rules .text-lgsmall, .service-details .text-lgsmall {
+    font-size: 16px;
+    line-height: 150%;
+  }
 }
 @media only screen and (max-width: 768px) {
   .container {
@@ -192,6 +199,9 @@
   .form-payment [type=submit] {
     width: 100%;
   }
+  .requisites-list li {
+    padding: 8px 8px 10px;
+  }
 }
 @media only screen and (max-width: 576px) {
   .btn-top-scroll {
@@ -203,6 +213,9 @@
   h2, .h2 {
     margin: 0 0 50px;
     font-size: 38px;
+  }
+  .mb-16 {
+    margin-bottom: 8px;
   }
   .m-24 {
     margin: 16px 0;
@@ -234,6 +247,14 @@
   .thanks-payment .btn-group .btn:last-child {
     margin: 0;
   }
+  .payment-rules, .service-details {
+    padding: 24px 0 16px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .requisites-list p {
+    min-width: 155px;
+  }
 }
 @media only screen and (max-width: 420px) {
   .advantages-item h3 {
@@ -241,5 +262,24 @@
   }
   header .logo {
     max-width: 220px;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .requisites-list li {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .requisites-list p {
+    min-width: auto;
+    width: 100%;
+    margin: 0 0 8px;
+  }
+  .requisites-list span {
+    display: block;
   }
 }
