@@ -213,6 +213,12 @@ label:last-child {
   font-size: 14px;
   font-weight: 600;
   line-height: 150%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .label-title:last-child {
   margin: 0;
@@ -222,6 +228,11 @@ textarea {
   resize: none;
   padding: 16px;
   height: 104px;
+}
+
+.select-my {
+  background: #F8F9FA url("../img/arrow-select.svg") calc(100% - 16px) center no-repeat;
+  background-size: 16px;
 }
 
 .form {
@@ -413,6 +424,12 @@ button:hover, button:focus, .btn:hover, .btn:focus {
 }
 .btn-group .btn:first-child {
   border-radius: 8px;
+}
+.btn-group.flex-wrap .btn {
+  margin: 0 0 8px;
+}
+.btn-group.flex-wrap .btn:last-child {
+  margin: 0;
 }
 
 .btn-group > .btn-group:not(:last-child) > .btn, .btn-group > .btn.dropdown-toggle-split:first-child, .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {

@@ -43,6 +43,198 @@
   color: #0000CD;
 }
 
+.contract-preview {
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #EAECF0;
+  padding: 24px;
+}
+.contract-preview__navigation {
+  margin: 64px 0 0;
+  width: 100%;
+}
+.contract-preview .completed-line {
+  margin: 0 0 8px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 20px 0 24px;
+  font-size: 14px;
+  line-height: 150%;
+}
+.contract-preview .completed-line p span {
+  margin-left: 5px;
+}
+.contract-preview .completed-line__wrapper {
+  height: 8px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  margin: 0 0 8px;
+  background: #DFE2E8;
+  border-radius: 10px;
+}
+.contract-preview .completed-line__wrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 20%;
+  background: #0000CD;
+  border-radius: 10px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.accordion-item {
+  margin: 0 0 8px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #EAECF0;
+}
+.accordion-item:last-child {
+  margin: 0;
+}
+
+.accordion-button {
+  width: 100%;
+  padding: 16px 24px;
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  text-transform: uppercase;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: #252525;
+  position: relative;
+  z-index: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+.accordion-button:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  background: url("../img/plus.svg") no-repeat center;
+  background-size: 100%;
+  margin: 0 0 0 auto;
+}
+
+.accordion-button__title {
+  width: 100%;
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+}
+
+.accordion-button__subtitle {
+  font-size: 12px;
+  margin: 4px 0 0;
+  display: block;
+  color: #68727D;
+  text-transform: none;
+}
+
+.accordion-item:first-of-type .accordion-button {
+  border-radius: 8px;
+}
+
+.accordion-button:not(.collapsed) {
+  background: transparent;
+  color: #0000CD;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.accordion-button:not(.collapsed) .accordion-button__subtitle {
+  color: #68727D;
+}
+.accordion-button:not(.collapsed)::after {
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  background: url("../img/minus.svg") no-repeat center;
+  background-size: 100%;
+}
+
+.accordion-body {
+  margin: 8px 0 0;
+  padding: 0 24px 24px;
+}
+
+.tooltip-wrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 0 0 4px;
+  position: relative;
+}
+.tooltip-wrapper:hover {
+  z-index: 10;
+}
+.tooltip-wrapper:hover .tooltip-box {
+  z-index: 10;
+  display: block;
+}
+
+.btn-tooltip {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.tooltip-box {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  top: 0;
+  min-width: 234px;
+  max-width: 234px;
+  background: #F8F9FA;
+  border: 1px solid #EAECF0;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 10px;
+  line-height: 150%;
+  font-weight: normal;
+  -webkit-box-shadow: 0px 2px 4px -2px rgba(16, 24, 40, 0.1);
+          box-shadow: 0px 2px 4px -2px rgba(16, 24, 40, 0.1);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  display: none;
+}
+
 .stages-work {
   padding: 64px 0 56px;
 }

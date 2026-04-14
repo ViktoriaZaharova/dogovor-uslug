@@ -136,6 +136,8 @@ label
   font-size: 14px
   font-weight: 600
   line-height: 150%
+  display: flex
+  align-items: center
   &:last-child
     margin: 0
 
@@ -143,6 +145,11 @@ textarea
   resize: none
   padding: 16px
   height: 104px
+
+.select-my
+  background: #F8F9FA url('../img/arrow-select.svg') calc( 100% - 16px ) center no-repeat
+  background-size: 16px
+
 
 .form
   width: 100%
@@ -282,6 +289,11 @@ button, .btn
       border-radius: 8px
     &:first-child
       border-radius: 8px
+  &.flex-wrap
+    .btn
+      margin: 0 0 8px
+      &:last-child
+        margin: 0
 
 .btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn.dropdown-toggle-split:first-child, .btn-group>.btn:not(:last-child):not(.dropdown-toggle)
   border-radius: 8px

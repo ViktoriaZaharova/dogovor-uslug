@@ -33,6 +33,150 @@
     h3, .h3
         color: $accent
 
+.contract-preview
+    width: 100%
+    background: #fff
+    border-radius: 16px
+    border: 1px solid #EAECF0
+    padding: 24px
+    &__navigation
+        margin: 64px 0 0
+        width: 100%
+
+    .completed-line
+        margin: 0 0 8px
+        width: 100%
+        display: flex
+        align-items: flex-start
+        justify-content: space-between
+        flex-wrap: wrap
+        padding: 20px 0 24px
+        font-size: 14px
+        line-height: 150%
+        p
+            span
+                margin-left: 5px
+        &__wrapper
+            height: 8px
+            width: 100%
+            position: relative
+            z-index: 1
+            margin: 0 0 8px
+            background: #DFE2E8
+            border-radius: 10px
+            &::before
+                content: ''
+                position: absolute
+                left: 0
+                top: 0
+                height: 100%
+                width: 20%
+                background: $accent
+                border-radius: 10px
+                transition: .3s ease
+
+.accordion-item
+    margin: 0 0 8px
+    background: #fff
+    border-radius: 8px
+    border: 1px solid #EAECF0
+    &:last-child
+        margin: 0
+
+.accordion-button
+    width: 100%
+    padding: 16px 24px
+    background: transparent
+    box-shadow: none
+    text-transform: uppercase
+    flex-wrap: wrap
+    color: #252525
+    position: relative
+    z-index: 1
+    align-items: center
+    display: flex
+    flex-wrap: wrap
+    &:after
+        content: ''
+        position: absolute
+        top: 50%
+        transform: translate(0,-50%)
+        right: 24px
+        width: 32px
+        height: 32px
+        background: url('../img/plus.svg') no-repeat center
+        background-size: 100%
+        margin: 0 0 0 auto
+
+.accordion-button__title
+    width: 100%
+    display: block
+    font-weight: 500
+    font-size: 16px
+    line-height: 120%
+
+.accordion-button__subtitle
+    font-size: 12px
+    margin: 4px 0 0
+    display: block
+    color: #68727D
+    text-transform: none
+
+.accordion-item:first-of-type .accordion-button
+    border-radius: 8px
+
+.accordion-button:not(.collapsed)
+    background: transparent
+    color: $accent
+    box-shadow: none
+    // border: 1px solid #27B973
+    .accordion-button__subtitle
+        color: #68727D
+    &::after
+        transform: translate(0,-50%)
+        background: url('../img/minus.svg') no-repeat center
+        background-size: 100%
+
+.accordion-body
+    margin: 8px 0 0
+    padding: 0 24px 24px
+
+.tooltip-wrapper
+    width: fit-content
+    margin: 0 0 0 4px
+    position: relative
+    
+    &:hover
+        z-index: 10
+        .tooltip-box
+            z-index: 10
+            display: block
+
+.btn-tooltip
+    width: 16px
+    height: 16px
+    cursor: pointer
+    @include d-flex
+
+.tooltip-box
+    position: absolute
+    z-index: 5
+    left: 50%
+    transform: translate(-50%,0)
+    top: 0
+    min-width: 234px
+    max-width: 234px
+    background: #F8F9FA
+    border: 1px solid #EAECF0
+    border-radius: 8px
+    padding: 8px
+    font-size: 10px
+    line-height: 150%
+    font-weight: normal
+    box-shadow: 0px 2px 4px -2px rgba(#101828, .1)
+    transition: .3s ease
+    display: none
+
 // stages-work
 .stages-work
     padding: 64px 0 56px
@@ -208,7 +352,6 @@
     top: 0
     text-decoration: line-through
 
-
 .list-compare
     width: 100%
     font-size: 14px
@@ -233,7 +376,7 @@
         align-items: flex-start
         margin: 0 0 16px
         &:last-child
-            margin: 0        
+            margin: 0
     &__icon
         margin: 0 8px 0 0
         width: 28px
@@ -246,8 +389,7 @@
         &.icon-check
             background: #E9F8F1
 
-
-.list-bank 
+.list-bank
     width: 100%
     display: flex
     align-items: center
@@ -257,14 +399,12 @@
         flex: 1
         @include d-flex
 
-        
 .prices-section
     padding: 96px 0 80px
 
 .how-work
     padding: 96px 0
     background: #F8F9FA
-
 
 .how-work-box
     width: 100%
@@ -296,7 +436,6 @@
     line-height: 150%
     color: #68727D
     box-shadow: 0px 10px 15px -3px #1018281A
-
 
     &__date
         margin: 24px 0 8px
