@@ -15,6 +15,12 @@
   footer .header-contacts {
     padding: 0;
   }
+  .old-price {
+    font-size: 22px;
+  }
+  .price-wrapper {
+    padding: 0 65px;
+  }
 }
 @media only screen and (max-width: 992px) {
   footer .header-contacts, footer .nav-menu {
@@ -74,6 +80,12 @@
   .payment-rules .text-lgsmall, .service-details .text-lgsmall {
     font-size: 16px;
     line-height: 150%;
+  }
+  .prices-section {
+    padding: 30px 0;
+  }
+  .prices-page .text-xlsmall.mb-40 {
+    margin-bottom: 0;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -205,6 +217,33 @@
   .contacts-requisites {
     padding: 50px 0 40px;
   }
+  .how-work {
+    padding: 40px 0 20px;
+  }
+  .how-work-wrapper, .reviews-wrapper {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .how-work-column, .reviews-column {
+    min-width: 244px;
+  }
+  .reviews-column {
+    padding-bottom: 20px;
+  }
+  .how-work-box, .reviews-box {
+    min-width: 228px;
+    padding: 16px;
+  }
+  .h5 {
+    margin: 0 0 8px;
+  }
+  .reviews-box__date {
+    margin: 12px 0 4px;
+  }
+  .reviews-box .box-text {
+    font-size: 14px;
+  }
 }
 @media only screen and (max-width: 576px) {
   .btn-top-scroll {
@@ -267,6 +306,49 @@
   }
   .form-contacts label:last-child {
     margin: 0;
+  }
+  .prices-box {
+    padding: 16px;
+  }
+  .prices-box ul {
+    margin: 0 0 24px;
+  }
+  .prices-box ul:last-child {
+    margin: 0;
+  }
+  .prices-box__body {
+    padding: 16px;
+  }
+  .prices-box__head {
+    padding: 16px;
+  }
+  .prices-box .h6 {
+    margin: 0 0 16px;
+  }
+  .prices-box-max {
+    padding: 0;
+  }
+  .list-decor li {
+    margin: 0 0 8px;
+  }
+  .list-decor li:last-child {
+    margin: 0;
+  }
+  .list-decor li__icon {
+    margin: 0 4px 0 0;
+  }
+  .attention-information {
+    padding: 8px 8px 8px 48px;
+  }
+  .attention-information::before {
+    top: 8px;
+    left: 8px;
+  }
+  .list-bank li {
+    margin: 8px 0 0;
+  }
+  .list-compare li p, .list-compare li span {
+    padding: 4px;
   }
 }
 @media only screen and (max-width: 480px) {

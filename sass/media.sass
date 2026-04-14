@@ -15,6 +15,12 @@
         .header-contacts
             padding: 0
 
+    .old-price
+        font-size: 22px
+
+    .price-wrapper
+        padding: 0 65px
+
 @media only screen and (max-width: 992px)
     footer
         .header-contacts, .nav-menu
@@ -63,6 +69,13 @@
         .text-lgsmall
             font-size: 16px
             line-height: 150%
+
+    .prices-section
+        padding: 30px 0
+
+    .prices-page
+        .text-xlsmall.mb-40
+            margin-bottom: 0
 
 @media only screen and (max-width: 768px)
     .container
@@ -166,6 +179,32 @@
     .contacts-requisites
         padding: 50px 0 40px
 
+    .how-work
+        padding: 40px 0 20px
+
+    .how-work-wrapper, .reviews-wrapper
+        flex-wrap: nowrap
+        overflow-x: auto
+
+    .how-work-column, .reviews-column
+        min-width: 244px
+
+    .reviews-column
+        padding-bottom: 20px
+
+    .how-work-box, .reviews-box
+        min-width: 228px
+        padding: 16px
+
+    .h5
+        margin: 0 0 8px
+
+    .reviews-box__date
+        margin: 12px 0 4px
+
+    .reviews-box .box-text
+        font-size: 14px
+
 @media only screen and (max-width: 576px)
     .btn-top-scroll
         display: none
@@ -218,6 +257,41 @@
         &:last-child
             margin: 0
 
+    .prices-box
+        padding: 16px
+        ul
+            margin: 0 0 24px
+            &:last-child
+                margin: 0
+        &__body
+            padding: 16px
+        &__head
+            padding: 16px
+        .h6
+            margin: 0 0 16px
+
+    .prices-box-max
+        padding: 0
+
+    .list-decor li
+        margin: 0 0 8px
+        &:last-child
+            margin: 0
+        &__icon
+            margin: 0 4px 0 0
+
+    .attention-information
+        padding: 8px 8px 8px 48px
+        &::before
+            top: 8px
+            left: 8px
+
+    .list-bank li
+        margin: 8px 0 0
+
+
+    .list-compare li p, .list-compare li span
+        padding: 4px
 
 @media only screen and (max-width: 480px)
     .requisites-list
@@ -239,8 +313,7 @@
             align-items: flex-start
         p
             min-width: auto
-            width: 100%  
+            width: 100%
             margin: 0 0 8px
         span
             display: block
-              
