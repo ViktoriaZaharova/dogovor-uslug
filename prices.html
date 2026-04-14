@@ -65,7 +65,7 @@
     </div>
   </header>
 
-  <section class="contacts-page">
+  <section class="contacts-page prices-page">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -74,19 +74,20 @@
               <li class="breadcrumb-item"><a href="index.html"><svg class="svg-icon">
                     <use xlink:href="img/sprite.svg#home-icon"></use>
                   </svg></a></li>
-              <li class="breadcrumb-item active" aria-current="page">Наши контакты</li>
+              <li class="breadcrumb-item"><a href="index.html">Создание договора</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Скачать договор</li>
             </ol>
           </nav>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-12 col-lg-8 offset-lg-2 text-center">
+        <div class="col-12 text-center">
           <div class="error-page__content text-center w-100 p-40">
-            <h1>Наши контакты</h1>
+            <div class="subtitle-decor m-auto">Документ готов</div>
+            <h1>Ваш договор составлен — осталось скачать</h1>
             <div class="text-xlsmall mb-40 color-blue-grey">
-              <p>Для решения любых вопросов связанных с оплатой или с работой сервиса пожалуйста обращайтесь по
-                контактнам указанным ниже</p>
+              <p>Один раз, без подписки. Скачайте готовый документ прямо сейчас.</p>
             </div>
           </div>
         </div>
@@ -94,82 +95,234 @@
     </div>
   </section>
 
-  <div class="contacts-requisites">
+  <div class="prices-section">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-6 mb-16">
-          <div class="contacts-requisites-card">
-            <h4>Бесплатная консультация</h4>
-            <div class="box-text color-blue-grey mb-16">
-              <p>По всем вопросам работы сервиса, полученных документов или оплаты обращаться на адрес эл. почты</p>
-            </div>
-            <div class="header-contacts">
-              <a href="mailto:support@dogovor-uslug.ru" class="mail">
-                <svg class="svg-icon">
-                  <use xlink:href="img/sprite.svg#mail-icon"></use>
-                </svg>
-                <span>support@dogovor-uslug.ru</span>
-              </a>
-              <span class="header-contacts__text">служба поддержки</span>
-            </div>
-            <div class="header-contacts">
-              <a href="https://yandex.com/maps/213/moscow/house/likhov_pereulok_3s2/Z04YcAZhTkwBQFtvfXt2c3xmZQ==/?ll=37.611796%2C55.772051&z=16"
-                target="_blank" class="mail">
-                <svg class="svg-icon">
-                  <use xlink:href="img/sprite.svg#map-icon"></use>
-                </svg>
-                <span>Россия, Москва, Лихов переулок, 3, стр. 2 офис 265</span>
-              </a>
-              <span class="header-contacts__text">Наш адрес</span>
-            </div>
+        <div class="col-12 col-lg-4 mb-16">
+          <div class="prices-box">
+            <div class="h6">Что доступно без оплаты</div>
+            <ul class="list-decor my-ul">
+              <li>
+                <div class="list-decor__icon"><img src="img/close-icon-red.svg" alt=""></div>
+                <p>Нет экспорта в DOCX и PDF</p>
+              </li>
+              <li>
+                <div class="list-decor__icon"><img src="img/close-icon-red.svg" alt=""></div>
+                <p>Нет отправки на email</p>
+              </li>
+              <li>
+                <div class="list-decor__icon"><img src="img/close-icon-red.svg" alt=""></div>
+                <p>Нет подписи реквизитов и печатей в итоговом файле</p>
+              </li>
+              <li>
+                <div class="list-decor__icon icon-check"><img src="img/check-icon-green.svg" alt=""></div>
+                <p>Предпросмотр текста договора в браузере - бесплатно</p>
+              </li>
+            </ul>
+
+            <div class="h6">Сравните с юристом:</div>
+            <ul class="list-compare my-ul">
+              <li>
+                <p>15 000 ₽+</p>
+                <span>290 ₽</span>
+              </li>
+              <li>
+                <p>3–7 дней</p>
+                <span>Прямо сейчас</span>
+              </li>
+              <li>
+                <p>Не всегда актуально</p>
+                <span>Актуальный шаблон</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div class="col-12 col-lg-6 mb-16">
-          <div class="contacts-requisites-card">
-            <h4>Задайте вопрос</h4>
-            <div class="box-text color-blue-grey mb-16">
-              <p>По всем вопросам работы сервиса, полученных документов или оплаты обращаться на адрес эл. почты</p>
-            </div>
-
-            <form method="post" class="form form-contacts">
-              <div class="label-title">Как вас зовут</div>
-              <label>
-                <input type="text" placeholder="Как вас зовут" name="name" required>
-                <span class="error-text"><img src="img/error-icon-min.svg" alt="">Ошибка</span>
-              </label>
-
-              <div class="label-title">Почта</div>
-              <label>
-                <input type="text" placeholder="Ваша почта" name="mail" required>
-                <span class="error-text"><img src="img/error-icon-min.svg" alt="">Ошибка</span>
-              </label>
-
-              <div class="label-title">Ваш вопрос</div>
-              <label>
-                <textarea name="message" placeholder="Ваш вопрос или предложение"></textarea>
-                <span class="error-text"><img src="img/error-icon-min.svg" alt="">Ошибка</span>
-              </label>
-
-              <button type="submit" class="btn btn-accent w-100">
-                <span>Задать вопрос</span>
-                <svg class="svg-icon btn-icon">
-                  <use xlink:href="img/sprite.svg#arrow-right"></use>
-                </svg>
-              </button>
-
-              <div class="consent">
-                <label class="label-checkbox">
-                  <input type="checkbox" name="consent" required checked>
-                  <span class="label-checkbox__custom"></span>
-                  <span class="label-checkbox__text">Согласен с условиями сервиса и политикой обработки персональных
-                    данных</span>
-                </label>
+        <div class="col-12 col-lg-4 mb-16">
+          <div class="prices-box prices-box-max">
+            <div class="prices-box__head">ОПЛАТИТЬ И Скачать договор</div>
+            <div class="prices-box__body">
+              <div class="subtitle-decor m-auto">СКИДКА 45%</div>
+              <div class="price-wrapper">
+                <div class="new-price">390 ₽</div>
+                <div class="old-price">700 ₽</div>
               </div>
-            </form>
+              <p class="text-center mb-16 color-blue-grey">Один раз, без подписки <br>
+                и скрытых платежей</p>
+              <ul class="list-decor my-ul mb-16">
+                <li>
+                  <div class="list-decor__icon icon-check"><img src="img/check-icon-green.svg" alt=""></div>
+                  <p>Скачать договор в DOCX (редактируемый)</p>
+                </li>
+                <li>
+                  <div class="list-decor__icon icon-check"><img src="img/check-icon-green.svg" alt=""></div>
+                  <p>Скачать договор в PDF (для подписи и печати)</p>
+                </li>
+                <li>
+                  <div class="list-decor__icon icon-check"><img src="img/check-icon-green.svg" alt=""></div>
+                  <p>Отправить договор на email</p>
+                </li>
+                <li>
+                  <div class="list-decor__icon icon-check"><img src="img/check-icon-green.svg" alt=""></div>
+                  <p>Возможность вернуться и изменить данные</p>
+                </li>
+              </ul>
+
+              <a href="#" class="btn btn-sm btn-light-blue w-100" target="_blank">
+                <span>Предварительный просмотр</span>
+                <svg class="svg-icon btn-icon">
+                  <use xlink:href="img/sprite.svg#view-icon"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="prices-box__body">
+              <form method="post" class="form-price">
+                <label>
+                  <input type="text" placeholder="Ваша почта (для получения файла)" name="mail" required>
+                </label>
+                <button type="submit" class="btn btn-accent">
+                  <span>Перейти к оплате - 390 ₽</span>
+                  <svg class="svg-icon btn-icon">
+                    <use xlink:href="img/sprite.svg#arrow-right"></use>
+                  </svg>
+                </button>
+                <div class="consent">
+                  <label class="label-checkbox">
+                    <input type="checkbox" name="consent" required checked>
+                    <span class="label-checkbox__custom"></span>
+                    <span class="label-checkbox__text">Согласен с условиями сервиса и политикой обработки персональных
+                      данных</span>
+                  </label>
+                </div>
+              </form>
+
+              <ul class="list-bank my-ul">
+                <li><img src="img/bank-icon1.svg" alt=""></li>
+                <li><img src="img/bank-icon2.svg" alt=""></li>
+                <li><img src="img/bank-icon3.svg" alt=""></li>
+                <li><img src="img/bank-icon4.svg" alt=""></li>
+              </ul>
+            </div>
           </div>
         </div>
 
+        <div class="col-12 col-lg-4 mb-16">
+          <div class="prices-box">
+            <div class="h6">Что вы получите после оплаты</div>
+            <ul class="list-decor my-ul">
+              <li>
+                <div class="list-decor__icon icon-check"><img src="img/check-icon-green.svg" alt=""></div>
+                <p>DOCX-файл - откроется в Word, Google Docs, LibreOffice. Можно редактировать перед подписью</p>
+              </li>
+              <li>
+                <div class="list-decor__icon icon-check"><img src="img/check-icon-green.svg" alt=""></div>
+                <p>PDF-файл - готов к печати и подписанию сразу</p>
+              </li>
+              <li>
+                <div class="list-decor__icon icon-check"><img src="img/check-icon-green.svg" alt=""></div>
+                <p>Договор отправлен на вашу почту - не потеряется</p>
+              </li>
+              <li>
+                <div class="list-decor__icon icon-check"><img src="img/check-icon-green.svg" alt=""></div>
+                <p>Поддержка при вопросах - ответим в течение 1 рабочего дня</p>
+              </li>
+            </ul>
+
+            <div class="attention-information">
+              <p><strong>Юридическая сила документа</strong></p>
+              <div class="text-small">
+                <p>Шаблоны разработаны практикующими юристами и соответствуют ГК РФ. Документ имеет полную юридическую
+                  силу после подписания сторонами.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="how-work">
+    <div class="container">
+      <div class="row how-work-wrapper">
+        <div class="col-12 col-sm-4 how-work-column mb-40">
+          <div class="how-work-box">
+            <div class="how-work-box__icon"><img src="img/work-icon1.svg" alt=""></div>
+            <div class="h5">Юридически корректно</div>
+            <div class="box-text">
+              <p>Шаблоны проверены юристами и актуальны в 2026 году</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-4 how-work-column mb-40">
+          <div class="how-work-box">
+            <div class="how-work-box__icon"><img src="img/work-icon2.svg" alt=""></div>
+            <div class="h5">Один раз — без подписки</div>
+            <div class="box-text">
+              <p>Никаких ежемесячных списаний. Оплатили один раз — скачали</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-4 how-work-column mb-40">
+          <div class="how-work-box">
+            <div class="how-work-box__icon"><img src="img/work-icon3.svg" alt=""></div>
+            <div class="h5">Возврат в течение 24 часов</div>
+            <div class="box-text">
+              <p>Если что-то пошло не так — вернём деньги без вопросов</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row reviews-wrapper">
+        <div class="col-12 col-sm-4 reviews-column">
+          <div class="reviews-box">
+            <ul class="list-star my-ul">
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+            </ul>
+            <div class="reviews-box__date">25.02.2026</div>
+            <div class="reviews-box__name">Алексей К., ИП, Москва</div>
+            <div class="box-text">
+              <p>Составил договор с подрядчиком за 7 минут. Всё чётко, скачал PDF — подписали в тот же день. Сэкономил
+                минимум 5 000 рублей на юристе.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-4 reviews-column">
+          <div class="reviews-box">
+            <ul class="list-star my-ul">
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+            </ul>
+            <div class="reviews-box__date">26.02.2026</div>
+            <div class="reviews-box__name">Мария П., ООО, Санкт-Петербург</div>
+            <div class="box-text">
+              <p>Составила трудовой договор за 15 минут. Простой и понятный интерфейс, все условия согласованы. Сэкономила время и деньги.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-4 reviews-column">
+          <div class="reviews-box">
+            <ul class="list-star my-ul">
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+              <li><img src="img/star-icon.svg" alt=""></li>
+            </ul>
+            <div class="reviews-box__date">27.02.2026</div>
+            <div class="reviews-box__name">Иван С., ИП, Новосибирск</div>
+            <div class="box-text">
+              <p>Создал договор на оказание услуг за 5 минут. Все детали были учтены, сохранил в PDF и отправил клиенту. Понравился функционал.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
