@@ -39,7 +39,7 @@
   padding: 12px;
   border-left: 1px solid #EAECF0;
 }
-.advantages-item h3 {
+.advantages-item h3, .advantages-item .h3 {
   color: #0000CD;
 }
 
