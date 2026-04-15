@@ -498,6 +498,10 @@ ul, ol {
   font-weight: 500;
 }
 
+.text-uppercase {
+  text-transform: uppercase;
+}
+
 .d-inline-block {
   display: inline-block;
 }
@@ -626,6 +630,11 @@ h6, .h6 {
 }
 .box-text ul:last-child, .box-text ol:last-child {
   margin: 0;
+}
+
+.text-xsmall {
+  font-size: 13px;
+  line-height: 150%;
 }
 
 .text-small {
@@ -760,6 +769,16 @@ h6, .h6 {
   height: 16px;
   min-width: 16px;
   cursor: pointer;
-  border: 2px solid #000080;
+  border: 2px solid #0000CD;
   border-radius: 2px;
+}
+
+.list-checkbox li {
+  margin: 0 0 8px;
+}
+.list-checkbox li:last-child {
+  margin: 0;
+}
+.list-checkbox .label-checkbox {
+  font-size: 14px;
 }

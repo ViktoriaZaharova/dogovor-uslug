@@ -345,6 +345,9 @@ ul, ol
 .font-500
   font-weight: 500
 
+.text-uppercase
+  text-transform: uppercase
+
 .d-inline-block
   display: inline-block
 
@@ -449,6 +452,10 @@ h6, .h6
     &:last-child
       margin: 0
 
+.text-xsmall
+  font-size: 13px
+  line-height: 150%      
+
 .text-small
   font-size: 14px
   line-height: 120%
@@ -544,7 +551,14 @@ h6, .h6
     height: 16px
     min-width: 16px
     cursor: pointer
-    border: 2px solid $blue
+    border: 2px solid $accent
     border-radius: 2px
 
 //checkbox my end
+.list-checkbox
+  li
+    margin: 0 0 8px
+    &:last-child
+      margin: 0
+  .label-checkbox
+    font-size: 14px

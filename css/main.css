@@ -127,6 +127,10 @@
   display: flex;
   flex-wrap: wrap;
 }
+.accordion-button:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
 .accordion-button:after {
   content: "";
   position: absolute;
@@ -181,6 +185,16 @@
   margin: 8px 0 0;
   padding: 0 24px 24px;
 }
+.accordion-body__wrapper {
+  margin: 0 0 16px;
+  padding: 0 0 24px;
+  border-bottom: 1px solid #EAECF0;
+}
+.accordion-body__wrapper:last-child {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
 
 .tooltip-wrapper {
   width: -webkit-fit-content;
@@ -233,6 +247,68 @@
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   display: none;
+}
+
+.slider-range-wrapper * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+}
+
+.slider-range-wrapper {
+  margin: 0 0 8px;
+}
+.slider-range-wrapper.ui-slider {
+  position: relative;
+  background: #BFE2FF;
+  height: 12px;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3), 1px 1px 5px rgb(255, 255, 255);
+          box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3), 1px 1px 5px rgb(255, 255, 255);
+}
+.slider-range-wrapper.ui-slider .ui-slider-handle {
+  position: absolute;
+  margin-left: -50px;
+  text-align: center;
+  width: 100px;
+  height: 36px;
+  font-size: 18px;
+  line-height: 18px;
+  padding-top: 4px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 4px solid #BFE2FF;
+  top: -13px;
+  background: #FFF;
+  z-index: 2;
+  color: #000;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.slider-range-wrapper.ui-slider .ui-slider-handle b {
+  padding: 0 8px;
+  font-family: Courier, monospace;
+  color: #BFE2FF;
+}
+.slider-range-wrapper.ui-slider .ui-slider-handle:hover b {
+  color: #337AB7;
+}
+.slider-range-wrapper.ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  height: 12px;
+  display: block;
+  border: 0;
+  background: #337AB7;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3), 1px 1px 5px rgb(255, 255, 255);
+          box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3), 1px 1px 5px rgb(255, 255, 255);
+}
+.slider-range-wrapper.ui-slider-horizontal .ui-slider-range-min {
+  left: 0;
+}
+.slider-range-wrapper.ui-slider-horizontal .ui-slider-range-max {
+  right: 0;
 }
 
 .stages-work {
