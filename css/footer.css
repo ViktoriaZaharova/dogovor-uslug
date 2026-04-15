@@ -23,6 +23,9 @@ footer .menu li a {
   padding: 0;
   color: #DFE2E8;
 }
+footer .menu li a:hover {
+  color: #fff;
+}
 footer .header-contacts {
   padding-left: 40px;
 }
