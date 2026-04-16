@@ -11,7 +11,7 @@ $('.btn-top-scroll').on('click', function (e) {
 
 $('.btn-burger').on('click', function (e) {
     e.preventDefault
-    $(this).toggleClass('click');      
+    $(this).toggleClass('click');
     $('.nav-menu').fadeToggle();
     // $('.header-contacts').toggleClass('active');
 });
@@ -23,39 +23,37 @@ $('.btn-burger').on('click', function (e) {
 
 $(function () {
 
-    function updateSlider(slider, value) {
-        let wrapper = slider.closest(".slider-range-wrapper");
-        let bubble = wrapper.find(".slider-value");
-        let handle = slider.find(".ui-slider-handle");
+    $(".slider-range").each(function () {
 
-        bubble.text(value.toFixed(1) + "%");
+        let slider = $(this);
 
-        let center = handle.position().left + handle.outerWidth() / 2;
-        bubble.css("left", center + "px");
-    }
+        slider.slider({
+            min: 0,
+            max: 1,
+            step: 0.1,
+            value: 0.1,
+            range: "min",
 
-    $(".slider-range").slider({
-        min: 0,
-        max: 1,
-        step: 0.1,
-        value: 0.1,
-        range: "min",
+            create: function () {
 
-        create: function () {
-            updateSlider($(this), $(this).slider("value"));
-        },
+                let currentValue = slider.slider("value");
 
-        start: function () {
-            $(this).closest(".slider-range-wrapper").addClass("dragging");
-        },
+                slider.find(".ui-slider-handle").append(
+                    '<div class="slider-value">' + currentValue.toFixed(1) + '%</div>'
+                );
+            },
 
-        slide: function (event, ui) {
-            updateSlider($(this), ui.value);
-        },
+            slide: function (event, ui) {
+                slider.find(".slider-value").text(ui.value.toFixed(1) + "%");
+            },
 
-        stop: function () {
-            $(this).closest(".slider-range-wrapper").removeClass("dragging");
-        }
+            change: function (event, ui) {
+                slider.find(".slider-value").text(
+                    slider.slider("value").toFixed(1) + "%"
+                );
+            }
+        });
+
     });
 
 });
@@ -93,7 +91,7 @@ $(function () {
         $(".completed-line__progress").css("width", percent + "%");
         $(".completed-line span").text(percent + "%");
 
-        const btn = $(".btn-accent");
+        const btn = $(".contract-constructor-form .btn-contract");
 
         if (percent >= 100) {
             btn.removeClass("disabled");

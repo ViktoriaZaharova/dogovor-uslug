@@ -311,10 +311,11 @@
 /* bubble value */
 .slider-value {
   position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-transform: translateX(-65%);
-          transform: translateX(-65%);
+  margin: 0 0 17px;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
   min-width: 63px;
   height: 48px;
   background: url("../img/decor-slider-range.svg") no-repeat center top;
