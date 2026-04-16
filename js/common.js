@@ -23,6 +23,17 @@ $('.btn-burger').on('click', function (e) {
 
 $(function () {
 
+    function updateSlider(slider, value) {
+        let wrapper = slider.closest(".slider-range-wrapper");
+        let bubble = wrapper.find(".slider-value");
+        let handle = slider.find(".ui-slider-handle");
+
+        bubble.text(value.toFixed(1) + "%");
+
+        let center = handle.position().left + handle.outerWidth() / 2;
+        bubble.css("left", center + "px");
+    }
+
     $(".slider-range").slider({
         min: 0,
         max: 1,
@@ -46,17 +57,6 @@ $(function () {
             $(this).closest(".slider-range-wrapper").removeClass("dragging");
         }
     });
-
-    function updateSlider(slider, value) {
-        let wrapper = slider.closest(".slider-range-wrapper");
-        let bubble = wrapper.find(".slider-value");
-        let handle = slider.find(".ui-slider-handle");
-
-        bubble.text(value.toFixed(1) + "%");
-
-        let center = handle.position().left + handle.outerWidth() / 2;
-        bubble.css("left", center + "px");
-    }
 
 });
 
