@@ -239,7 +239,7 @@
         <div class="col-12 col-lg-6">
 
           <div class="accordion">
-            <div class="accordion-item">
+            <div class="accordion-item" data-step="1">
               <div class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                   aria-expanded="true" aria-controls="collapseOne">
@@ -264,10 +264,15 @@
                       </div>
 
                       <label>
-                        <select name="type_contract" class="select-my">
-                          <option value="Выберите тип договора">Выберите тип договора</option>
-                          <option value="Выберите тип договора">Выберите тип договора</option>
-                          <option value="Выберите тип договора">Выберите тип договора</option>
+                        <select name="type_contract" class="select-my" data-sync="contract_type">
+                          <option value="" disabled selected>Выберите тип договора</option>
+                          <option value="ДОГОВОР купли продажи">ДОГОВОР купли продажи</option>
+                          <option value="ДОГОВОР оказания услуг">ДОГОВОР оказания услуг</option>
+                          <option value="ДОГОВОР аренды квартиры">ДОГОВОР аренды квартиры</option>
+                          <option value="ДОГОВОР займа">ДОГОВОР займа</option>
+                          <option value="ДОГОВОР подряда">ДОГОВОР подряда</option>
+                          <option value="ДОГОВОР купли-продажи автомобиля">ДОГОВОР купли-продажи автомобиля</option>
+                          <option value="Трудовой договор">Трудовой договор</option>
                         </select>
                       </label>
                     </div>
@@ -283,7 +288,7 @@
                         </div>
                       </div>
                       <label>
-                        <input type="text" name="city" placeholder="Москва" required>
+                        <input type="text" name="city" placeholder="Москва" required data-sync="city">
                       </label>
                     </div>
 
@@ -298,7 +303,8 @@
                         </div>
                       </div>
                       <label>
-                        <input type="text" name="number_contract" placeholder="123-45-ОФ" required>
+                        <input type="text" name="number_contract" placeholder="123-45-ОФ" required
+                          data-sync="contract_number">
                       </label>
                     </div>
 
@@ -313,7 +319,7 @@
                         </div>
                       </div>
                       <label>
-                        <input type="date" name="date" placeholder="ДД-ММ-ГГГГ" required>
+                        <input type="date" name="date" placeholder="ДД-ММ-ГГГГ" required data-sync="contract_date">
                       </label>
                     </div>
                   </div>
@@ -321,177 +327,140 @@
               </div>
             </div>
 
-            <div class="accordion-item">
-              <div class="accordion-header" id="headingTwo">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                  aria-expanded="false" aria-controls="collapseTwo">
-                  <span class="accordion-button__title">Стороны договора</span>
-                  <span class="accordion-button__subtitle">Реквизиты Заказчика и Исполнителя</span>
-                </button>
-              </div>
+           <div class="accordion-item" data-step="2">
+  <div class="accordion-header" id="headingTwo">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+      <span class="accordion-button__title">Стороны договора</span>
+      <span class="accordion-button__subtitle">Реквизиты Заказчика и Исполнителя</span>
+    </button>
+  </div>
 
-              <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
-                data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <div class="accordion-body__wrapper w-100">
-                    <div class="row">
-                      <div class="col-12 mb-16">
-                        <p class="font-500 text-uppercase">Заказчик</p>
-                      </div>
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">Тип<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <select name="type" class="select-my">
-                            <option value="Физ. лицо">Физ. лицо</option>
-                            <option value="Физ. лицо">Физ. лицо</option>
-                            <option value="Физ. лицо">Физ. лицо</option>
-                          </select>
-                        </label>
-                      </div>
+  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+    data-bs-parent="#accordionExample">
+    <div class="accordion-body">
 
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">ФИО / Наименование<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="name" placeholder="Иванов Иван Иванович" required>
-                        </label>
-                      </div>
+      <!-- ================= CUSTOMER ================= -->
+      <div class="accordion-body__wrapper w-100 participant-block" data-role="customer">
 
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">ИНН<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="inn" placeholder="Москва" required>
-                          <span class="error-text"><img src="img/error-icon-min.svg" alt="">Ошибка</span>
-                        </label>
-                      </div>
+        <div class="row">
+          <div class="col-12 mb-16">
+            <p class="font-500 text-uppercase">Заказчик</p>
+          </div>
 
-                      <div class="col-12 col-lg-6">
-                        <div class="label-title">Паспорт / ОГРН<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="ogrn" placeholder="Москва" required>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
+          <div class="col-12 col-lg-6 mb-16">
+            <div class="label-title">Тип</div>
+            <label>
+              <select class="select-my participant-type" name="type_customer" data-sync="type_customer">
+                <option value="" disabled selected>Физ. лицо</option>
+                <option value="ИП">ИП</option>
+                <option value="Самозанятый">Самозанятый</option>
+                <option value="Юр. лицо">Юр. лицо</option>
+              </select>
+            </label>
+          </div>
 
-                  <div class="accordion-body__wrapper w-100">
-                    <div class="row">
-                      <div class="col-12 mb-16">
-                        <p class="font-500 text-uppercase">Исполнитель</p>
-                      </div>
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">Тип<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="type" placeholder="Юр.лицо" required>
-                        </label>
-                      </div>
+          <div class="col-12 col-lg-6 mb-16">
+            <div class="label-title field-name-label">ФИО / Наименование</div>
+            <label>
+              <input type="text"
+                name="name_customer"
+                class="field-name-input"
+                placeholder="Иванов Иван Иванович"
+                required
+                data-sync="name_customer">
+            </label>
+          </div>
 
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">Наиминование<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="name" placeholder="ООО “Рога и копыта”" required>
-                        </label>
-                      </div>
+          <div class="col-12 col-lg-6 mb-16">
+            <div class="label-title">ИНН</div>
+            <label>
+              <input type="text"
+                name="inn_customer"
+                placeholder="21217371637"
+                required
+                data-sync="inn_customer">
+              <span class="error-text"><img src="img/error-icon-min.svg" alt="">Ошибка</span>
+            </label>
+          </div>
 
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">ИНН<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="inn" placeholder="322233324324" required>
-                        </label>
-                      </div>
+          <div class="col-12 col-lg-6">
+            <div class="label-title field-doc-label">Паспорт / ОГРН</div>
+            <label>
+              <input type="text"
+                name="document_customer"
+                placeholder="32-32-32"
+                required
+                data-sync="document_customer"
+                class="field-doc-input">
+            </label>
+          </div>
+        </div>
 
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">ОГРН<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="ogrn" placeholder="243234234324" required>
-                        </label>
-                      </div>
+      </div>
 
-                      <div class="col-12">
-                        <div class="label-title">Адрес<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="address" placeholder="Москва" required>
-                        </label>
-                      </div>
+      <!-- ================= EXECUTOR ================= -->
+      <div class="accordion-body__wrapper w-100 participant-block" data-role="executor">
 
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="row">
+          <div class="col-12 mb-16">
+            <p class="font-500 text-uppercase">Исполнитель</p>
+          </div>
 
-            <div class="accordion-item">
+          <div class="col-12 col-lg-6 mb-16">
+            <div class="label-title">Тип</div>
+            <label>
+              <select class="select-my participant-type"
+                name="type_executor"
+                data-sync="type_executor">
+                <option value="" disabled selected>ИП</option>
+                <option value="Юр. лицо">Юр. лицо</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="col-12 col-lg-6 mb-16">
+            <div class="label-title field-name-label">ФИО / Наименование</div>
+            <label>
+              <input type="text"
+                name="name_executor"
+                class="field-name-input"
+                placeholder="ООО “Рога и копыта”"
+                required
+                data-sync="name_executor">
+            </label>
+          </div>
+
+          <div class="col-12 col-lg-6 mb-16">
+            <div class="label-title">ОГРНИП / ОГРН</div>
+            <label>
+              <input type="text"
+                name="document_executor"
+                placeholder="243234234324"
+                required
+                data-sync="document_executor">
+            </label>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="label-title">Адрес</div>
+            <label>
+              <input type="text"
+                name="address_executor"
+                placeholder="Москва"
+                required
+                data-sync="address_executor">
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+            <div class="accordion-item" data-step="3">
               <div class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -515,7 +484,7 @@
                       </div>
 
                       <select name="type_contract" class="select-my">
-                        <option value="Выберите тип договора">Выберите тип договора</option>
+                        <option value="" disabled selected>Выберите тип договора</option>
                         <option value="Выберите тип договора">Выберите тип договора</option>
                         <option value="Выберите тип договора">Выберите тип договора</option>
                       </select>
@@ -571,15 +540,15 @@
               </div>
             </div>
 
-            <div class="accordion-item">
+            <div class="accordion-item" data-step="4">
               <div class="accordion-header" id="headingFour">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                  aria-expanded="false" aria-controls="collapseFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                   <span class="accordion-button__title">ответственность</span>
                   <span class="accordion-button__subtitle">Штрафы и ответственность сторон</span>
                 </button>
               </div>
-              <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour"
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <div class="accordion-body__wrapper">
@@ -591,7 +560,7 @@
                       <div class="col-12">
                         <div class="slider-range-wrapper">
                           <div class="slider-range"></div>
-                          
+
                         </div>
 
                         <div class="text-xsmall color-grey">
@@ -654,15 +623,15 @@
               </div>
             </div>
 
-            <div class="accordion-item">
+            <!-- <div class="accordion-item">
               <div class="accordion-header" id="headingFive">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"
-                  aria-expanded="false" aria-controls="collapseFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                   <span class="accordion-button__title">тут уже просто примеры разных полей</span>
                   <span class="accordion-button__subtitle">Штрафы и ответственность сторон</span>
                 </button>
               </div>
-              <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingFive"
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <div class="row">
@@ -754,7 +723,7 @@
                 </div>
 
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -762,13 +731,35 @@
           <div class="contract-preview">
             <div class="h6">Предпросмотр договора</div>
 
-            <div class="contract-preview-image w-100">
-              <img src="img/contract.jpg" alt="">
+            <div class="contract-preview-text w-100">
+              <p class="text-center"><span class="input-value-text" data-output="contract_type"></span></p>
+              <p class="text-center">(с приложениями – Предметными заданиями)</p>
+
+              <div class="d-flex align-items-center justify-content-between mb-20">
+                <p><span class="input-value-text" data-output="contract_date">«__» ______ 2026</span>г.</p>
+                <p>г.<span class="input-value-text" data-output="city"></span></p>
+              </div>
+
+              <p><span class="input-value-text">______________________</span>, именуемое в дальнейшем «Исполнитель», в
+                лице <span class="input-value-text">___</span>, действующего на основании <span
+                  class="input-value-text">___</span>,
+                с одной стороны, и <span class="input-value-text"
+                  data-output="name_customer">______________________</span>, именуемый (-ое) в
+                дальнейшем «Клиент», в лице <span class="input-value-text">___</span>,
+                действующего на основании <span class="input-value-text" data-output="name_customer">___</span>, с
+                другой стороны, в дальнейшем также совместно именуемые «Стороны» и по
+                отдельности также «Сторона», заключили настоящий Договор на оказание юридических (консультационных)
+                услуг
+                (далее – «Договор») о нижеследующем:</p>
+
+              <p></p>
             </div>
 
             <div class="contract-preview__navigation">
               <div class="completed-line">
-                <div class="completed-line__wrapper"><div class="completed-line__progress"></div></div>
+                <div class="completed-line__wrapper">
+                  <div class="completed-line__progress"></div>
+                </div>
                 <p>Заполнено<span>20%</span></p>
                 <p>100%</p>
               </div>

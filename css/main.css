@@ -96,11 +96,16 @@
   transition: 0.3s ease;
 }
 
-.contract-preview-image {
+.contract-preview-text {
   margin: 64px 0;
+  font-size: 14px;
+  line-height: 150%;
 }
-.contract-preview-image img {
-  width: 100%;
+.contract-preview-text p {
+  margin: 0 0 5px;
+}
+.contract-preview-text p:last-child {
+  margin: 0;
 }
 
 .accordion {
@@ -116,6 +121,12 @@
 }
 .accordion-item:last-child {
   margin: 0;
+}
+.accordion-item.checked {
+  border: 1px solid #27B973;
+}
+.accordion-item.no-checked {
+  border: 1px solid #DB3A33;
 }
 
 .accordion-button {

@@ -74,10 +74,15 @@
             border-radius: 10px
             transition: .3s ease
 
-.contract-preview-image
+.contract-preview-text
     margin: 64px 0
-    img
-        width: 100%
+    font-size: 14px
+    line-height: 150%
+    p
+        margin: 0 0 5px
+        &:last-child
+            margin: 0
+
 
 .accordion
     counter-reset: acc
@@ -90,6 +95,10 @@
     counter-increment: acc
     &:last-child
         margin: 0
+    &.checked
+        border: 1px solid #27B973
+    &.no-checked
+        border: 1px solid #DB3A33
 
 .accordion-button
     width: 100%
