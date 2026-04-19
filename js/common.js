@@ -58,74 +58,6 @@ $(function () {
 
 });
 
-// $(function () {
-
-//     const form = $(".contract-constructor-form");
-
-//     updateProgress();
-
-//     form.on("input change", "input, textarea, select", function () {
-//         updateProgress();
-//     });
-
-//     function updateProgress() {
-
-//         const fields = form.find("[required]");
-//         const total = fields.length;
-//         let filled = 0;
-
-//         fields.each(function () {
-
-//             const field = $(this);
-
-//             if (field.is(":checkbox,:radio")) {
-//                 if (field.is(":checked")) filled++;
-//             } else {
-//                 if ($.trim(field.val()) !== "") filled++;
-//             }
-
-//         });
-
-//         const percent = total ? Math.round((filled / total) * 100) : 0;
-
-//         $(".completed-line__progress").css("width", percent + "%");
-//         $(".completed-line span").text(percent + "%");
-
-//         const btn = $(".contract-constructor-form .btn-contract");
-
-//         if (percent >= 100) {
-//             btn.removeClass("disabled");
-//         } else {
-//             btn.addClass("disabled");
-//         }
-//     }
-
-// });
-
-// $(document).ready(function () {
-
-//     $('.contract-constructor-form').each(function () {
-//         let block = $(this);
-
-//         block.on('input change', '[data-sync]', function () {
-//             let field = $(this);
-//             let key = field.data('sync');
-//             let value = field.val();
-
-//             // Форматирование даты
-//             if (field.attr('type') === 'date' && value) {
-//                 let parts = value.split('-');
-//                 value = parts[2] + '.' + parts[1] + '.' + parts[0];
-//             }
-
-//             block.find('[data-output="' + key + '"]').text(value);
-//         });
-
-//         // Инициализация при загрузке
-//         block.find('[data-sync]').trigger('change');
-//     });
-
-// });
 
 jQuery(document).ready(function ($) {
 
@@ -382,3 +314,4 @@ $(function () {
     });
 
 });
+
