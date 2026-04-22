@@ -529,7 +529,7 @@
                       </div>
                       <label>
                         <input type="date" name="delivery_time_2" placeholder="ДД-ММ-ГГГГ" required
-                          data-sync="delivery_time">
+                          data-sync="delivery_time_2">
                       </label>
                     </div>
 
@@ -537,6 +537,162 @@
                     <div class="col-12 mb-16">
                       <p class="font-500 text-uppercase">Стоимость</p>
                     </div>
+
+                    <div class="col-12 mb-16">
+                      <div class="label-title">Общая стоимость, ₽<div class="tooltip-wrapper">
+                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                          <div class="tooltip-box">
+                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                              (определенным) Предметным заданием </span>
+                          </div>
+                        </div>
+                      </div>
+                      <label>
+                        <input type="text" name="price" placeholder="0,00" required data-sync="total_cost">
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-lg-6 mb-16">
+                      <div class="label-title">НДС<div class="tooltip-wrapper">
+                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                          <div class="tooltip-box">
+                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                              (определенным) Предметным заданием </span>
+                          </div>
+                        </div>
+                      </div>
+                      <label>
+                        <select name="nds_select" class="select-my" data-sync="nds_select">
+                          <option value="Есть">Есть</option>
+                          <option value="Нет">Нет</option>
+                          <option value="Включен">Включен</option>
+                        </select>
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-lg-6 mb-16">
+                      <div class="label-title">Размер НДС, %<div class="tooltip-wrapper">
+                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                          <div class="tooltip-box">
+                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                              (определенным) Предметным заданием </span>
+                          </div>
+                        </div>
+                      </div>
+                      <label>
+                        <input type="text" name="nds_cost" placeholder="10" required data-sync="nds_cost">
+                      </label>
+                    </div>
+
+                    <div class="col-12 mb-16">
+                      <p class="font-500 text-uppercase">Порядок оплаты</p>
+                    </div>
+
+                    <div class="col-12 col-lg-6 mb-16">
+                      <div class="label-title">Способ оплаты<div class="tooltip-wrapper">
+                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                          <div class="tooltip-box">
+                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                              (определенным) Предметным заданием </span>
+                          </div>
+                        </div>
+                      </div>
+                      <label>
+                        <select name="variable_payment_select" class="select-my" data-sync="variable_payment_select">
+                          <option value="Перевод">Перевод</option>
+                          <option value="Наличные">Наличные</option>
+                          <option value="Расчетный (банковский) счет">Расчетный (банковский) счет</option>
+                        </select>
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-lg-6 mb-16">
+                      <div class="label-title">Валюта<div class="tooltip-wrapper">
+                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                          <div class="tooltip-box">
+                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                              (определенным) Предметным заданием </span>
+                          </div>
+                        </div>
+                      </div>
+                      <label>
+                        <select name="currency_select" class="select-my" data-sync="currency_select">
+                          <option value="РФ (рубль)">РФ (рубль)</option>
+                          <option value="РФ (рубль)">РФ (рубль)</option>
+                          <option value="РФ (рубль)">РФ (рубль)</option>
+                        </select>
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-lg-6 mb-16">
+                      <div class="label-title">Оплата по этапам<div class="tooltip-wrapper">
+                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                          <div class="tooltip-box">
+                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                              (определенным) Предметным заданием </span>
+                          </div>
+                        </div>
+                      </div>
+                      <label>
+                        <select name="payment_step_select" class="select-my" data-sync="payment_step_select">
+                          <option value="Да">Да</option>
+                          <option value="Hет">Hет</option>
+                        </select>
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-lg-6 mb-16">
+                      <div class="label-title">Название этапа<div class="tooltip-wrapper">
+                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                          <div class="tooltip-box">
+                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                              (определенным) Предметным заданием </span>
+                          </div>
+                        </div>
+                      </div>
+                      <label>
+                        <input type="text" name="name_step" placeholder="Название этапа" required data-sync="name_step">
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-lg-6 mb-16">
+                      <div class="label-title">Сумма этапа<div class="tooltip-wrapper">
+                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                          <div class="tooltip-box">
+                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                              (определенным) Предметным заданием </span>
+                          </div>
+                        </div>
+                      </div>
+                      <label>
+                        <input type="text" name="sum_step" placeholder="10000" required data-sync="sum_step">
+                      </label>
+                    </div>
+
+                    <div class="col-12 col-lg-6 mb-16">
+                      <div class="label-title">Срок оплаты<div class="tooltip-wrapper">
+                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                          <div class="tooltip-box">
+                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                              (определенным) Предметным заданием </span>
+                          </div>
+                        </div>
+                      </div>
+                      <label>
+                        <input type="text" name="date_step" placeholder="5 дней после приемки" required
+                          data-sync="date_step">
+                      </label>
+                    </div>
+
                   </div>
                 </div>
 
@@ -626,7 +782,7 @@
               </div>
             </div>
 
-            <!-- <div class="accordion-item">
+            <div class="accordion-item">
               <div class="accordion-header" id="headingFive">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -726,7 +882,7 @@
                 </div>
 
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
 
@@ -762,20 +918,32 @@
                 оказанию Услуг третьих лиц только после получения согласия
                 Заказчика на использование помощи третьих лиц.</p>
               <p>1.3. Место оказания Услуг: <span class="input-value-text" data-output="city_imprisonment"></span></p>
-              <p>1.4. Срок оказания Услуг: с <span class="input-value-text"
-                  data-output="delivery_time_1"></span> по <span class="input-value-text"
-                  data-output="delivery_time_2"></span></p>
+              <p>1.4. Срок оказания Услуг: с <span class="input-value-text" data-output="delivery_time_1"></span> по
+                <span class="input-value-text" data-output="delivery_time_2"></span>
+              </p>
 
               <p class="text-center font-600">2. Стоимость и порядок оплаты</p>
 
-              <p>2.1. Общая стоимость Услуг составляет 1000000 (один миллион рублей ноль копеек) рублей.</p>
-              <p>2.2. НДС составляет 22% в размере 180327.87 (сто восемьдесят тысяч триста двадцать семь рублей восемьдесят
-              семь копеек)  рублей и включено в стоимость Услуг.</p>
+              <p>2.1. Общая стоимость Услуг составляет <span class="input-value-text" data-output="total_cost"></span>
+                (<span class="input-value-text input-value-text-text" data-output-text="total_cost"></span>) рублей.</p>
+              <p>2.2. НДС составляет <span class="input-value-text" data-output="nds_cost"></span>% в размере <span
+                  class="nput-value-text" data-vat-output="total_cost" data-rate="nds_cost"></span> (<span
+                  class="input-value-text input-value-text-text" data-vat-output-text="total_cost"
+                  data-rate="nds_cost"></span>) рублей и включено в стоимость Услуг.</p>
               <p>2.3. Заказчик оплачивает Услуги согласно этапам:</p>
-              <p>2.3.1. Первый этап стоимостью 1000 (одна тысяча рублей ноль копеек) рублей оплачивается в течение 5
-              рабочих дней c момента приемки этапа Услуг.</p>
-              <p>2.3.2. Второй этап стоимостью 100000 (сто тысяч рублей ноль копеек) рублей оплачивается в течение 5
-              рабочих дней c момента приемки этапа Услуг.</p>
+              <p>2.3.1. Первый этап стоимостью <span class="input-value-text" data-output="sum_step"></span> (<span
+                  class="input-value-text" data-output-text="sum_step"></span>) рублей оплачивается в течение <span
+                  class="input-value-text" data-output="date_step"></span>
+                рабочих дней c момента приемки этапа Услуг.</p>
+              <p>2.3.2. Второй этап стоимостью <span class="input-value-text" data-output="sum_step_2"></span> (<span
+                  class="input-value-text" data-output-text="sum_step_2"></span>) рублей оплачивается в течение <span
+                  class="input-value-text" data-output="date_step_2"></span>
+                рабочих дней c момента приемки этапа Услуг.</p>
+              <p>2.4. Способ оплаты Услуг: перечисление Заказчиком денежных средств в валюте Российской Федерации
+                (рубль) на расчетный (банковский) счет Исполнителя на основании выставленного Исполнителем счёта на
+                оплату. Обязанности по оплате Услуг считаются исполненными со дня списания денежных средств с расчетного
+                (банковского) счета Заказчика.
+              </p>
             </div>
 
             <div class="contract-preview__navigation">
