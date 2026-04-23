@@ -21,11 +21,58 @@ $('.btn-burger').on('click', function (e) {
 //     $('.nav-menu').fadeOut();
 // });
 
+// $(function () {
+
+//     $(".slider-range").each(function () {
+
+//         let slider = $(this);
+
+//         slider.slider({
+//             min: 0,
+//             max: 1,
+//             step: 0.1,
+//             value: 0.1,
+//             range: "min",
+
+//             create: function () {
+
+//                 let currentValue = slider.slider("value");
+
+//                 slider.find(".ui-slider-handle").append(
+//                     '<div class="slider-value">' + currentValue.toFixed(1) + '%</div>'
+//                 );
+//             },
+
+//             slide: function (event, ui) {
+//                 slider.find(".slider-value").text(ui.value.toFixed(1) + "%");
+//             },
+
+//             change: function (event, ui) {
+//                 slider.find(".slider-value").text(
+//                     slider.slider("value").toFixed(1) + "%"
+//                 );
+//             }
+//         });
+
+//     });
+
+// });
+
+
 $(function () {
+
+    function syncValue(key, value) {
+        $('[data-output="' + key + '"]').text(value);
+    }
 
     $(".slider-range").each(function () {
 
         let slider = $(this);
+
+        /* защита от повторной инициализации */
+        if (slider.hasClass("ui-slider")) return;
+
+        let key = slider.data("sync");
 
         slider.slider({
             min: 0,
@@ -36,28 +83,40 @@ $(function () {
 
             create: function () {
 
-                let currentValue = slider.slider("value");
+                let val = slider.slider("value");
 
-                slider.find(".ui-slider-handle").append(
-                    '<div class="slider-value">' + currentValue.toFixed(1) + '%</div>'
-                );
+                /* вставка только если нет */
+                if (!slider.find(".slider-value").length) {
+                    slider.find(".ui-slider-handle").append(
+                        '<div class="slider-value"></div>'
+                    );
+                }
+
+                update(val);
             },
 
             slide: function (event, ui) {
-                slider.find(".slider-value").text(ui.value.toFixed(1) + "%");
+                update(ui.value);
             },
 
-            change: function (event, ui) {
-                slider.find(".slider-value").text(
-                    slider.slider("value").toFixed(1) + "%"
-                );
+            change: function () {
+                update(slider.slider("value"));
             }
         });
+
+        function update(val) {
+            let value = val.toFixed(1);
+
+            slider.find(".slider-value").text(value + "%");
+
+            if (key) {
+                syncValue(key, value);
+            }
+        }
 
     });
 
 });
-
 
 jQuery(document).ready(function ($) {
 
@@ -469,3 +528,79 @@ $(function () {
     updateAll();
 
 });
+
+$(function () {
+
+    function toggleGroup(selectKey, targets, container) {
+
+        let select = container.find('[data-sync="' + selectKey + '"]');
+        let val = (select.val() || '').toLowerCase();
+
+        let fields = container.find(targets.map(t => '[data-sync="' + t + '"]').join(','));
+        let blocks = fields.closest('.col-12, .col-lg-6');
+
+        if (val.includes('нет')) {
+
+            blocks.hide();
+
+            fields.each(function () {
+                $(this)
+                    .val('')
+                    .prop('disabled', true)
+                    .removeAttr('required');
+            });
+
+        } else {
+
+            blocks.show();
+
+            fields.each(function () {
+                $(this)
+                    .prop('disabled', false)
+                    .attr('required', true);
+            });
+
+        }
+    }
+
+
+    function initToggles() {
+
+        $('[data-sync]').each(function () {
+
+            let container = $(this).closest('.row');
+
+            /* гарантия */
+            toggleGroup('warranty_select',
+                ['warranty_period', 'warranty_description', 'warranty_exceptions'],
+                container
+            );
+
+            /* НДС */
+            toggleGroup('nds_select',
+                ['nds_cost'],
+                container
+            );
+
+            /* этапы оплаты */
+            toggleGroup('payment_step_select',
+                ['name_step', 'sum_step'],
+                container
+            );
+
+        });
+
+    }
+
+
+    /* init */
+    initToggles();
+
+    /* change */
+    $(document).on('change', '[data-sync]', function () {
+        let container = $(this).closest('.row');
+        initToggles(container);
+    });
+
+});
+
