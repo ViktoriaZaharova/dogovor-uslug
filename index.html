@@ -444,255 +444,465 @@
                   <span class="accordion-button__subtitle">Реквизиты Заказчика и Исполнителя</span>
                 </button>
               </div>
-              <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <div class="row">
-                    <div class="col-12 mb-16">
-                      <p class="font-500 text-uppercase">Предмет договора</p>
-                    </div>
-
-                    <div class="col-12 mb-16">
-                      <div class="label-title">Описание услуги<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
-                          </div>
-                        </div>
-                      </div>
-                      <label>
-                        <input type="text" name="description_service" placeholder="Строительство дома" required
-                          data-sync="description_service">
-                      </label>
-                    </div>
-
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">Привлечение третьих лиц<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
-                          </div>
-                        </div>
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Предмет договора</p>
                       </div>
 
-                      <select name="possibility_select" class="select-my" data-sync="possibility_select">
-                        <option value="" disabled selected>Вправе</option>
-                        <option value="Нет">Не вправе</option>
-                      </select>
-                    </div>
-
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">Город заключения<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Описание услуги<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
                           </div>
                         </div>
+                        <label>
+                          <input type="text" name="description_service" placeholder="Строительство дома" required
+                            data-sync="description_service">
+                        </label>
                       </div>
-                      <label>
-                        <input type="text" name="city_imprisonment" placeholder="Москва" required
-                          data-sync="city_imprisonment">
-                      </label>
-                    </div>
 
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">Срок оказания c<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Привлечение третьих лиц<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <label>
-                        <input type="date" name="delivery_time_1" placeholder="ДД-ММ-ГГГГ" required
-                          data-sync="delivery_time_1">
-                      </label>
-                    </div>
 
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">Срок оказания по<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
-                          </div>
-                        </div>
-                      </div>
-                      <label>
-                        <input type="date" name="delivery_time_2" placeholder="ДД-ММ-ГГГГ" required
-                          data-sync="delivery_time_2">
-                      </label>
-                    </div>
-
-
-                    <div class="col-12 mb-16">
-                      <p class="font-500 text-uppercase">Стоимость</p>
-                    </div>
-
-                    <div class="col-12 mb-16">
-                      <div class="label-title">Общая стоимость, ₽<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
-                          </div>
-                        </div>
-                      </div>
-                      <label>
-                        <input type="text" name="price" placeholder="0,00" required data-sync="total_cost">
-                      </label>
-                    </div>
-
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">НДС<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
-                          </div>
-                        </div>
-                      </div>
-                      <label>
-                        <select name="nds_select" class="select-my" data-sync="nds_select">
-                          <option value="Есть">Есть</option>
-                          <option value="Нет">Нет</option>
-                          <option value="Включен">Включен</option>
+                        <select name="possibility_select" class="select-my" data-sync="possibility_select">
+                          <option value="" disabled selected>Вправе</option>
+                          <option value="Нет">Не вправе</option>
                         </select>
-                      </label>
-                    </div>
+                      </div>
 
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">Размер НДС, %<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Город заключения<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
                           </div>
                         </div>
+                        <label>
+                          <input type="text" name="city_imprisonment" placeholder="Москва" required
+                            data-sync="city_imprisonment">
+                        </label>
                       </div>
-                      <label>
-                        <input type="text" name="nds_cost" placeholder="10" required data-sync="nds_cost">
-                      </label>
-                    </div>
 
-                    <div class="col-12 mb-16">
-                      <p class="font-500 text-uppercase">Порядок оплаты</p>
-                    </div>
-
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">Способ оплаты<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Срок оказания c<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
                           </div>
                         </div>
+                        <label>
+                          <input type="date" name="delivery_time_1" placeholder="ДД-ММ-ГГГГ" required
+                            data-sync="delivery_time_1">
+                        </label>
                       </div>
-                      <label>
-                        <select name="variable_payment_select" class="select-my" data-sync="variable_payment_select">
-                          <option value="Перевод">Перевод</option>
-                          <option value="Наличные">Наличные</option>
-                          <option value="Расчетный (банковский) счет">Расчетный (банковский) счет</option>
-                        </select>
-                      </label>
-                    </div>
 
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">Валюта<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Срок оказания по<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
                           </div>
                         </div>
+                        <label>
+                          <input type="date" name="delivery_time_2" placeholder="ДД-ММ-ГГГГ" required
+                            data-sync="delivery_time_2">
+                        </label>
                       </div>
-                      <label>
-                        <select name="currency_select" class="select-my" data-sync="currency_select">
-                          <option value="РФ (рубль)">РФ (рубль)</option>
-                          <option value="РФ (рубль)">РФ (рубль)</option>
-                          <option value="РФ (рубль)">РФ (рубль)</option>
-                        </select>
-                      </label>
                     </div>
+                  </div>
 
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">Оплата по этапам<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Стоимость</p>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Общая стоимость, ₽<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
                           </div>
                         </div>
+                        <label>
+                          <input type="text" name="price" placeholder="0,00" required data-sync="total_cost">
+                        </label>
                       </div>
-                      <label>
-                        <select name="payment_step_select" class="select-my" data-sync="payment_step_select">
-                          <option value="Да">Да</option>
-                          <option value="Hет">Hет</option>
-                        </select>
-                      </label>
-                    </div>
 
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">Название этапа<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">НДС<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
                           </div>
                         </div>
+                        <label>
+                          <select name="nds_select" class="select-my" data-sync="nds_select">
+                            <option value="Есть">Есть</option>
+                            <option value="Нет">Нет</option>
+                            <option value="Включен">Включен</option>
+                          </select>
+                        </label>
                       </div>
-                      <label>
-                        <input type="text" name="name_step" placeholder="Название этапа" required data-sync="name_step">
-                      </label>
-                    </div>
 
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">Сумма этапа<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Размер НДС, %<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
                           </div>
                         </div>
+                        <label>
+                          <input type="text" name="nds_cost" placeholder="10" required data-sync="nds_cost">
+                        </label>
                       </div>
-                      <label>
-                        <input type="text" name="sum_step" placeholder="10000" required data-sync="sum_step">
-                      </label>
                     </div>
+                  </div>
 
-                    <div class="col-12 col-lg-6 mb-16">
-                      <div class="label-title">Срок оплаты<div class="tooltip-wrapper">
-                          <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                          <div class="tooltip-box">
-                            <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                              принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                              (определенным) Предметным заданием </span>
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Порядок оплаты</p>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Способ оплаты<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
                           </div>
                         </div>
+                        <label>
+                          <select name="variable_payment_select" class="select-my" data-sync="variable_payment_select">
+                            <option value="Перевод">Перевод</option>
+                            <option value="Наличные">Наличные</option>
+                            <option value="Расчетный (банковский) счет">Расчетный (банковский) счет</option>
+                          </select>
+                        </label>
                       </div>
-                      <label>
-                        <input type="text" name="date_step" placeholder="5 дней после приемки" required
-                          data-sync="date_step">
-                      </label>
-                    </div>
 
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Валюта<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="currency_select" class="select-my" data-sync="currency_select">
+                            <option value="РФ (рубль)">РФ (рубль)</option>
+                            <option value="РФ (рубль)">РФ (рубль)</option>
+                            <option value="РФ (рубль)">РФ (рубль)</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Оплата по этапам<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="payment_step_select" class="select-my" data-sync="payment_step_select">
+                            <option value="Да">Да</option>
+                            <option value="Hет">Hет</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Название этапа<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="name_step" placeholder="Название этапа" required
+                            data-sync="name_step">
+                        </label>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Сумма этапа<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="sum_step" placeholder="10000" required data-sync="sum_step">
+                        </label>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Срок оплаты<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="date_step" placeholder="5 дней после приемки" required
+                            data-sync="date_step">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Приемка услуг</p>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Срок подписания акта<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="signing_period" placeholder="5" required data-sync="signing_period">
+                        </label>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Возможность отказа
+                          <div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="possibility_of_refusal" class="select-my" data-sync="possibility_of_refusal">
+                            <option value="Да">Да</option>
+                            <option value="Hет">Hет</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Автоматическая приемка (если не подписан акт)
+                          <div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="possibility_of_refusal" class="select-my" data-sync="possibility_of_refusal">
+                            <option value="Да">Да</option>
+                            <option value="Hет">Hет</option>
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Гарантии</p>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Есть ли гарантия
+                          <div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="warranty_select" class="select-my" data-sync="warranty_select">
+                            <option value="Да">Да</option>
+                            <option value="Hет">Hет</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Срок гарантии<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="warranty_period" placeholder="5" required
+                            data-sync="warranty_period">
+                        </label>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Что покрывает гарантия<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="warranty_description" placeholder="5" required
+                            data-sync="warranty_description">
+                        </label>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Исключения (например: материалы)<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="warranty_exceptions" placeholder="5" required
+                            data-sync="warranty_exceptions">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Конфиденциальность</p>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Включить пункт
+                          <div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="confidentiality_select" class="select-my" data-sync="confidentiality_select">
+                            <option value="Соблюдать">Соблюдать</option>
+                            <option value="Hе соблюдать">Hе соблюдать</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Можно ли передавать данные третьим лицам
+                          <div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="data_parties" placeholder="Передает информацию третьим лицам"
+                            required data-sync="data_parties">
+                        </label>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Требуется ли согласие
+                          <div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="consent_required" placeholder="После получения согласия" required
+                            data-sync="consent_required">
+                        </label>
+                      </div>
+
+                    </div>
                   </div>
                 </div>
 
@@ -707,19 +917,58 @@
                   <span class="accordion-button__subtitle">Штрафы и ответственность сторон</span>
                 </button>
               </div>
+
               <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <div class="accordion-body__wrapper">
                     <div class="row">
                       <div class="col-12 mb-16">
-                        <p class="font-500 text-uppercase">неустойка за просрочку</p>
+                        <p class="font-500 text-uppercase">Общая ответственность</p>
                       </div>
 
-                      <div class="col-12">
-                        <div class="slider-range-wrapper">
-                          <div class="slider-range"></div>
 
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Есть стандартная ответственность по договору<div
+                            class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <label>
+                          <select name="responsibility_select" class="select-my" data-sync="responsibility_select">
+                            <option value="Несут">Несут</option>
+                            <option value="Не несут">Не несут</option>
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Неустойки</p>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">За просрочку исполнения (Исполнитель)<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="slider-range-wrapper">
+                          <div class="slider-range" data-sync="slider-range_executor"></div>
                         </div>
 
                         <div class="text-xsmall color-grey">
@@ -727,10 +976,339 @@
                           <p>Рекомендуется 0.1% — соответствует судебной практике</p>
                         </div>
                       </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Максимальный лимит
+                          <div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="limit_contractor" placeholder="10" required
+                            data-sync="limit_contractor">
+                        </label>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">За просрочку оплаты (Заказчик)<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="slider-range-wrapper">
+                          <div class="slider-range" data-sync="slider-range_contractor"></div>
+                        </div>
+
+                        <div class="text-xsmall color-grey">
+                          <p>% от суммы договора в день</p>
+                          <p>Рекомендуется 0.1% — соответствует судебной практике</p>
+                        </div>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Максимальный лимит
+                          <div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="limit_customer" placeholder="10" required data-sync="limit_customer">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Штрафы</p>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="label-title">За нарушение конфиденциальности (сумма)<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="privacy_fine" placeholder="100 000" required
+                            data-sync="privacy_fine">
+                        </label>
+                      </div>
                     </div>
                   </div>
 
                   <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Устранение недостатков</p>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="label-title">Срок устранения дефектов (в днях)<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="elimination_period" placeholder="23" required
+                            data-sync="elimination_period">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Форс-мажор</p>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="label-title">Включить пункт (да/нет)<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="enable_item" class="select-my" data-sync="enable_item">
+                            <option value="Да">Да</option>
+                            <option value="Нет">Нет</option>
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Споры</p>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Досудебный порядок (да/нет)<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="pre-trial_procedure" class="select-my" data-sync="pre-trial_procedure">
+                            <option value="Да">Да</option>
+                            <option value="Нет">Нет</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Срок ответа на претензию<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="response_time" placeholder="14" required data-sync="response_time">
+                        </label>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Суд<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="court_name" placeholder="Указать суд" required
+                            data-sync="court_name">
+                        </label>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Форс-мажор</p>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Способы обмена документами<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="document_exchange" class="select-my" data-sync="document_exchange">
+                            <option value="email">email</option>
+                            <option value="почта">почта</option>
+                            <option value="курьер">курьер</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Срок отправки оригиналов<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="dispatch_time" placeholder="5" required data-sync="dispatch_time">
+                        </label>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Момент вступления договора в силу<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="moment_of_entry" placeholder="10" required
+                            data-sync="moment_of_entry">
+                        </label>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Количество экземпляров<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="number_of_copies" placeholder="3" required
+                            data-sync="number_of_copies">
+                        </label>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Приложения</p>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="label-title">Добавить акт приемки<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="acceptance_certificate" class="select-my" data-sync="acceptance_certificate">
+                            <option value="Акт сдачи-приемки оказанных услуг">Акт сдачи-приемки оказанных услуг</option>
+                            <option value="Нет">Нет</option>
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-body__wrapper">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Подписи</p>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Подпись Заказчика<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="customer_signature" placeholder="Иванов Степан Петрович" required
+                            data-sync="customer_signature">
+                        </label>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Подпись Исполнителя<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="contractor_signature" placeholder="Светлый Иван Петрович" required
+                            data-sync="contractor_signature">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <div class="accordion-body__wrapper">
                     <div class="row">
                       <div class="col-12 mb-16">
                         <p class="font-500 text-uppercase">условия ответственности</p>
@@ -775,14 +1353,14 @@
                         </label>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 
                 </div>
 
               </div>
             </div>
 
-            <div class="accordion-item">
+            <!-- <div class="accordion-item">
               <div class="accordion-header" id="headingFive">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -882,7 +1460,7 @@
                 </div>
 
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -939,11 +1517,127 @@
                   class="input-value-text" data-output-text="sum_step_2"></span>) рублей оплачивается в течение <span
                   class="input-value-text" data-output="date_step_2"></span>
                 рабочих дней c момента приемки этапа Услуг.</p>
-              <p>2.4. Способ оплаты Услуг: перечисление Заказчиком денежных средств в валюте Российской Федерации
-                (рубль) на расчетный (банковский) счет Исполнителя на основании выставленного Исполнителем счёта на
-                оплату. Обязанности по оплате Услуг считаются исполненными со дня списания денежных средств с расчетного
-                (банковского) счета Заказчика.
+              <p>2.4. Способ оплаты Услуг: перечисление Заказчиком денежных средств в валюте <span
+                  class="input-value-text" data-output="currency_select"></span> на <span class="input-value-text"
+                  data-output="variable_payment_select"></span>
+                Исполнителя на основании выставленного Исполнителем счёта на
+                оплату. Обязанности по оплате Услуг считаются исполненными со дня списания денежных средств с <span
+                  class="input-value-text" data-output="variable_payment_select"></span> Заказчика.
               </p>
+
+              <p class="text-center font-600">3. Порядок сдачи-приемки услуг</p>
+
+              <p>3.1. После оказания Услуг Исполнитель предоставляет Заказчику Акт сдачи-приемки оказанных услуг в двух
+                экземплярах (Приложение – Акт сдачи-приемки оказанных услуг).</p>
+              <p>3.2. В течение <span class="input-value-text" data-output="signing_period"></span> календарных дней
+                после получения Акта сдачи-приемки оказанных услуг Заказчик обязан
+                принять Услуги, подписать Акт и направить один экземпляр Исполнителю, либо, при наличии недостатков,
+                представить Исполнителю мотивированный отказ от подписания Акта.</p>
+              <p>3.3. В случае, если Заказчиком не подписан Акт сдачи-приемки оказанных услуг и не направлен
+                мотивированный
+                отказ в течение <span class="input-value-text" data-output="signing_period"></span> календарных дней,
+                Услуги считаются оказанными надлежащим образом и принятыми Заказчиком.</p>
+
+              <p class="text-center font-600">4. Гарантия качества оказанных услуг</p>
+
+              <p>4.1. Гарантия качества распространяется только на работы, не включают в себя гарантию на материал.</p>
+              <p>4.2. Гарантийный срок устанавливается в размере <span class="input-value-text"
+                  data-output="warranty_period"></span> с даты подписания Сторонами последнего акта
+                сдачи-приемки оказанных услуг.</p>
+              <p>4.3. Исполнитель <span class="input-value-text" data-output="warranty_exceptions"></span>, которые
+                возникли по вине Заказчика.</p>
+
+              <p class="text-center font-600">5. Конфиденциальность информации</p>
+
+              <p>5.1. Исполнитель обязуется <span class="input-value-text" data-output="confidentiality_select"></span>
+                режим конфиденциальности информации в отношении информации,
+                переданной Заказчиком для оказания Услуг (в том числе документы); фактических сведений о Заказчике, не
+                опубликованных в свободном доступе; переговоров и деловой переписке Сторон до и после заключения
+                Договора.</p>
+              <p>5.2. Не является нарушением режима конфиденциальности случаи, когда для надлежащего оказания Услуг
+                Исполнитель <span class="input-value-text" data-output="data_parties"></span> <span
+                  class="input-value-text" data-output="consent_required"></span> Заказчика.</p>
+
+              <p class="text-center font-600">6. Ответственность сторон</p>
+
+              <p>6.1. Стороны <span class="input-value-text" data-output="responsibility_select"></span> ответственность
+                за неисполнение (ненадлежащее исполнение) своих обязанностей в
+                соответствии с Договором.</p>
+              <p>6.2. В случае, если Исполнитель просрочил более чем на 10 календарных дней оказание Услуг, Исполнитель
+                обязуется выплатить неустойку из расчета <span class="input-value-text"
+                  data-output="slider-range_executor"></span> процента от общей стоимости оказания Услуг за каждый
+                день
+                просрочки, но не более <span class="input-value-text" data-output="limit_contractor"></span> процентов
+                от общей стоимости оказания Услуг.</p>
+              <p>6.3. В случае нарушения Исполнителем режима конфиденциальности информации Исполнитель обязуется
+                выплатить
+                штраф в размере <span class="input-value-text" data-output="privacy_fine"></span> (<span
+                  class="input-value-text" data-output-text="privacy_fine"></span>) рублей.</p>
+              <p>6.4. В случае наличия недостатков у оказанных Услуг Исполнитель обязуется устранить все недостатки в
+                течение <span class="input-value-text" data-output="elimination_period"></span> календарных дней со дня
+                получения соответствующих претензий Заказчика.</p>
+              <p>6.5. В случае просрочки оплаты Услуг более чем на 5 календарных дней Заказчик обязуется выплатить
+                неустойку из расчета <span class="input-value-text" data-output="slider-range_contractor"></span>
+                процента от общей стоимости оказываемых Услуг за каждый день просрочки, но не
+                более <span class="input-value-text" data-output="limit_customer"></span> процентов от общей стоимости
+                Услуг.</p>
+
+              <p class="text-center font-600">7. Обстоятельства непреодолимой силы</p>
+              <p>7.1. Стороны освобождаются от ответственности за неисполнение (ненадлежащее исполнение) обязательств по
+                Договору в случае, если неисполнение (ненадлежащее исполнение) явилось следствием действия непреодолимой
+                силы.</p>
+              <p>7.2. Сторона должна в разумный срок приступить к исполнению своих обязательств в случае, если
+                обстоятельства непреодолимой силы прекратили своё действие и надлежащее исполнение обязательств стало
+                возможным.</p>
+
+              <p class="text-center font-600">8. Разрешение споров</p>
+              <p>8.1. Возникающие споры разрешаются в досудебном порядке путем направления претензионного письма. Срок
+                рассмотрения претензионного письма составляет <span class="input-value-text"
+                  data-output="response_time"></span> рабочих дней с момента получения. В случае, если
+                разрешение спора в досудебном порядке признано Сторонами невозможным, спор подлежит рассмотрению в
+                <span class="input-value-text" data-output="court_name"></span> в соответствии с законодательством
+                Российской Федерации.
+              </p>
+
+              <p class="text-center font-600">9. Заключительные положения</p>
+              <p>9.1. Документы (в том числе акты, претензии и т.д.) предоставляются лично или направляются Стороне
+                <span class="input-value-text" data-output="document_exchange"></span> с уведомлением о вручении,
+                курьерской доставкой или путем направления письма на
+                электронную почту (электронная почта Заказчика: gfhjk@mail.ru ; электронная почта Исполнителя:
+                dfdfgdf@mail.ru ).
+              </p>
+              <p>9.2. Оригиналы документов направляются Стороной почтовым отправлением по запросу другой Стороны в
+                течение
+                <span class="input-value-text" data-output="dispatch_time"></span> рабочих дней.
+              </p>
+              <p>9.3. Договор вступает в силу с <span class="input-value-text" data-output="moment_of_entry"></span> его
+                Сторонами и действует до полного исполнения
+                Сторонами обязательств по Договору.</p>
+              <p>9.4. Договор составлен в <span class="input-value-text" data-output="number_of_copies"></span>
+                экземплярах на русском языке, по одному для каждой из Сторон.</p>
+
+
+              <p class="text-center font-600">10. Приложения к договору</p>
+              <p>10.1. Приложение — <span class="input-value-text" data-output="acceptance_certificate"></span></p>
+
+
+              <p class="text-center font-600">11. Подписи и реквизиты сторон</p>
+              <p>Заказчик <span class="input-value-text" data-output="customer_signature"></span></p>
+              <p>Адрес: fghgfh</p>
+              <p>Паспорт: 345345</p>
+              <p>Банковские реквизиты: 34543534543</p>
+
+              <p>Заказчик________________________ <span class="input-value-text"
+                  data-output="customer_signature"></span></p>
+              <p>Исполнитель <span class="input-value-text" data-output="contractor_signature"></span></p>
+              <p>Адрес регистрации: 394000, Воронежская обл, г Воронеж</p>
+              <p>ОГРНИП 321344300014660, ИНН 343103403498</p>
+              <p>Банк 345345345, БИК 3244234, кор/счет 234324234</p>
+              <p>Расчётный счёт 32432432432423</p>
+
+              <p>Исполнитель________________________ <span class="input-value-text"
+                  data-output="contractor_signature"></span></p>
+
             </div>
 
             <div class="contract-preview__navigation">
