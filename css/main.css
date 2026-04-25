@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .home {
   padding: 40px 0;
 }
@@ -100,6 +101,33 @@
   margin: 64px 0;
   font-size: 14px;
   line-height: 150%;
+  position: relative;
+  z-index: 1;
+}
+.contract-preview-text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: #fff;
+  z-index: 1;
+}
+.contract-preview-text:after {
+  content: "пример";
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 150px;
+  line-height: 150%;
+  font-weight: 900;
+  color: #E33B32;
+  opacity: 0.5;
+  -webkit-transform: rotate(-45deg) translate(-50%, -50%);
+          transform: rotate(-45deg) translate(-50%, -50%);
 }
 .contract-preview-text p {
   margin: 0 0 5px;

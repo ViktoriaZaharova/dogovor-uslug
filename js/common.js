@@ -61,274 +61,335 @@ $('.btn-burger').on('click', function (e) {
 
 $(function () {
 
-    function syncValue(key, value) {
-        $('[data-output="' + key + '"]').text(value);
-    }
+  /* =========================
+    DATE FORMAT
+  ========================= */
+  function formatDate(value) {
+    if (!value) return '';
 
-    $(".slider-range").each(function () {
+    let date = new Date(value);
+    if (isNaN(date.getTime())) return value;
 
-        let slider = $(this);
+    let d = String(date.getDate()).padStart(2, '0');
+    let m = String(date.getMonth() + 1).padStart(2, '0');
+    let y = date.getFullYear();
 
-        /* защита от повторной инициализации */
-        if (slider.hasClass("ui-slider")) return;
+    return `${d}.${m}.${y}`;
+  }
 
-        let key = slider.data("sync");
 
-        slider.slider({
-            min: 0,
-            max: 1,
-            step: 0.1,
-            value: 0.1,
-            range: "min",
+  /* =========================
+    NUMBER → WORDS
+  ========================= */
+  function morph(n, f1, f2, f5) {
+    n = Math.abs(n) % 100;
+    let n1 = n % 10;
+    if (n > 10 && n < 20) return f5;
+    if (n1 > 1 && n1 < 5) return f2;
+    if (n1 == 1) return f1;
+    return f5;
+  }
 
-            create: function () {
+  function numberToWords(num) {
 
-                let val = slider.slider("value");
+    const units = [
+      ['', ''], ['один','одна'], ['два','две'], ['три','три'],
+      ['четыре','четыре'], ['пять','пять'], ['шесть','шесть'],
+      ['семь','семь'], ['восемь','восемь'], ['девять','девять']
+    ];
 
-                /* вставка только если нет */
-                if (!slider.find(".slider-value").length) {
-                    slider.find(".ui-slider-handle").append(
-                        '<div class="slider-value"></div>'
-                    );
-                }
+    const teens = [
+      'десять','одиннадцать','двенадцать','тринадцать',
+      'четырнадцать','пятнадцать','шестнадцать',
+      'семнадцать','восемнадцать','девятнадцать'
+    ];
 
-                update(val);
-            },
+    const tens = [
+      '','десять','двадцать','тридцать','сорок',
+      'пятьдесят','шестьдесят','семьдесят',
+      'восемьдесят','девяносто'
+    ];
 
-            slide: function (event, ui) {
-                update(ui.value);
-            },
+    const hundreds = [
+      '','сто','двести','триста','четыреста',
+      'пятьсот','шестьсот','семьсот',
+      'восемьсот','девятьсот'
+    ];
 
-            change: function () {
-                update(slider.slider("value"));
-            }
-        });
+    function parse(num, female = false) {
+      let str = '';
 
-        function update(val) {
-            let value = val.toFixed(1);
+      let h = Math.floor(num / 100);
+      let t = Math.floor((num % 100) / 10);
+      let u = num % 10;
 
-            slider.find(".slider-value").text(value + "%");
+      if (h) str += hundreds[h] + ' ';
 
-            if (key) {
-                syncValue(key, value);
-            }
-        }
-
-    });
-
-});
-
-jQuery(document).ready(function ($) {
-
-  $('.contract-constructor-form').each(function () {
-
-    var $block = $(this);
-    var $items = $block.find('.accordion-item');
-
-    var $progressBar = $block.find('.completed-line__progress');
-    var $progressText = $block.find('.completed-line p span').first();
-    var $downloadBtn = $block.find('.btn-contract');
-
-    /* =========================
-      FORMAT VALUE
-    ========================= */
-    function formatValue($field, value) {
-      if ($field.attr('type') === 'date' && value) {
-        var p = value.split('-');
-        return p[2] + '.' + p[1] + '.' + p[0];
-      }
-
-      if ($field.data('format') === 'money' && value) {
-        return Number(String(value).replace(/\s/g, '') || 0)
-          .toLocaleString('ru-RU') + ' ₽';
-      }
-
-      return value;
-    }
-
-    /* =========================
-      SYNC PREVIEW
-    ========================= */
-    function syncPreview() {
-      $block.find('[data-sync]').each(function () {
-        var $field = $(this);
-        var key = $field.data('sync');
-        var value = formatValue($field, $field.val());
-
-        if (!value || value === '' || value === 'Выберите') {
-          value = $field.data('placeholder') || '____________';
-        }
-
-        $block.find('[data-output="' + key + '"]').text(value);
-      });
-    }
-
-    /* =========================
-      CHECK STEP COMPLETE
-    ========================= */
-    function isComplete($item) {
-      var ok = true;
-
-      $item.find('input, select, textarea').each(function () {
-        var $f = $(this);
-
-        if ($f.prop('required')) {
-          var val = $f.val();
-
-          if (!val || val === '' || val === 'Выберите') {
-            ok = false;
-          }
-        }
-      });
-
-      return ok;
-    }
-
-    /* =========================
-      UPDATE STATE (STEP LOGIC FIXED)
-    ========================= */
-    function updateState() {
-
-      var total = $items.length;
-      var completed = 0;
-
-      $items.each(function (i) {
-
-        var $item = $(this);
-        var $prev = $items.eq(i - 1);
-
-        $item.removeClass('checked no-checked locked force-error');
-
-        // lock logic (strict step flow)
-        if (i > 0 && !$prev.hasClass('checked')) {
-          $item.addClass('locked');
-          return;
-        }
-
-        if (isComplete($item)) {
-          $item.addClass('checked');
-        }
-
-        if ($item.hasClass('checked')) {
-          completed++;
-        }
-
-        if ($item.find('.force-error').length) {
-          $item.addClass('no-checked');
-        }
-
-      });
-
-      // progress
-      var percent = Math.round((completed / total) * 100) || 0;
-
-      $progressBar.stop(true).animate({ width: percent + '%' }, 200);
-      $progressText.text(percent + '%');
-
-      // button state
-      if (percent === 100) {
-        $downloadBtn.removeClass('disabled');
+      if (t === 1) {
+        str += teens[u] + ' ';
       } else {
-        $downloadBtn.addClass('disabled');
+        if (t) str += tens[t] + ' ';
+        if (u) str += units[u][female ? 1 : 0] + ' ';
       }
+
+      return str.trim();
     }
 
-    /* =========================
-      INPUT HANDLER (LOCK FIX)
-    ========================= */
-    $block.on('input change', 'input, select, textarea', function () {
+    if (!num) return 'ноль рублей';
 
-      var $currentItem = $(this).closest('.accordion-item');
+    let result = '';
 
-      if ($currentItem.hasClass('locked')) {
-        $currentItem.addClass('force-error no-checked');
-        $(this).val('');
-        updateState();
-        return false;
+    let millions = Math.floor(num / 1000000);
+    let thousands = Math.floor((num % 1000000) / 1000);
+    let rest = num % 1000;
+
+    if (millions) {
+      result += parse(millions) + ' ' +
+        morph(millions, 'миллион', 'миллиона', 'миллионов') + ' ';
+    }
+
+    if (thousands) {
+      result += parse(thousands, true) + ' ' +
+        morph(thousands, 'тысяча', 'тысячи', 'тысяч') + ' ';
+    }
+
+    if (rest) {
+      result += parse(rest) + ' ';
+    }
+
+    return (result + morph(num, 'рубль', 'рубля', 'рублей')).trim();
+  }
+
+
+  /* =========================
+    FORMAT VALUE
+  ========================= */
+  function formatValue($field) {
+
+    let value = $field.val();
+
+    if ($field.attr('type') === 'date') {
+      return formatDate(value);
+    }
+
+    if ($field.data('format') === 'money' && value) {
+      return Number(String(value).replace(/\s/g, '') || 0)
+        .toLocaleString('ru-RU');
+    }
+
+    return value;
+  }
+
+
+  /* =========================
+    SYNC ALL
+  ========================= */
+  function syncAll() {
+
+    $('[data-sync]').each(function () {
+
+      let $field = $(this);
+      let key = $field.data('sync');
+      let value = formatValue($field);
+
+      if (!value || value === '' || value === 'Выберите') {
+        value = '____________';
       }
 
-      syncPreview();
-      updateState();
-    });
+      $('[data-output="' + key + '"]').text(value);
 
-    /* =========================
-      PREVENT EDIT LOCKED FIELDS
-    ========================= */
-    $block.on('focus mousedown', 'input, select, textarea', function (e) {
-
-      var $currentItem = $(this).closest('.accordion-item');
-
-      if ($currentItem.hasClass('locked')) {
-        $currentItem.addClass('force-error no-checked');
-        updateState();
-        e.preventDefault();
-      }
-    });
-
-    /* =========================
-      PARTICIPANT LOGIC (CUSTOMER / EXECUTOR FIXED)
-    ========================= */
-    $block.on('change', '.participant-type', function () {
-
-      var type = $(this).val();
-      var $wrap = $(this).closest('.participant-block');
-
-      var $nameLabel = $wrap.find('.field-name-label');
-      var $nameInput = $wrap.find('.field-name-input');
-
-      var $docLabel = $wrap.find('.field-doc-label');
-      var $docInput = $wrap.find('.field-doc-input');
-
-      var config = {
-        'Физ. лицо': {
-          nameLabel: 'ФИО',
-          namePlaceholder: 'Иванов Иван Иванович',
-          docLabel: 'Паспорт',
-          docPlaceholder: '1234 567890'
-        },
-        'Юр. лицо': {
-          nameLabel: 'Наименование',
-          namePlaceholder: 'ООО Рога и Копыта',
-          docLabel: 'ОГРН',
-          docPlaceholder: '1027700132195'
-        },
-        'ИП': {
-          nameLabel: 'ФИО ИП',
-          namePlaceholder: 'ИП Иванов И.И.',
-          docLabel: 'ОГРНИП',
-          docPlaceholder: '304500116000157'
-        },
-        'Самозанятый': {
-          nameLabel: 'ФИО',
-          namePlaceholder: 'Иванов Иван Иванович',
-          docLabel: 'ИНН',
-          docPlaceholder: '1234567890'
+      /* текст прописью */
+      if ($field.data('format') === 'money') {
+        let num = parseFloat(value.replace(/\s/g, '').replace(',', '.'));
+        if (!isNaN(num)) {
+          $('[data-output-text="' + key + '"]')
+            .text(numberToWords(Math.floor(num)));
         }
-      };
-
-      if (config[type]) {
-        $nameLabel.text(config[type].nameLabel);
-        $nameInput.attr('placeholder', config[type].namePlaceholder);
-
-        $docLabel.text(config[type].docLabel);
-        $docInput.attr('placeholder', config[type].docPlaceholder);
       }
 
-      updateState();
     });
 
-    /* =========================
-      INIT
-    ========================= */
-    $block.find('.participant-type').trigger('change');
+  }
 
-    syncPreview();
-    updateState();
+
+  /* =========================
+    VAT
+  ========================= */
+  function updateVAT() {
+
+    $('[data-vat-output]').each(function () {
+
+      let el = $(this);
+
+      let sumKey = el.data("vat-output");
+      let rateKey = el.data("rate");
+
+      let total = $('[data-output="' + sumKey + '"]').text().replace(/\s/g, '');
+      let rate = $('[data-output="' + rateKey + '"]').text();
+
+      let totalNum = parseFloat(total);
+      let rateNum = parseFloat(rate);
+
+      if (isNaN(totalNum) || isNaN(rateNum)) return;
+
+      let vat = totalNum * rateNum / (100 + rateNum);
+
+      $('[data-vat-output="' + sumKey + '"]').text(vat.toFixed(2));
+      $('[data-vat-output-text="' + sumKey + '"]')
+        .text(numberToWords(Math.floor(vat)));
+
+    });
+
+  }
+
+
+  /* =========================
+    SLIDER
+  ========================= */
+  $(".slider-range").each(function () {
+
+    let slider = $(this);
+    if (slider.hasClass("ui-slider")) return;
+
+    let key = slider.data("sync");
+
+    slider.slider({
+      min: 0,
+      max: 1,
+      step: 0.1,
+      value: 0.1,
+      range: "min",
+
+      create: function () {
+        if (!slider.find(".slider-value").length) {
+          slider.find(".ui-slider-handle").append('<div class="slider-value"></div>');
+        }
+        update(slider.slider("value"));
+      },
+
+      slide: function (e, ui) {
+        update(ui.value);
+      },
+
+      change: function () {
+        update(slider.slider("value"));
+      }
+    });
+
+    function update(val) {
+      let v = val.toFixed(1);
+
+      slider.find(".slider-value").text(v + "%");
+
+      if (key) {
+        $('[data-output="' + key + '"]').text(v);
+      }
+    }
 
   });
 
-});
 
+  /* =========================
+    CHECK STEP COMPLETE
+  ========================= */
+  function isComplete($item) {
+
+    let ok = true;
+
+    $item.find('input, select, textarea').each(function () {
+
+      let $f = $(this);
+
+      if ($f.prop('required') && !$f.prop('disabled')) {
+
+        let val = $f.val();
+
+        if (!val || val === '' || val === 'Выберите') {
+          ok = false;
+        }
+      }
+
+    });
+
+    return ok;
+  }
+
+
+  /* =========================
+    AUTO STEP SWITCH (🔥)
+  ========================= */
+  function handleAccordion($item) {
+
+    let $collapse = $item.find('.accordion-collapse');
+    let $next = $item.next('.accordion-item');
+
+    if (!$collapse.hasClass('show')) return;
+
+    if (isComplete($item)) {
+
+      // закрыть текущий
+      $collapse.collapse('hide');
+
+      // открыть следующий
+      if ($next.length) {
+        $next.find('.accordion-collapse').collapse('show');
+      }
+
+    }
+
+  }
+
+
+  /* =========================
+    PROGRESS
+  ========================= */
+  function updateProgress() {
+
+    let total = $('.accordion-item').length;
+    let completed = 0;
+
+    $('.accordion-item').each(function () {
+      if (isComplete($(this))) completed++;
+    });
+
+    let percent = Math.round((completed / total) * 100);
+
+    $('.completed-line__progress')
+      .stop(true)
+      .animate({ width: percent + '%' }, 200);
+
+    $('.completed-line span').text(percent + '%');
+
+    if (percent === 100) {
+      $('.btn-contract').removeClass('disabled');
+    } else {
+      $('.btn-contract').addClass('disabled');
+    }
+
+  }
+
+
+  /* =========================
+    EVENTS
+  ========================= */
+  $(document).on('input change', '[data-sync]', function () {
+
+    let $item = $(this).closest('.accordion-item');
+
+    syncAll();
+    updateVAT();
+    updateProgress();
+    handleAccordion($item);
+
+  });
+
+
+  /* INIT */
+  syncAll();
+  updateVAT();
+  updateProgress();
+
+});
 
 // validate
 $(function () {
@@ -375,159 +436,159 @@ $(function () {
 });
 
 // text price
-$(function () {
+// $(function () {
 
-    function morph(n, f1, f2, f5) {
-        n = Math.abs(n) % 100;
-        let n1 = n % 10;
-        if (n > 10 && n < 20) return f5;
-        if (n1 > 1 && n1 < 5) return f2;
-        if (n1 == 1) return f1;
-        return f5;
-    }
+//     function morph(n, f1, f2, f5) {
+//         n = Math.abs(n) % 100;
+//         let n1 = n % 10;
+//         if (n > 10 && n < 20) return f5;
+//         if (n1 > 1 && n1 < 5) return f2;
+//         if (n1 == 1) return f1;
+//         return f5;
+//     }
 
-    function numberToWords(num) {
+//     function numberToWords(num) {
 
-        const units = [
-            ['', ''],
-            ['один', 'одна'],
-            ['два', 'две'],
-            ['три', 'три'],
-            ['четыре', 'четыре'],
-            ['пять', 'пять'],
-            ['шесть', 'шесть'],
-            ['семь', 'семь'],
-            ['восемь', 'восемь'],
-            ['девять', 'девять']
-        ];
+//         const units = [
+//             ['', ''],
+//             ['один', 'одна'],
+//             ['два', 'две'],
+//             ['три', 'три'],
+//             ['четыре', 'четыре'],
+//             ['пять', 'пять'],
+//             ['шесть', 'шесть'],
+//             ['семь', 'семь'],
+//             ['восемь', 'восемь'],
+//             ['девять', 'девять']
+//         ];
 
-        const teens = [
-            'десять','одиннадцать','двенадцать','тринадцать',
-            'четырнадцать','пятнадцать','шестнадцать',
-            'семнадцать','восемнадцать','девятнадцать'
-        ];
+//         const teens = [
+//             'десять','одиннадцать','двенадцать','тринадцать',
+//             'четырнадцать','пятнадцать','шестнадцать',
+//             'семнадцать','восемнадцать','девятнадцать'
+//         ];
 
-        const tens = [
-            '','десять','двадцать','тридцать','сорок',
-            'пятьдесят','шестьдесят','семьдесят',
-            'восемьдесят','девяносто'
-        ];
+//         const tens = [
+//             '','десять','двадцать','тридцать','сорок',
+//             'пятьдесят','шестьдесят','семьдесят',
+//             'восемьдесят','девяносто'
+//         ];
 
-        const hundreds = [
-            '','сто','двести','триста','четыреста',
-            'пятьсот','шестьсот','семьсот',
-            'восемьсот','девятьсот'
-        ];
+//         const hundreds = [
+//             '','сто','двести','триста','четыреста',
+//             'пятьсот','шестьсот','семьсот',
+//             'восемьсот','девятьсот'
+//         ];
 
-        function parse(num, female = false) {
-            let str = '';
+//         function parse(num, female = false) {
+//             let str = '';
 
-            let h = Math.floor(num / 100);
-            let t = Math.floor((num % 100) / 10);
-            let u = num % 10;
+//             let h = Math.floor(num / 100);
+//             let t = Math.floor((num % 100) / 10);
+//             let u = num % 10;
 
-            if (h) str += hundreds[h] + ' ';
+//             if (h) str += hundreds[h] + ' ';
 
-            if (t === 1) {
-                str += teens[u] + ' ';
-            } else {
-                if (t) str += tens[t] + ' ';
-                if (u) str += units[u][female ? 1 : 0] + ' ';
-            }
+//             if (t === 1) {
+//                 str += teens[u] + ' ';
+//             } else {
+//                 if (t) str += tens[t] + ' ';
+//                 if (u) str += units[u][female ? 1 : 0] + ' ';
+//             }
 
-            return str.trim();
-        }
+//             return str.trim();
+//         }
 
-        if (!num) return 'ноль рублей';
+//         if (!num) return 'ноль рублей';
 
-        let result = '';
+//         let result = '';
 
-        let millions = Math.floor(num / 1000000);
-        let thousands = Math.floor((num % 1000000) / 1000);
-        let rest = num % 1000;
+//         let millions = Math.floor(num / 1000000);
+//         let thousands = Math.floor((num % 1000000) / 1000);
+//         let rest = num % 1000;
 
-        if (millions) {
-            result += parse(millions) + ' ' +
-                morph(millions, 'миллион', 'миллиона', 'миллионов') + ' ';
-        }
+//         if (millions) {
+//             result += parse(millions) + ' ' +
+//                 morph(millions, 'миллион', 'миллиона', 'миллионов') + ' ';
+//         }
 
-        if (thousands) {
-            result += parse(thousands, true) + ' ' +
-                morph(thousands, 'тысяча', 'тысячи', 'тысяч') + ' ';
-        }
+//         if (thousands) {
+//             result += parse(thousands, true) + ' ' +
+//                 morph(thousands, 'тысяча', 'тысячи', 'тысяч') + ' ';
+//         }
 
-        if (rest) {
-            result += parse(rest) + ' ';
-        }
+//         if (rest) {
+//             result += parse(rest) + ' ';
+//         }
 
-        return (result + morph(num, 'рубль', 'рубля', 'рублей')).trim();
-    }
-
-
-    /* синхронизация input → data-output */
-    function syncInputs() {
-
-        $("[data-sync]").each(function () {
-
-            let key = $(this).data("sync");
-            let val = $(this).val();
-
-            $('[data-output="' + key + '"]').text(val);
-        });
-    }
+//         return (result + morph(num, 'рубль', 'рубля', 'рублей')).trim();
+//     }
 
 
-    function updateVAT() {
+//     /* синхронизация input → data-output */
+//     function syncInputs() {
 
-        $("[data-vat-output]").each(function () {
+//         $("[data-sync]").each(function () {
 
-            let el = $(this);
+//             let key = $(this).data("sync");
+//             let val = $(this).val();
 
-            let sumKey = el.data("vat-output");
-            let rateKey = el.data("rate");
-
-            let total = $('[data-output="' + sumKey + '"]').text()
-                .replace(/\s/g, '')
-                .replace(',', '.');
-
-            let rate = $('[data-output="' + rateKey + '"]').text()
-                .replace(',', '.');
-
-            let totalNum = parseFloat(total);
-            let rateNum = parseFloat(rate);
-
-            if (isNaN(totalNum) || isNaN(rateNum)) return;
-
-            let vat = totalNum * rateNum / (100 + rateNum);
-
-            let rub = Math.floor(vat);
-            let kop = Math.round((vat - rub) * 100);
-
-            $('[data-vat-output="' + sumKey + '"]').text(vat.toFixed(2));
-
-            let text = numberToWords(rub) + ' ' + kop + ' копеек';
-
-            $('[data-vat-output-text="' + sumKey + '"]').text(text);
-        });
-    }
+//             $('[data-output="' + key + '"]').text(val);
+//         });
+//     }
 
 
-    function updateAll() {
-        syncInputs();
-        updateVAT();
-    }
+//     function updateVAT() {
+
+//         $("[data-vat-output]").each(function () {
+
+//             let el = $(this);
+
+//             let sumKey = el.data("vat-output");
+//             let rateKey = el.data("rate");
+
+//             let total = $('[data-output="' + sumKey + '"]').text()
+//                 .replace(/\s/g, '')
+//                 .replace(',', '.');
+
+//             let rate = $('[data-output="' + rateKey + '"]').text()
+//                 .replace(',', '.');
+
+//             let totalNum = parseFloat(total);
+//             let rateNum = parseFloat(rate);
+
+//             if (isNaN(totalNum) || isNaN(rateNum)) return;
+
+//             let vat = totalNum * rateNum / (100 + rateNum);
+
+//             let rub = Math.floor(vat);
+//             let kop = Math.round((vat - rub) * 100);
+
+//             $('[data-vat-output="' + sumKey + '"]').text(vat.toFixed(2));
+
+//             let text = numberToWords(rub) + ' ' + kop + ' копеек';
+
+//             $('[data-vat-output-text="' + sumKey + '"]').text(text);
+//         });
+//     }
 
 
-    /* слушаем всё */
-    $(document).on("input change", "[data-sync]", function () {
-        updateAll();
-    });
+//     function updateAll() {
+//         syncInputs();
+//         updateVAT();
+//     }
 
 
-    /* первый запуск */
-    updateAll();
+//     /* слушаем всё */
+//     $(document).on("input change", "[data-sync]", function () {
+//         updateAll();
+//     });
 
-});
+
+//     /* первый запуск */
+//     updateAll();
+
+// });
 
 $(function () {
 
