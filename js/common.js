@@ -67,14 +67,10 @@ $(function () {
   function formatDate(value) {
     if (!value) return '';
 
-    let date = new Date(value);
-    if (isNaN(date.getTime())) return value;
+    let parts = value.split('-'); // YYYY-MM-DD
+    if (parts.length !== 3) return value;
 
-    let d = String(date.getDate()).padStart(2, '0');
-    let m = String(date.getMonth() + 1).padStart(2, '0');
-    let y = date.getFullYear();
-
-    return `${d}.${m}.${y}`;
+    return parts[2] + '.' + parts[1] + '.' + parts[0];
   }
 
 
@@ -182,6 +178,34 @@ $(function () {
 
 
   /* =========================
+    VALIDATION
+  ========================= */
+  function validateField($field) {
+
+    let $label = $field.closest('label');
+    if (!$label.length) return;
+
+    let val = $field.val();
+
+    if ($field.prop('required')) {
+
+      if (!val || val === '' || val === 'Выберите') {
+        $label.addClass('error-label');
+      } else {
+        $label.removeClass('error-label');
+      }
+
+    }
+  }
+
+  function validateItem($item) {
+    $item.find('input, select, textarea').each(function () {
+      validateField($(this));
+    });
+  }
+
+
+  /* =========================
     SYNC ALL
   ========================= */
   function syncAll() {
@@ -198,7 +222,6 @@ $(function () {
 
       $('[data-output="' + key + '"]').text(value);
 
-      /* текст прописью */
       if ($field.data('format') === 'money') {
         let num = parseFloat(value.replace(/\s/g, '').replace(',', '.'));
         if (!isNaN(num)) {
@@ -262,7 +285,8 @@ $(function () {
 
       create: function () {
         if (!slider.find(".slider-value").length) {
-          slider.find(".ui-slider-handle").append('<div class="slider-value"></div>');
+          slider.find(".ui-slider-handle")
+            .append('<div class="slider-value"></div>');
         }
         update(slider.slider("value"));
       },
@@ -316,40 +340,25 @@ $(function () {
 
 
   /* =========================
-    AUTO STEP SWITCH (🔥)
-  ========================= */
-  function handleAccordion($item) {
-
-    let $collapse = $item.find('.accordion-collapse');
-    let $next = $item.next('.accordion-item');
-
-    if (!$collapse.hasClass('show')) return;
-
-    if (isComplete($item)) {
-
-      // закрыть текущий
-      $collapse.collapse('hide');
-
-      // открыть следующий
-      if ($next.length) {
-        $next.find('.accordion-collapse').collapse('show');
-      }
-
-    }
-
-  }
-
-
-  /* =========================
-    PROGRESS
+    PROGRESS + CHECKED
   ========================= */
   function updateProgress() {
 
-    let total = $('.accordion-item').length;
+    let $items = $('.accordion-item');
+    let total = $items.length;
     let completed = 0;
 
-    $('.accordion-item').each(function () {
-      if (isComplete($(this))) completed++;
+    $items.each(function () {
+
+      let $item = $(this);
+
+      if (isComplete($item)) {
+        $item.addClass('checked').removeClass('no-checked');
+        completed++;
+      } else {
+        $item.removeClass('checked');
+      }
+
     });
 
     let percent = Math.round((completed / total) * 100);
@@ -370,16 +379,48 @@ $(function () {
 
 
   /* =========================
+    BLOCK NEXT STEP INPUT
+  ========================= */
+  $(document).on('focus mousedown', '.accordion-item input, .accordion-item select, .accordion-item textarea', function (e) {
+
+    let $current = $(this).closest('.accordion-item');
+    let $prev = $current.prev('.accordion-item');
+
+    if ($prev.length && !isComplete($prev)) {
+
+      $prev.addClass('no-checked');
+      validateItem($prev);
+
+      e.preventDefault();
+      $(this).blur();
+
+      $('html, body').animate({
+        scrollTop: $prev.offset().top - 100
+      }, 300);
+
+      return false;
+    }
+
+  });
+
+
+  /* =========================
     EVENTS
   ========================= */
   $(document).on('input change', '[data-sync]', function () {
 
-    let $item = $(this).closest('.accordion-item');
+    let $field = $(this);
+    let $item = $field.closest('.accordion-item');
+
+    validateField($field);
+
+    if (isComplete($item)) {
+      $item.removeClass('no-checked');
+    }
 
     syncAll();
     updateVAT();
     updateProgress();
-    handleAccordion($item);
 
   });
 
