@@ -78,7 +78,7 @@
               готовый документ, соответствующий законодательству.</p>
           </div>
 
-          <a href="#" class="btn btn-accent">
+          <a href="#contract-constructor" class="btn btn-accent go_to">
             <span>Начать бесплатно</span>
             <svg class="svg-icon btn-icon">
               <use xlink:href="img/sprite.svg#arrow-right"></use>
@@ -227,7 +227,7 @@
     </div>
   </section>
 
-  <section class="contract-constructor bg-light-grey p-64">
+  <section class="contract-constructor bg-light-grey p-64" id="contract-constructor">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -483,7 +483,7 @@
 
                         <select name="possibility_select" class="select-my" data-sync="possibility_select">
                           <option value="Вправе">Вправе</option>
-                          <option value="Нет">Не вправе</option>
+                          <option value="Не вправе">Не вправе</option>
                         </select>
                       </div>
 
@@ -514,8 +514,7 @@
                           </div>
                         </div>
                         <label>
-                          <input type="date" name="delivery_time_1" required
-                            data-sync="delivery_time_1">
+                          <input type="date" name="delivery_time_1" required data-sync="delivery_time_1">
                         </label>
                       </div>
 
@@ -530,8 +529,7 @@
                           </div>
                         </div>
                         <label>
-                          <input type="date" name="delivery_time_2" required
-                            data-sync="delivery_time_2">
+                          <input type="date" name="delivery_time_2" required data-sync="delivery_time_2">
                         </label>
                       </div>
                     </div>
@@ -640,25 +638,73 @@
                         </label>
                       </div>
 
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">Оплата по этапам<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
+
+
+                      <div class="col-12">
+                        <div class="payment-steps-block">
+                          <div class="row">
+                            <div class="col-12 mb-16">
+                              <div class="label-title">Оплата по этапам<div class="tooltip-wrapper">
+                                  <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                                  <div class="tooltip-box">
+                                    <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а
+                                      Исполнитель
+                                      принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                      (определенным) Предметным заданием </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- управление -->
+                              <label>
+                                <select name="payment_step_select" class="select-my" data-sync="payment_step_select">
+                                  <option value="Нет">Нет</option>
+                                  <option value="Да">Да</option>
+                                </select>
+                              </label>
                             </div>
                           </div>
+
+
+                          <!-- этапы -->
+                          <div class="steps-wrapper"></div>
+
+                          <a href="#" class="btn btn-accent btn-add-step w-100 mb-16">+ Добавить этап</a>
+
+
+                          <!-- шаблон этапа -->
+                          <script type="text/template" class="step-template">
+                            <div class="step-item">
+                              <div class="row">
+
+                                <div class="col-12 mb-16">
+                                  <label>
+                                    <input type="text" placeholder="Название этапа" required class="step-name">
+                                  </label>
+                                </div>
+
+                                <div class="col-12 col-lg-6 mb-16">
+                                  <label>
+                                    <input type="text" placeholder="10000" required class="step-sum">
+                                  </label>
+                                </div>
+
+                                <div class="col-12 col-lg-6 mb-16">
+                                  <label>
+                                    <input type="text" placeholder="5 дней" required class="step-date">
+                                  </label>
+                                </div>
+
+                                <div class="col-12 mb-16">
+                                  <a href="#" class="btn btn-light-blue btn-remove-step w-100">Удалить этап</a>
+                                </div>
+
+                              </div>
+                            </div>
+                          </script>
                         </div>
-                        <label>
-                          <select name="payment_step_select" class="select-my" data-sync="payment_step_select">
-                            <option value="Да">Да</option>
-                           <option value="Нет">Нет</option>
-                          </select>
-                        </label>
                       </div>
 
-                      <div class="col-12 col-lg-6 mb-16">
+                      <!-- <div class="col-12 col-lg-6 mb-16">
                         <div class="label-title">Название этапа<div class="tooltip-wrapper">
                             <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
                             <div class="tooltip-box">
@@ -703,70 +749,11 @@
                           <input type="text" name="date_step" placeholder="5 дней после приемки" required
                             data-sync="date_step">
                         </label>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
 
-                  <div class="accordion-body__wrapper">
-                    <div class="row">
-                      <div class="col-12 mb-16">
-                        <p class="font-500 text-uppercase">Приемка услуг</p>
-                      </div>
 
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">Срок подписания акта<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="signing_period" placeholder="5" required data-sync="signing_period">
-                        </label>
-                      </div>
-
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">Возможность отказа
-                          <div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <select name="possibility_of_refusal" class="select-my" data-sync="possibility_of_refusal">
-                            <option value="Да">Да</option>
-                            <option value="Hет">Hет</option>
-                          </select>
-                        </label>
-                      </div>
-
-                      <div class="col-12 mb-16">
-                        <div class="label-title">Автоматическая приемка (если не подписан акт)
-                          <div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <select name="possibility_of_refusal" class="select-my" data-sync="possibility_of_refusal">
-                            <option value="Да">Да</option>
-                            <option value="Hет">Hет</option>
-                          </select>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
 
                   <div class="accordion-body__wrapper">
                     <div class="row">
@@ -969,7 +956,7 @@
                         </div>
 
                         <div class="slider-range-wrapper">
-                          <div class="slider-range" data-sync="slider-range_executor"></div>
+                          <div class="slider-range" data-sync="slider-range_executor" data-format="percent"></div>
                         </div>
 
                         <div class="text-xsmall color-grey">
@@ -1007,7 +994,7 @@
                         </div>
 
                         <div class="slider-range-wrapper">
-                          <div class="slider-range" data-sync="slider-range_contractor"></div>
+                          <div class="slider-range" data-sync="slider-range_contractor" data-format="percent"></div>
                         </div>
 
                         <div class="text-xsmall color-grey">
@@ -1260,9 +1247,71 @@
                           </div>
                         </div>
                         <label>
-                          <select name="acceptance_certificate" class="select-my" data-sync="acceptance_certificate">
+                          <select name="acceptance_certificate" class="select-my" data-sync="acceptance_certificate"
+                            data-toggle="acceptance-block" data-toggle-value="Акт сдачи-приемки оказанных услуг">
                             <option value="Акт сдачи-приемки оказанных услуг">Акт сдачи-приемки оказанных услуг</option>
                             <option value="Нет">Нет</option>
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-body__wrapper conditional-block" data-toggle-target="acceptance-block">
+                    <div class="row">
+                      <div class="col-12 mb-16">
+                        <p class="font-500 text-uppercase">Приемка услуг</p>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Срок подписания акта<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="text" name="signing_period" placeholder="5" required data-sync="signing_period">
+                        </label>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Возможность отказа
+                          <div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="possibility_of_refusal" class="select-my" data-sync="possibility_of_refusal">
+                            <option value="Да">Да</option>
+                            <option value="Hет">Hет</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Автоматическая приемка (если не подписан акт)
+                          <div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <select name="automatic_acceptance" class="select-my" data-sync="automatic_acceptance">
+                            <option value="Да">Да</option>
+                            <option value="Hет">Hет</option>
                           </select>
                         </label>
                       </div>
@@ -1360,7 +1409,7 @@
 
               </div>
             </div>
-           
+
           </div>
         </div>
 
@@ -1408,15 +1457,21 @@
                   class="nput-value-text" data-vat-output="total_cost" data-rate="nds_cost"></span> (<span
                   class="input-value-text input-value-text-text" data-vat-output-text="total_cost"
                   data-rate="nds_cost"></span>) рублей и включено в стоимость Услуг.</p>
-              <p>2.3. Заказчик оплачивает Услуги согласно этапам:</p>
-              <p>2.3.1. Первый этап стоимостью <span class="input-value-text" data-output="sum_step"></span> (<span
-                  class="input-value-text" data-output-text="sum_step"></span>) рублей оплачивается в течение <span
-                  class="input-value-text" data-output="date_step"></span>
-                рабочих дней c момента приемки этапа Услуг.</p>
-              <p>2.3.2. Второй этап стоимостью <span class="input-value-text" data-output="sum_step_2"></span> (<span
-                  class="input-value-text" data-output-text="sum_step_2"></span>) рублей оплачивается в течение <span
-                  class="input-value-text" data-output="date_step_2"></span>
-                рабочих дней c момента приемки этапа Услуг.</p>
+
+
+              <div data-output="steps_text">
+                <p>2.3. Заказчик оплачивает Услуги согласно этапам:</p>
+                <p>2.3.1. <span class="input-value-text" data-output="name_step"></span> стоимостью <span
+                    class="input-value-text" data-output="sum_step"></span> (<span class="input-value-text"
+                    data-output-text="sum_step"></span>) рублей оплачивается в течение <span class="input-value-text"
+                    data-output="date_step"></span>
+                  рабочих дней c момента приемки этапа Услуг.</p>
+                <p>2.3.2. <span class="input-value-text" data-output="name_step_2"></span> стоимостью <span class="input-value-text" data-output="sum_step_2"></span> (<span
+                    class="input-value-text" data-output-text="sum_step_2"></span>) рублей оплачивается в течение <span
+                    class="input-value-text" data-output="date_step_2"></span>
+                  рабочих дней c момента приемки этапа Услуг.</p>
+              </div>
+
               <p>2.4. Способ оплаты Услуг: перечисление Заказчиком денежных средств в валюте <span
                   class="input-value-text" data-output="currency_select"></span> на <span class="input-value-text"
                   data-output="variable_payment_select"></span>
@@ -1522,21 +1577,22 @@
 
 
               <p class="text-center font-600">11. Подписи и реквизиты сторон</p>
-              <p>Заказчик <span class="input-value-text" data-output="customer_signature"></span></p>
-              <p>Адрес: fghgfh</p>
-              <p>Паспорт: 345345</p>
-              <p>Банковские реквизиты: 34543534543</p>
+              <p>Заказчик <span class="input-value-text" data-output="name_customer"></span></p>
+              <p>Адрес: <span class="input-value-text" data-output="city_imprisonment"></span></p>
+              <p>Паспорт: <span class="input-value-text" data-output="document_customer"></span></p>
+              <p>Банковские реквизиты: <span class="input-value-text" data-output="currency_select"></span></p>
 
-              <p>Заказчик________________________ <span class="input-value-text"
-                  data-output="customer_signature"></span></p>
-              <p>Исполнитель <span class="input-value-text" data-output="contractor_signature"></span></p>
-              <p>Адрес регистрации: 394000, Воронежская обл, г Воронеж</p>
-              <p>ОГРНИП 321344300014660, ИНН 343103403498</p>
+              <p>Заказчик ________________________ <span class="input-value-text" data-output="name_customer"></span>
+              </p>
+              <p>Исполнитель <span class="input-value-text" data-output="name_executor"></span></p>
+              <p>Адрес регистрации: <span class="input-value-text" data-output="address_executor"></span></p>
+              <p>ОГРНИП <span class="input-value-text" data-output="document_executor"></span>, ИНН <span
+                  class="input-value-text" data-output="document_executor"></span></p>
               <p>Банк 345345345, БИК 3244234, кор/счет 234324234</p>
               <p>Расчётный счёт 32432432432423</p>
 
-              <p>Исполнитель________________________ <span class="input-value-text"
-                  data-output="contractor_signature"></span></p>
+              <p>Исполнитель ________________________ <span class="input-value-text" data-output="name_executor"></span>
+              </p>
 
             </div>
 
@@ -1545,7 +1601,7 @@
                 <div class="completed-line__wrapper">
                   <div class="completed-line__progress"></div>
                 </div>
-                <p>Заполнено<span>20%</span></p>
+                <p>Заполнено<span></span></p>
                 <p>100%</p>
               </div>
 
