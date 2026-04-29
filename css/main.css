@@ -340,6 +340,14 @@
   display: none;
 }
 
+.btn-add-step {
+  display: none;
+}
+
+.steps-wrapper {
+  margin-top: 16px;
+}
+
 .slider-range-wrapper {
   position: relative;
   padding-top: 58px;

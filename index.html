@@ -445,8 +445,8 @@
                   <span class="accordion-button__subtitle">Реквизиты Заказчика и Исполнителя</span>
                 </button>
               </div>
-              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" role="region"
-                data-bs-parent="#accordionExample">
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                role="region" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <div class="accordion-body__wrapper">
                     <div class="row">
@@ -643,7 +643,7 @@
                       <div class="col-12">
                         <div class="payment-steps-block">
                           <div class="row">
-                            <div class="col-12 mb-16">
+                            <div class="col-12">
                               <div class="label-title">Оплата по этапам<div class="tooltip-wrapper">
                                   <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
                                   <div class="tooltip-box">
@@ -808,7 +808,7 @@
                           </div>
                         </div>
                         <label>
-                          <input type="text" name="warranty_description" placeholder="5" required
+                          <input type="text" name="warranty_description" placeholder="Только на работы" required
                             data-sync="warranty_description">
                         </label>
                       </div>
@@ -856,40 +856,6 @@
                         </label>
                       </div>
 
-                      <div class="col-12 mb-16">
-                        <div class="label-title">Можно ли передавать данные третьим лицам
-                          <div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="data_parties" placeholder="Передает информацию третьим лицам"
-                            required data-sync="data_parties">
-                        </label>
-                      </div>
-
-                      <div class="col-12 mb-16">
-                        <div class="label-title">Требуется ли согласие
-                          <div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="consent_required" placeholder="После получения согласия" required
-                            data-sync="consent_required">
-                        </label>
-                      </div>
-
                     </div>
                   </div>
                 </div>
@@ -906,8 +872,8 @@
                 </button>
               </div>
 
-              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" role="region"
-                data-bs-parent="#accordionExample">
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                role="region" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <div class="accordion-body__wrapper">
                     <div class="row">
@@ -956,7 +922,8 @@
                         </div>
 
                         <div class="slider-range-wrapper">
-                          <div class="slider-range" data-sync="slider-range_executor" data-format="percent"></div>
+                          <div class="slider-range" data-target="slider-range_executor"></div>
+                          <input type="hidden" data-sync="slider-range_executor">
                         </div>
 
                         <div class="text-xsmall color-grey">
@@ -994,7 +961,8 @@
                         </div>
 
                         <div class="slider-range-wrapper">
-                          <div class="slider-range" data-sync="slider-range_contractor" data-format="percent"></div>
+                          <div class="slider-range" data-target="slider-range_contractor"></div>
+                          <input type="hidden" data-sync="slider-range_contractor">
                         </div>
 
                         <div class="text-xsmall color-grey">
@@ -1453,8 +1421,9 @@
 
               <p>2.1. Общая стоимость Услуг составляет <span class="input-value-text" data-output="total_cost"></span>
                 (<span class="input-value-text input-value-text-text" data-output-text="total_cost"></span>) рублей.</p>
+
               <p>2.2. НДС составляет <span class="input-value-text" data-output="nds_cost"></span>% в размере <span
-                  class="nput-value-text" data-vat-output="total_cost" data-rate="nds_cost"></span> (<span
+                  class="input-value-text" data-vat-output="total_cost" data-rate="nds_cost"></span> (<span
                   class="input-value-text input-value-text-text" data-vat-output-text="total_cost"
                   data-rate="nds_cost"></span>) рублей и включено в стоимость Услуг.</p>
 
@@ -1466,9 +1435,10 @@
                     data-output-text="sum_step"></span>) рублей оплачивается в течение <span class="input-value-text"
                     data-output="date_step"></span>
                   рабочих дней c момента приемки этапа Услуг.</p>
-                <p>2.3.2. <span class="input-value-text" data-output="name_step_2"></span> стоимостью <span class="input-value-text" data-output="sum_step_2"></span> (<span
-                    class="input-value-text" data-output-text="sum_step_2"></span>) рублей оплачивается в течение <span
-                    class="input-value-text" data-output="date_step_2"></span>
+                <p>2.3.2. <span class="input-value-text" data-output="name_step_2"></span> стоимостью <span
+                    class="input-value-text" data-output="sum_step_2"></span> (<span class="input-value-text"
+                    data-output-text="sum_step_2"></span>) рублей оплачивается в течение <span class="input-value-text"
+                    data-output="date_step_2"></span>
                   рабочих дней c момента приемки этапа Услуг.</p>
               </div>
 
@@ -1493,25 +1463,34 @@
                 отказ в течение <span class="input-value-text" data-output="signing_period"></span> календарных дней,
                 Услуги считаются оказанными надлежащим образом и принятыми Заказчиком.</p>
 
-              <p class="text-center font-600">4. Гарантия качества оказанных услуг</p>
 
-              <p>4.1. Гарантия качества распространяется только на работы, не включают в себя гарантию на материал.</p>
-              <p>4.2. Гарантийный срок устанавливается в размере <span class="input-value-text"
-                  data-output="warranty_period"></span> с даты подписания Сторонами последнего акта
-                сдачи-приемки оказанных услуг.</p>
-              <p>4.3. Исполнитель <span class="input-value-text" data-output="warranty_exceptions"></span>, которые
-                возникли по вине Заказчика.</p>
+              <div class="warranty-text w-100">
+                <p class="text-center font-600">4. Гарантия качества оказанных услуг</p>
 
-              <p class="text-center font-600">5. Конфиденциальность информации</p>
+                <p>4.1. Гарантия качества распространяется <span class="input-value-text"
+                    data-output="warranty_description"></span>, не включают в себя гарантию на материал.
+                </p>
+                <p>4.2. Гарантийный срок устанавливается в размере <span class="input-value-text"
+                    data-output="warranty_period"></span> с даты подписания Сторонами последнего акта
+                  сдачи-приемки оказанных услуг.</p>
+                <p>4.3. Исполнитель <span class="input-value-text" data-output="warranty_exceptions"></span>, которые
+                  возникли по вине Заказчика.</p>
+              </div>
 
-              <p>5.1. Исполнитель обязуется <span class="input-value-text" data-output="confidentiality_select"></span>
-                режим конфиденциальности информации в отношении информации,
-                переданной Заказчиком для оказания Услуг (в том числе документы); фактических сведений о Заказчике, не
-                опубликованных в свободном доступе; переговоров и деловой переписке Сторон до и после заключения
-                Договора.</p>
-              <p>5.2. Не является нарушением режима конфиденциальности случаи, когда для надлежащего оказания Услуг
-                Исполнитель <span class="input-value-text" data-output="data_parties"></span> <span
-                  class="input-value-text" data-output="consent_required"></span> Заказчика.</p>
+              <div class="confidentiality-text w-100">
+                <p class="text-center font-600">5. Конфиденциальность информации</p>
+
+                <p>5.1. Исполнитель обязуется <span class="input-value-text"
+                    data-output="confidentiality_select"></span>
+                  режим конфиденциальности информации в отношении информации,
+                  переданной Заказчиком для оказания Услуг (в том числе документы); фактических сведений о Заказчике, не
+                  опубликованных в свободном доступе; переговоров и деловой переписке Сторон до и после заключения
+                  Договора.</p>
+                <p>5.2. Не является нарушением режима конфиденциальности случаи, когда для надлежащего оказания Услуг
+                  Исполнитель <span class="input-value-text" data-output="data_parties"></span> <span
+                    class="input-value-text" data-output="consent_required"></span> Заказчика.</p>
+              </div>
+
 
               <p class="text-center font-600">6. Ответственность сторон</p>
 

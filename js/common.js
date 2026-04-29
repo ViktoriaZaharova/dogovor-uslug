@@ -605,9 +605,14 @@ $(function () {
   ========================= */
   function formatDate(value) {
     if (!value) return '';
+    if (value.includes('.')) return value;
+
     let parts = value.split('-');
-    if (parts.length !== 3) return value;
-    return parts[2] + '.' + parts[1] + '.' + parts[0];
+    if (parts.length === 3) {
+      return parts[2] + '.' + parts[1] + '.' + parts[0];
+    }
+
+    return value;
   }
 
   /* =========================
@@ -682,47 +687,233 @@ $(function () {
     return parseFloat(String(v || '').replace(/\s/g, '').replace(',', '.')) || 0;
   }
 
-  /* =========================
-    VALIDATION (ВОЗВРАЩЕНО)
-  ========================= */
-
-  function validateField($field) {
-
-    let $label = $field.closest('label');
-    if (!$label.length) return;
-
-    let val = $field.val();
-
-    if ($field.prop('required')) {
-      if (!val || val === '' || val === 'Выберите') {
-        $label.addClass('error-label');
-      } else {
-        $label.removeClass('error-label');
-      }
-    }
+  function calcVAT(sum, percent) {
+    sum = getNumber(sum);
+    percent = getNumber(percent);
+    if (!sum || !percent) return 0;
+    return sum * percent / 100;
   }
 
-  function validateItem($item) {
-    $item.find('input, select, textarea').each(function () {
-      validateField($(this));
+  /* =========================
+    SYNC
+  ========================= */
+
+  function syncAll() {
+
+    $('[data-sync]').each(function () {
+
+      let $f = $(this);
+      let key = $f.data('sync');
+      let val = $f.val();
+
+      if ($f.attr('type') === 'date' || $f.data('type') === 'date') {
+        val = formatDate(val);
+      }
+
+      if (!val) val = '____________';
+
+      $('[data-output="' + key + '"]').text(val);
+
+      let num = getNumber(val);
+      let $textOut = $('[data-output-text="' + key + '"]');
+
+      if ($textOut.length) {
+        if ($f.data('format') === 'percent') {
+          $textOut.text(num + '%');
+        } else {
+          $textOut.text(numberToWords(num));
+        }
+      }
+
+    });
+
+    updateVATOutputs();
+  }
+
+  /* =========================
+    VAT (ЕДИНЫЙ)
+  ========================= */
+
+  function updateVATOutputs() {
+
+    $('[data-vat-output]').each(function () {
+
+      let $el = $(this);
+
+      let rateKey = $el.data('rate'); // nds_cost
+      let baseKey = $el.data('vat-output'); // total_cost
+
+      let sum = getNumber($('[data-sync="' + baseKey + '"]').val());
+      let percent = getNumber($('[data-sync="' + rateKey + '"]').val());
+
+      let vat = calcVAT(sum, percent);
+
+      $el.text(vat.toLocaleString('ru-RU'));
+    });
+
+    $('[data-vat-output-text]').each(function () {
+
+      let $el = $(this);
+
+      let rateKey = $el.data('rate');
+      let baseKey = $el.data('vat-output-text');
+
+      let sum = getNumber($('[data-sync="' + baseKey + '"]').val());
+      let percent = getNumber($('[data-sync="' + rateKey + '"]').val());
+
+      let vat = calcVAT(sum, percent);
+
+      $el.text(numberToWords(vat));
+    });
+
+  }
+
+  /* =========================
+    SLIDER
+  ========================= */
+
+  function initSliders() {
+
+    $(".slider-range").each(function () {
+
+      let slider = $(this);
+      if (slider.hasClass("ui-slider")) return;
+
+      let key = slider.data("target");
+      let $input = $('[data-sync="' + key + '"]');
+
+      slider.slider({
+        min: 0,
+        max: 5,
+        step: 0.1,
+        value: 0.1,
+        range: "min",
+
+        create: function () {
+          slider.find(".ui-slider-handle")
+            .append('<div class="slider-value"></div>');
+          update(slider.slider("value"));
+        },
+
+        slide: function (e, ui) {
+          update(ui.value);
+        }
+      });
+
+      function update(val) {
+        let v = parseFloat(val).toFixed(1);
+
+        slider.find(".slider-value").text(v + "%");
+
+        if ($input.length) {
+          $input.val(v).trigger('change');
+        }
+
+        $('[data-output="' + key + '"]').text(v);
+      }
+
     });
   }
 
   /* =========================
-    PROGRESS (ВОЗВРАЩЕНО)
+    STEPS
   ========================= */
+
+  function addStep($block) {
+    let tpl = $('.step-template').html();
+    let index = $block.find('.step-item').length + 1;
+
+    let $tpl = $(tpl);
+    $tpl.find('.step-name').val('Этап ' + index);
+
+    $block.find('.steps-wrapper').append($tpl);
+  }
+
+  function toggleSteps($block) {
+
+    let val = $block.find('[data-sync="payment_step_select"]').val();
+    let $wrapper = $block.find('.steps-wrapper');
+    let $btn = $block.find('.btn-add-step');
+
+    if (val === 'Да') {
+
+      $wrapper.slideDown(200);
+      $btn.show();
+
+      if ($block.find('.step-item').length === 0) {
+        addStep($block);
+        addStep($block);
+      }
+
+    } else {
+      $wrapper.slideUp(200);
+      $btn.hide();
+      $wrapper.empty();
+    }
+  }
+
+  /* =========================
+    CONTRACT
+  ========================= */
+
+  function renderContract() {
+
+    let enabled = $('[data-sync="payment_step_select"]').val() === 'Да';
+    let $contract = $('[data-output="steps_text"]');
+
+    if (!enabled) {
+      $contract.hide();
+      return;
+    }
+
+    $contract.show();
+
+    let html = '<p>2.3. Заказчик оплачивает Услуги согласно этапам:</p>';
+
+    $('.step-item').each(function (i) {
+
+      let name = $(this).find('.step-name').val();
+      let sum = getNumber($(this).find('.step-sum').val());
+      let date = formatDate($(this).find('.step-date').val());
+
+      html += `
+        <p>
+          2.3.${i + 1}. ${name || 'Этап ' + (i + 1)}
+          — ${sum.toLocaleString('ru-RU')} (${numberToWords(sum)}) руб.
+          — срок: ${date || '___'} дней
+        </p>
+      `;
+    });
+
+    // let vat = calcVAT(
+    //   $('[data-sync="sum"]').val(),
+    //   $('[data-sync="nds_cost"]').val()
+    // );
+
+    // html += `
+    //   <p>
+    //     НДС ${$('[data-sync="nds_cost"]').val()}% —
+    //     ${vat.toLocaleString('ru-RU')}
+    //     (${numberToWords(vat)}) руб.
+    //   </p>
+    // `;
+
+    $contract.html(html);
+  }
+
+  /* =========================
+ PROGRESS
+========================= */
 
   function isComplete($item) {
     let ok = true;
 
     $item.find('input, select, textarea').each(function () {
-
       let $f = $(this);
 
       if ($f.prop('required') && !$f.prop('disabled')) {
         if (!$f.val()) ok = false;
       }
-
     });
 
     return ok;
@@ -753,240 +944,161 @@ $(function () {
 
     $('.completed-line span').text(percent + '%');
 
-    if (percent === 100) {
-      $('.btn-contract').removeClass('disabled');
-    } else {
-      $('.btn-contract').addClass('disabled');
-    }
+    $('.btn-contract').toggleClass('disabled', percent !== 100);
   }
 
   /* =========================
-    SYNC
+    BLOCK NEXT STEP INPUT
   ========================= */
 
-  function syncAll() {
+  $(document).on(
+    'focus mousedown',
+    '.accordion-item input, .accordion-item select, .accordion-item textarea',
+    function (e) {
 
-  $('[data-sync]').each(function () {
+      let $current = $(this).closest('.accordion-item');
+      let $prev = $current.prev('.accordion-item');
 
-    let $f = $(this);
-    let key = $f.data('sync');
-    let val = $f.val();
+      if ($prev.length && !isComplete($prev)) {
 
-    if (!val) val = '____________';
+        $prev.addClass('no-checked');
 
-    // обычный output
-    $('[data-output="' + key + '"]').text(val);
+        // подсветка ошибок
+        $prev.find('input, select, textarea').each(function () {
+          let $f = $(this);
+          let $label = $f.closest('label');
 
-    let num = getNumber(val);
-
-    // 💥 ВАЖНО: всегда проверяем data-output-text, независимо от format
-    let $textOut = $('[data-output-text="' + key + '"]');
-
-    if ($textOut.length) {
-
-      if ($f.data('format') === 'percent') {
-        $textOut.text(num + '%');
-      }
-      else {
-        $textOut.text(numberToWords(num));
-      }
-
-    }
-
-  });
-}
-
-  /* =========================
-    SLIDER (ВОЗВРАЩЕН И ПОЧИНЕН)
-  ========================= */
-
-  function initSliders() {
-
-    /* =========================
-   SLIDER
- ========================= */
-    $(".slider-range").each(function () {
-
-      let slider = $(this);
-      if (slider.hasClass("ui-slider")) return;
-
-      let key = slider.data("sync");
-
-      slider.slider({
-        min: 0,
-        max: 1,
-        step: 0.1,
-        value: 0.1,
-        range: "min",
-
-        create: function () {
-          if (!slider.find(".slider-value").length) {
-            slider.find(".ui-slider-handle")
-              .append('<div class="slider-value"></div>');
+          if ($f.prop('required') && !$f.val()) {
+            $label.addClass('error-label');
           }
-          update(slider.slider("value"));
-        },
+        });
 
-        slide: function (e, ui) {
-          update(ui.value);
-        },
+        e.preventDefault();
+        $(this).blur();
 
-        change: function () {
-          update(slider.slider("value"));
-        }
-      });
+        $('html, body').animate({
+          scrollTop: $prev.offset().top - 100
+        }, 300);
 
-      function update(val) {
-        let v = val.toFixed(1);
-
-        slider.find(".slider-value").text(v + "%");
-
-        if (key) {
-          $('[data-output="' + key + '"]').text(v);
-        }
+        return false;
       }
+    }
+  );
 
-    });
-
-  }
+  $(document).on('input change', '.step-item input', function () {
+    renderContract();
+    updateProgress();
+  });
 
   /* =========================
-    STEPS
+    WARRANTY TOGGLE
   ========================= */
 
-  function addStep($block) {
-    let tpl = $('.step-template').html();
-    $block.find('.steps-wrapper').append(tpl);
-  }
+  function toggleWarranty() {
 
-  function toggleSteps($block) {
+    let val = $('[data-sync="warranty_select"]').val();
+    let $block = $('.warranty-text');
 
-    let val = $block.find('[data-sync="payment_step_select"]').val();
+    if (val === 'Нет') {
 
-    if (val === 'Да') {
+      $block.slideUp(200);
 
-      $block.find('.steps-wrapper, .btn-add-step').slideDown(200);
-
-      if ($block.find('.step-item').length === 0) {
-        addStep($block);
-        addStep($block); // сразу 2 этапа
-      }
+      $block.find('input, select, textarea')
+        .prop('disabled', true);
 
     } else {
-      $block.find('.steps-wrapper, .btn-add-step').slideUp(200);
-      $block.find('.steps-wrapper').empty();
+
+      $block.slideDown(200);
+
+      $block.find('input, select, textarea')
+        .prop('disabled', false);
+
     }
 
   }
 
   /* =========================
-    CONTRACT RENDER
-  ========================= */
+  CONFIDENTIALITY TOGGLE
+========================= */
 
-  function renderContract() {
+function toggleConfidentiality() {
 
-    let enabled = $('[data-sync="payment_step_select"]').val() === 'Да';
-    let $contract = $('[data-output="steps_text"]');
+  let val = $('[data-sync="confidentiality_select"]').val();
+  let $block = $('.confidentiality-text');
 
-    if (!enabled) {
-      $contract.hide();
-      return;
-    }
+  if (val === 'Соблюдать') {
 
-    $contract.show();
+    $block.slideDown(200);
 
-    let html = '<p>2.3. Заказчик оплачивает Услуги согласно этапам:</p>';
+    // включаем поля внутри
+    $block.find('input, select, textarea')
+      .prop('disabled', false);
 
-    $('.step-item').each(function (i) {
+  } else {
 
-      let name = $(this).find('.step-name').val();
-      let sum = getNumber($(this).find('.step-sum').val());
-      let date = $(this).find('.step-date').val();
+    $block.slideUp(200);
 
-      html += `
-        <p>
-          2.3.${i + 1}. ${name || 'Этап ' + (i + 1)}
-          — ${sum.toLocaleString('ru-RU')} (${numberToWords(sum)}) руб.
-          — срок: ${date || '___'}
-        </p>
-      `;
+    // отключаем поля (важно для валидации)
+    $block.find('input, select, textarea')
+      .prop('disabled', true);
 
-    });
-
-    $contract.html(html);
   }
 
-  /* =========================
-      BLOCK NEXT STEP INPUT
-    ========================= */
-  $(document).on('focus mousedown', '.accordion-item input, .accordion-item select, .accordion-item textarea', function (e) {
-
-    let $current = $(this).closest('.accordion-item');
-    let $prev = $current.prev('.accordion-item');
-
-    if ($prev.length && !isComplete($prev)) {
-
-      $prev.addClass('no-checked');
-      validateItem($prev);
-
-      e.preventDefault();
-      $(this).blur();
-
-      $('html, body').animate({
-        scrollTop: $prev.offset().top - 100
-      }, 300);
-
-      return false;
-    }
-
-  });
+}
 
   /* =========================
     EVENTS
   ========================= */
 
-  $(document).on('click', '.btn-add-step', function () {
-    addStep($(this).closest('.payment-steps-block'));
+  $(document).on('click', '.btn-add-step', function (e) {
+    e.preventDefault();
+    let $block = $(this).closest('.payment-steps-block');
+    addStep($block);
     renderContract();
   });
 
   $(document).on('click', '.btn-remove-step', function () {
 
-    if ($('.step-item').length > 1) {
-      $(this).closest('.step-item').remove();
+    let $block = $(this).closest('.payment-steps-block');
+    let $wrapper = $block.find('.steps-wrapper');
+
+    $(this).closest('.step-item').remove();
+
+    if ($wrapper.find('.step-item').length === 0) {
+      $block.find('[data-sync="payment_step_select"]')
+        .val('Нет')
+        .trigger('change');
     }
 
     renderContract();
   });
 
-  $(document).on('input change', '.payment-steps-block input, .payment-steps-block select', function () {
-
+  $(document).on('input change', '[data-sync]', function () {
     let $block = $(this).closest('.payment-steps-block');
 
     toggleSteps($block);
-
     syncAll();
     renderContract();
     updateProgress();
+    toggleWarranty();
+    toggleConfidentiality();
   });
 
-  $(document).on('input change', '[data-sync]', function () {
 
-    syncAll();
-    updateProgress();
-  });
 
   /* =========================
     INIT
   ========================= */
 
-  syncAll();
   initSliders();
-  updateProgress();
+  syncAll();
+  toggleSteps($('.payment-steps-block'));
+  toggleWarranty();
+  toggleConfidentiality();
   renderContract();
+  updateProgress();
 
 });
-
 
 
 
