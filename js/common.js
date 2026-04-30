@@ -1021,29 +1021,180 @@ $(function () {
   CONFIDENTIALITY TOGGLE
 ========================= */
 
-function toggleConfidentiality() {
+  function toggleConfidentiality() {
 
-  let val = $('[data-sync="confidentiality_select"]').val();
-  let $block = $('.confidentiality-text');
+    let val = $('[data-sync="confidentiality_select"]').val();
+    let $block = $('.confidentiality-text');
 
-  if (val === 'Соблюдать') {
+    if (val === 'Соблюдать') {
 
-    $block.slideDown(200);
+      $block.slideDown(200);
 
-    // включаем поля внутри
-    $block.find('input, select, textarea')
-      .prop('disabled', false);
+      // включаем поля внутри
+      $block.find('input, select, textarea')
+        .prop('disabled', false);
 
-  } else {
+    } else {
 
-    $block.slideUp(200);
+      $block.slideUp(200);
 
-    // отключаем поля (важно для валидации)
-    $block.find('input, select, textarea')
-      .prop('disabled', true);
+      // отключаем поля (важно для валидации)
+      $block.find('input, select, textarea')
+        .prop('disabled', true);
+
+    }
 
   }
 
+  /* =========================
+    PARTICIPANT LOGIC
+  ========================= */
+
+  function toggleParticipant($block) {
+
+    let type = $block.find('.participant-type').val();
+
+    let $nameLabel = $block.find('.field-name-label');
+    let $docLabel = $block.find('.field-doc-label');
+
+    let $fields = $block.find('[data-field]');
+
+    // сначала всё скрываем и отключаем
+    $fields.each(function () {
+      $(this)
+        .closest('.col-12, .col-lg-6')
+        .hide()
+        .find('input')
+        .prop('required', false)
+        .prop('disabled', true);
+    });
+
+    function show(field, required = true) {
+      let $f = $block.find('[data-field="' + field + '"]');
+
+      $f.closest('.col-12, .col-lg-6').show();
+
+      $f.prop('disabled', false);
+
+      if (required) {
+        $f.prop('required', true);
+      }
+    }
+
+    /* ===== ТИПЫ ===== */
+
+    if (type === 'Физ. лицо') {
+
+      $nameLabel.text('ФИО');
+      $docLabel.text('Паспорт');
+
+      show('name');
+      show('address');
+      show('document');
+
+    }
+
+    else if (type === 'ИП') {
+
+      $nameLabel.text('ФИО ИП');
+      $docLabel.text('ОГРНИП');
+
+      show('name');
+      show('address');
+      show('inn');
+      show('document');
+
+    }
+
+    else if (type === 'Самозанятый') {
+
+      $nameLabel.text('ФИО');
+      $docLabel.text('ИНН');
+
+      show('name');
+      show('inn');
+
+    }
+
+    else if (type === 'Юр. лицо') {
+
+      $nameLabel.text('Наименование организации');
+      $docLabel.text('ОГРН');
+
+      show('name');
+      show('address');
+      show('inn');
+      show('document');
+
+      // можно добавить доп поля позже:
+      // директор, основание, должность
+    }
+
+    else if (type === 'Иностранный гражданин') {
+
+      $nameLabel.text('ФИО');
+      $docLabel.text('Документ');
+
+      show('name');
+      show('document');
+      show('country');
+      show('work_permission');
+
+    }
+
+  }
+
+  $(document).on('change', '.participant-type', function () {
+
+    let $block = $(this).closest('.participant-block');
+
+    toggleParticipant($block);
+
+    updateProgress();
+  });
+
+  $('.participant-block').each(function () {
+    toggleParticipant($(this));
+  });
+
+  /* =========================
+  NDS TEXT
+========================= */
+
+function updateNDSText() {
+
+  let type = $('[data-sync="nds_select"]').val();
+  let percent = $('[data-sync="nds_cost"]').val();
+
+  let sum = getNumber($('[data-sync="total_cost"]').val());
+  let vat = calcVAT(sum, percent);
+
+  let html = '';
+
+  if (type === 'Нет') {
+
+    html = `
+      2.2. НДС не применяется в соответствии с действующим законодательством.
+    `;
+
+  } else if (type === 'Включен') {
+
+    html = `
+      2.2. НДС составляет ${percent}% и включен в стоимость Услуг.
+      Сумма НДС: ${vat.toLocaleString('ru-RU')} (${numberToWords(vat)}) руб.
+    `;
+
+  } else {
+
+    html = `
+      2.2. НДС составляет ${percent}% в размере 
+      ${vat.toLocaleString('ru-RU')} (${numberToWords(vat)}) руб.
+      и не включен в стоимость Услуг.
+    `;
+
+  }
+
+  $('.nds-text').html(html);
 }
 
   /* =========================
@@ -1057,8 +1208,8 @@ function toggleConfidentiality() {
     renderContract();
   });
 
-  $(document).on('click', '.btn-remove-step', function () {
-
+  $(document).on('click', '.btn-remove-step', function (e) {
+    e.preventDefault();
     let $block = $(this).closest('.payment-steps-block');
     let $wrapper = $block.find('.steps-wrapper');
 
@@ -1078,10 +1229,12 @@ function toggleConfidentiality() {
 
     toggleSteps($block);
     syncAll();
+    updateNDSText();
     renderContract();
     updateProgress();
     toggleWarranty();
     toggleConfidentiality();
+    
   });
 
 
@@ -1095,8 +1248,10 @@ function toggleConfidentiality() {
   toggleSteps($('.payment-steps-block'));
   toggleWarranty();
   toggleConfidentiality();
+  updateNDSText();
   renderContract();
   updateProgress();
+  
 
 });
 

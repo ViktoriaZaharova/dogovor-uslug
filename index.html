@@ -341,96 +341,161 @@
                 <div class="accordion-body">
 
 
+                  <!-- =========================
+  ЗАКАЗЧИК
+========================= -->
                   <div class="accordion-body__wrapper w-100 participant-block" data-role="customer">
 
                     <div class="row">
+
                       <div class="col-12 mb-16">
                         <p class="font-500 text-uppercase">Заказчик</p>
                       </div>
 
+                      <!-- Тип -->
                       <div class="col-12 col-lg-6 mb-16">
                         <div class="label-title">Тип</div>
                         <label>
-                          <select class="select-my participant-type" name="type_customer" data-sync="type_customer">
+                          <select class="select-my participant-type" data-sync="type_customer">
                             <option value="Физ. лицо">Физ. лицо</option>
                             <option value="ИП">ИП</option>
                             <option value="Самозанятый">Самозанятый</option>
                             <option value="Юр. лицо">Юр. лицо</option>
+                            <option value="Иностранный гражданин">Иностранный гражданин</option>
                           </select>
                         </label>
                       </div>
 
+                      <!-- ФИО / Название -->
                       <div class="col-12 col-lg-6 mb-16">
                         <div class="label-title field-name-label">ФИО / Наименование</div>
                         <label>
-                          <input type="text" name="name_customer" class="field-name-input"
-                            placeholder="Иванов Иван Иванович" required data-sync="name_customer">
+                          <input type="text" data-field="name" placeholder="Иванов Иван Иванович"
+                            data-sync="name_customer">
                         </label>
                       </div>
 
+                      <!-- ИНН -->
                       <div class="col-12 col-lg-6 mb-16">
                         <div class="label-title">ИНН</div>
                         <label>
-                          <input type="text" name="inn_customer" placeholder="21217371637" required
-                            data-sync="inn_customer">
-                          <span class="error-text"><img src="img/error-icon-min.svg" alt="">Ошибка</span>
+                          <input type="text" data-field="inn" placeholder="21217371637" data-sync="inn_customer">
                         </label>
                       </div>
 
-                      <div class="col-12 col-lg-6">
-                        <div class="label-title field-doc-label">Паспорт / ОГРН</div>
+                      <!-- ОГРН / Паспорт -->
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title field-doc-label">Документ</div>
                         <label>
-                          <input type="text" name="document_customer" placeholder="32-32-32" required
-                            data-sync="document_customer" class="field-doc-input">
+                          <input type="text" data-field="document" placeholder="Серия / ОГРН"
+                            data-sync="document_customer">
                         </label>
                       </div>
-                    </div>
 
+                      <!-- Адрес -->
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Адрес</div>
+                        <label>
+                          <input type="text" data-field="address" placeholder="Адрес" data-sync="address_customer">
+                        </label>
+                      </div>
+
+                      <!-- Страна (для иностранцев) -->
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Страна</div>
+                        <label>
+                          <input type="text" data-field="country" placeholder="Украина / Германия">
+                        </label>
+                      </div>
+
+                      <!-- Разрешение на работу -->
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Разрешение на работу</div>
+                        <label>
+                          <input type="text" data-field="work_permission" placeholder="№ документа / кем выдано">
+                        </label>
+                      </div>
+
+                    </div>
                   </div>
 
+
+                  <!-- =========================
+  ИСПОЛНИТЕЛЬ
+========================= -->
                   <div class="accordion-body__wrapper w-100 participant-block" data-role="executor">
 
                     <div class="row">
+
                       <div class="col-12 mb-16">
                         <p class="font-500 text-uppercase">Исполнитель</p>
                       </div>
 
+                      <!-- Тип -->
                       <div class="col-12 col-lg-6 mb-16">
                         <div class="label-title">Тип</div>
                         <label>
-                          <select class="select-my participant-type" name="type_executor" data-sync="type_executor">
+                          <select class="select-my participant-type" data-sync="type_executor">
+                            <option value="Физ. лицо">Физ. лицо</option>
                             <option value="ИП">ИП</option>
                             <option value="Самозанятый">Самозанятый</option>
                             <option value="Юр. лицо">Юр. лицо</option>
+                            <option value="Иностранный гражданин">Иностранный гражданин</option>
                           </select>
                         </label>
                       </div>
 
+                      <!-- ФИО / Название -->
                       <div class="col-12 col-lg-6 mb-16">
                         <div class="label-title field-name-label">ФИО / Наименование</div>
                         <label>
-                          <input type="text" name="name_executor" class="field-name-input"
-                            placeholder="ООО “Рога и копыта”" required data-sync="name_executor">
+                          <input type="text" data-field="name" placeholder="ООО Рога и Копыта"
+                            data-sync="name_executor">
                         </label>
                       </div>
 
+                      <!-- ИНН -->
                       <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">ОГРНИП / ОГРН</div>
+                        <div class="label-title">ИНН</div>
                         <label>
-                          <input type="text" name="document_executor" placeholder="243234234324" required
+                          <input type="text" data-field="inn" placeholder="ИНН" data-sync="inn_executor">
+                        </label>
+                      </div>
+
+                      <!-- Документ -->
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title field-doc-label">Документ</div>
+                        <label>
+                          <input type="text" data-field="document" placeholder="ОГРН / Паспорт"
                             data-sync="document_executor">
                         </label>
                       </div>
 
-                      <div class="col-12 col-lg-6">
+                      <!-- Адрес -->
+                      <div class="col-12 col-lg-6 mb-16">
                         <div class="label-title">Адрес</div>
                         <label>
-                          <input type="text" name="address_executor" placeholder="Москва" required
-                            data-sync="address_executor">
+                          <input type="text" data-field="address" placeholder="Адрес" data-sync="address_executor">
                         </label>
                       </div>
-                    </div>
 
+                      <!-- Страна -->
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Страна</div>
+                        <label>
+                          <input type="text" data-field="country" placeholder="Страна">
+                        </label>
+                      </div>
+
+                      <!-- Разрешение -->
+                      <div class="col-12 mb-16">
+                        <div class="label-title">Разрешение на работу</div>
+                        <label>
+                          <input type="text" data-field="work_permission" placeholder="Документ">
+                        </label>
+                      </div>
+
+                    </div>
                   </div>
 
                 </div>
@@ -445,8 +510,8 @@
                   <span class="accordion-button__subtitle">Реквизиты Заказчика и Исполнителя</span>
                 </button>
               </div>
-              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                role="region" data-bs-parent="#accordionExample">
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" role="region"
+                data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <div class="accordion-body__wrapper">
                     <div class="row">
@@ -813,7 +878,7 @@
                         </label>
                       </div>
 
-                      <div class="col-12 mb-16">
+                      <div class="col-12">
                         <div class="label-title">Исключения (например: материалы)<div class="tooltip-wrapper">
                             <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
                             <div class="tooltip-box">
@@ -851,7 +916,7 @@
                         <label>
                           <select name="confidentiality_select" class="select-my" data-sync="confidentiality_select">
                             <option value="Соблюдать">Соблюдать</option>
-                            <option value="Hе соблюдать">Hе соблюдать</option>
+                            <option value="Не соблюдать">Hе соблюдать</option>
                           </select>
                         </label>
                       </div>
@@ -872,8 +937,8 @@
                 </button>
               </div>
 
-              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                role="region" data-bs-parent="#accordionExample">
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" role="region"
+                data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <div class="accordion-body__wrapper">
                     <div class="row">
@@ -989,7 +1054,6 @@
                     </div>
                   </div>
 
-
                   <div class="accordion-body__wrapper">
                     <div class="row">
                       <div class="col-12 mb-16">
@@ -1035,166 +1099,6 @@
                             data-sync="elimination_period">
                         </label>
                       </div>
-                    </div>
-                  </div>
-
-                  <div class="accordion-body__wrapper">
-                    <div class="row">
-                      <div class="col-12 mb-16">
-                        <p class="font-500 text-uppercase">Форс-мажор</p>
-                      </div>
-
-                      <div class="col-12">
-                        <div class="label-title">Включить пункт (да/нет)<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <select name="enable_item" class="select-my" data-sync="enable_item">
-                            <option value="Да">Да</option>
-                            <option value="Нет">Нет</option>
-                          </select>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="accordion-body__wrapper">
-                    <div class="row">
-                      <div class="col-12 mb-16">
-                        <p class="font-500 text-uppercase">Споры</p>
-                      </div>
-
-                      <div class="col-12 mb-16">
-                        <div class="label-title">Досудебный порядок (да/нет)<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <select name="pre-trial_procedure" class="select-my" data-sync="pre-trial_procedure">
-                            <option value="Да">Да</option>
-                            <option value="Нет">Нет</option>
-                          </select>
-                        </label>
-                      </div>
-
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">Срок ответа на претензию<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="response_time" placeholder="14" required data-sync="response_time">
-                        </label>
-                      </div>
-
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">Суд<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="court_name" placeholder="Указать суд" required
-                            data-sync="court_name">
-                        </label>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div class="accordion-body__wrapper">
-                    <div class="row">
-                      <div class="col-12 mb-16">
-                        <p class="font-500 text-uppercase">Заключительные условия</p>
-                      </div>
-
-                      <div class="col-12 mb-16">
-                        <div class="label-title">Способы обмена документами<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <select name="document_exchange" class="select-my" data-sync="document_exchange">
-                            <option value="email">email</option>
-                            <option value="почта">почта</option>
-                            <option value="курьер">курьер</option>
-                          </select>
-                        </label>
-                      </div>
-
-                      <div class="col-12 mb-16">
-                        <div class="label-title">Срок отправки оригиналов<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="dispatch_time" placeholder="5" required data-sync="dispatch_time">
-                        </label>
-                      </div>
-
-                      <div class="col-12 mb-16">
-                        <div class="label-title">Момент вступления договора в силу<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="moment_of_entry" placeholder="10" required
-                            data-sync="moment_of_entry">
-                        </label>
-                      </div>
-
-                      <div class="col-12 mb-16">
-                        <div class="label-title">Количество экземпляров<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="number_of_copies" placeholder="3" required
-                            data-sync="number_of_copies">
-                        </label>
-                      </div>
-
                     </div>
                   </div>
 
@@ -1265,7 +1169,7 @@
                         </label>
                       </div>
 
-                      <div class="col-12 mb-16">
+                      <div class="col-12">
                         <div class="label-title">Автоматическая приемка (если не подписан акт)
                           <div class="tooltip-wrapper">
                             <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
@@ -1308,6 +1212,38 @@
                         </label>
                       </div>
 
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">E-mail Заказчика<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="email" name="customer_email" placeholder="ivanov@example.com"
+                            data-sync="customer_email">
+                        </label>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Телефон Заказчика<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="tel" name="customer_phone" placeholder="+7 (999) 123-45-67"
+                            data-sync="customer_phone">
+                        </label>
+                      </div>
+
                       <div class="col-12 mb-16">
                         <div class="label-title">Подпись Исполнителя<div class="tooltip-wrapper">
                             <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
@@ -1323,6 +1259,39 @@
                             data-sync="contractor_signature">
                         </label>
                       </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">E-mail Исполнителя<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="email" name="contractor_email" placeholder="svetlyy@example.com"
+                            data-sync="contractor_email">
+                        </label>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-16">
+                        <div class="label-title">Телефон Исполнителя<div class="tooltip-wrapper">
+                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
+                            <div class="tooltip-box">
+                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
+                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
+                                (определенным) Предметным заданием </span>
+                            </div>
+                          </div>
+                        </div>
+                        <label>
+                          <input type="tel" name="contractor_phone" placeholder="+7 (999) 123-45-67"
+                            data-sync="contractor_phone">
+                        </label>
+                      </div>
+
                     </div>
                   </div>
 
@@ -1422,11 +1391,13 @@
               <p>2.1. Общая стоимость Услуг составляет <span class="input-value-text" data-output="total_cost"></span>
                 (<span class="input-value-text input-value-text-text" data-output-text="total_cost"></span>) рублей.</p>
 
-              <p>2.2. НДС составляет <span class="input-value-text" data-output="nds_cost"></span>% в размере <span
+              <!-- <p>2.2. НДС составляет <span class="input-value-text" data-output="nds_cost"></span>% в размере <span
                   class="input-value-text" data-vat-output="total_cost" data-rate="nds_cost"></span> (<span
                   class="input-value-text input-value-text-text" data-vat-output-text="total_cost"
-                  data-rate="nds_cost"></span>) рублей и включено в стоимость Услуг.</p>
-
+                  data-rate="nds_cost"></span>) рублей и включено в стоимость Услуг.</p> -->
+<p class="nds-block">
+  <span class="nds-text"></span>
+</p>
 
               <div data-output="steps_text">
                 <p>2.3. Заказчик оплачивает Услуги согласно этапам:</p>
@@ -1468,7 +1439,8 @@
                 <p class="text-center font-600">4. Гарантия качества оказанных услуг</p>
 
                 <p>4.1. Гарантия качества распространяется <span class="input-value-text"
-                    data-output="warranty_description"></span>, не включают в себя гарантию на материал.
+                    data-output="warranty_description"></span>, не включают в себя гарантию на <span
+                    class="input-value-text" data-output="warranty_exceptions"></span>.
                 </p>
                 <p>4.2. Гарантийный срок устанавливается в размере <span class="input-value-text"
                     data-output="warranty_period"></span> с даты подписания Сторонами последнего акта
@@ -1526,29 +1498,25 @@
 
               <p class="text-center font-600">8. Разрешение споров</p>
               <p>8.1. Возникающие споры разрешаются в досудебном порядке путем направления претензионного письма. Срок
-                рассмотрения претензионного письма составляет <span class="input-value-text"
-                  data-output="response_time"></span> рабочих дней с момента получения. В случае, если
+                рассмотрения претензионного письма составляет 10 рабочих дней с момента получения. В случае, если
                 разрешение спора в досудебном порядке признано Сторонами невозможным, спор подлежит рассмотрению в
-                <span class="input-value-text" data-output="court_name"></span> в соответствии с законодательством
-                Российской Федерации.
+                судебном порядке в соответствии с законодательством Российской Федерации.
               </p>
 
               <p class="text-center font-600">9. Заключительные положения</p>
               <p>9.1. Документы (в том числе акты, претензии и т.д.) предоставляются лично или направляются Стороне
-                <span class="input-value-text" data-output="document_exchange"></span> с уведомлением о вручении,
-                курьерской доставкой или путем направления письма на
-                электронную почту (электронная почта Заказчика: gfhjk@mail.ru ; электронная почта Исполнителя:
-                dfdfgdf@mail.ru ).
+                почтовым отправлением с уведомлением о вручении, курьерской доставкой или путем направления письма на
+                электронную почту (электронная почта Заказчика: <span class="input-value-text"
+                  data-output="customer_email"></span>; электронная почта Исполнителя:
+                <span class="input-value-text" data-output="contractor_email"></span>).
               </p>
               <p>9.2. Оригиналы документов направляются Стороной почтовым отправлением по запросу другой Стороны в
-                течение
-                <span class="input-value-text" data-output="dispatch_time"></span> рабочих дней.
+                течение 7 рабочих дней.
               </p>
-              <p>9.3. Договор вступает в силу с <span class="input-value-text" data-output="moment_of_entry"></span> его
-                Сторонами и действует до полного исполнения
-                Сторонами обязательств по Договору.</p>
-              <p>9.4. Договор составлен в <span class="input-value-text" data-output="number_of_copies"></span>
-                экземплярах на русском языке, по одному для каждой из Сторон.</p>
+              <p>9.3. Договор вступает в силу с момента подписания его Сторонами и действует до полного исполнения
+                Сторонами обязательств по Договору.
+              </p>
+              <p>9.4. Договор составлен в двух экземплярах на русском языке, по одному для каждой из Сторон.</p>
 
 
               <p class="text-center font-600">10. Приложения к договору</p>
