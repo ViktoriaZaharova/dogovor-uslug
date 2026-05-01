@@ -342,8 +342,8 @@
 
 
                   <!-- =========================
-  ЗАКАЗЧИК
-========================= -->
+                      ЗАКАЗЧИК
+                    ========================= -->
                   <div class="accordion-body__wrapper w-100 participant-block" data-role="customer">
 
                     <div class="row">
@@ -421,8 +421,8 @@
 
 
                   <!-- =========================
-  ИСПОЛНИТЕЛЬ
-========================= -->
+                      ИСПОЛНИТЕЛЬ
+                    ========================= -->
                   <div class="accordion-body__wrapper w-100 participant-block" data-role="executor">
 
                     <div class="row">
@@ -483,7 +483,7 @@
                       <div class="col-12 col-lg-6 mb-16">
                         <div class="label-title">Страна</div>
                         <label>
-                          <input type="text" data-field="country" placeholder="Страна">
+                          <input type="text" data-field="country" data-sync="country_executor" placeholder="Страна">
                         </label>
                       </div>
 
@@ -491,7 +491,7 @@
                       <div class="col-12 mb-16">
                         <div class="label-title">Разрешение на работу</div>
                         <label>
-                          <input type="text" data-field="work_permission" placeholder="Документ">
+                          <input type="text" data-field="work_permission" data-sync="work_permission" placeholder="Документ">
                         </label>
                       </div>
 
@@ -665,7 +665,7 @@
                         <p class="font-500 text-uppercase">Порядок оплаты</p>
                       </div>
 
-                      <div class="col-12 col-lg-6 mb-16">
+                      <div class="col-12 mb-16">
                         <div class="label-title">Способ оплаты<div class="tooltip-wrapper">
                             <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
                             <div class="tooltip-box">
@@ -684,7 +684,61 @@
                         </label>
                       </div>
 
-                      <div class="col-12 col-lg-6 mb-16">
+                      <div class="col-12 payment-details-block">
+
+                        <!-- КАРТА -->
+                        <div class="payment-type payment-card">
+                          <div class="row">
+
+                            <div class="col-12 mb-16">
+                              <div class="label-title">Номер карты получателя</div>
+                              <label>
+                                <input type="text" placeholder="0000 0000 0000 0000" data-field="card"
+                                  data-sync="executor_card">
+                              </label>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <!-- БАНК -->
+                        <div class="payment-type payment-bank">
+                          <div class="row">
+
+                            <div class="col-12 col-lg-6 mb-16">
+                              <div class="label-title">Расчетный счет</div>
+                              <label>
+                                <input type="text" data-field="bank_account" data-sync="executor_account">
+                              </label>
+                            </div>
+
+                            <div class="col-12 col-lg-6 mb-16">
+                              <div class="label-title">БИК</div>
+                              <label>
+                                <input type="text" data-field="bik" data-sync="executor_bik">
+                              </label>
+                            </div>
+
+                            <div class="col-12 col-lg-6 mb-16">
+                              <div class="label-title">Корреспондентский счет</div>
+                              <label>
+                                <input type="text" data-field="ks" data-sync="executor_ks">
+                              </label>
+                            </div>
+
+                            <div class="col-12 col-lg-6 mb-16">
+                              <div class="label-title">Банк</div>
+                              <label>
+                                <input type="text" data-field="bank_name" data-sync="executor_bank">
+                              </label>
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="col-12 mb-16">
                         <div class="label-title">Валюта<div class="tooltip-wrapper">
                             <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
                             <div class="tooltip-box">
@@ -702,7 +756,6 @@
                           </select>
                         </label>
                       </div>
-
 
 
                       <div class="col-12">
@@ -1364,11 +1417,12 @@
                 <p>г.<span class="input-value-text" data-output="city"></span></p>
               </div>
 
-              <p><span class="input-value-text" data-output="name_customer"></span>, действующий как физическое лицо
+              <p><span class="input-value-text" data-output="name_customer"></span>, действующий как <span
+                  class="input-value-text" data-output="type_customer"></span>
                 (далее – "Заказчик"), с одной стороны, и
-                <span class="input-value-text" data-output="name_executor"></span>, зарегистрированный в реестре
-                индивидуальных
-                предпринимателей под <span class="input-value-text" data-output="document_executor"></span> (далее –
+                <span class="input-value-text" data-output="name_executor"></span>, зарегистрированный в <span
+                  class="input-value-text" data-output="type_executor"></span> под <span class="input-value-text"
+                  data-output="document_executor"></span> (далее –
                 "Исполнитель"), с другой стороны,
                 вместе именуемые «Стороны», а индивидуально – «Сторона», заключили настоящий договор
                 оказания услуг (далее – «Договор») о нижеследующем:
@@ -1391,13 +1445,9 @@
               <p>2.1. Общая стоимость Услуг составляет <span class="input-value-text" data-output="total_cost"></span>
                 (<span class="input-value-text input-value-text-text" data-output-text="total_cost"></span>) рублей.</p>
 
-              <!-- <p>2.2. НДС составляет <span class="input-value-text" data-output="nds_cost"></span>% в размере <span
-                  class="input-value-text" data-vat-output="total_cost" data-rate="nds_cost"></span> (<span
-                  class="input-value-text input-value-text-text" data-vat-output-text="total_cost"
-                  data-rate="nds_cost"></span>) рублей и включено в стоимость Услуг.</p> -->
-<p class="nds-block">
-  <span class="nds-text"></span>
-</p>
+              <p class="nds-block">
+                <span class="nds-text"></span>
+              </p>
 
               <div data-output="steps_text">
                 <p>2.3. Заказчик оплачивает Услуги согласно этапам:</p>
@@ -1525,18 +1575,30 @@
 
               <p class="text-center font-600">11. Подписи и реквизиты сторон</p>
               <p>Заказчик <span class="input-value-text" data-output="name_customer"></span></p>
+              <p>Тип: <span class="input-value-text" data-output="type_customer"></span></p>
+              
+
               <p>Адрес: <span class="input-value-text" data-output="city_imprisonment"></span></p>
               <p>Паспорт: <span class="input-value-text" data-output="document_customer"></span></p>
               <p>Банковские реквизиты: <span class="input-value-text" data-output="currency_select"></span></p>
+              <p>E-mail: <span class="input-value-text" data-output="customer_email"></span></p>
+              <p>Телефон: <span class="input-value-text" data-output="customer_phone"></span></p>
 
               <p>Заказчик ________________________ <span class="input-value-text" data-output="name_customer"></span>
               </p>
+
+
               <p>Исполнитель <span class="input-value-text" data-output="name_executor"></span></p>
+              <p>Тип: <span class="input-value-text" data-output="type_executor"></span></p>
               <p>Адрес регистрации: <span class="input-value-text" data-output="address_executor"></span></p>
               <p>ОГРНИП <span class="input-value-text" data-output="document_executor"></span>, ИНН <span
                   class="input-value-text" data-output="document_executor"></span></p>
-              <p>Банк 345345345, БИК 3244234, кор/счет 234324234</p>
-              <p>Расчётный счёт 32432432432423</p>
+              <p>Банк <span class="input-value-text" data-output="executor_ks"></span>, БИК <span
+                  class="input-value-text" data-output="executor_bik"></span>, кор/счет <span class="input-value-text"
+                  data-output="executor_ks"></span></p>
+              <p>Расчётный счёт <span class="input-value-text" data-output="executor_account"></span></p>
+              <p>E-mail: <span class="input-value-text" data-output="contractor_email"></span></p>
+              <p>Телефон: <span class="input-value-text" data-output="contractor_phone"></span></p>
 
               <p>Исполнитель ________________________ <span class="input-value-text" data-output="name_executor"></span>
               </p>

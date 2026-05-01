@@ -340,7 +340,7 @@
   display: none;
 }
 
-.btn-add-step {
+.btn-add-step, .payment-details-block {
   display: none;
 }
 

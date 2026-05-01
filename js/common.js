@@ -1197,6 +1197,53 @@ function updateNDSText() {
   $('.nds-text').html(html);
 }
 
+/* =========================
+  PAYMENT METHOD
+========================= */
+
+function togglePaymentDetails() {
+
+  let type = $('[data-sync="variable_payment_select"]').val();
+
+  let $block = $('.payment-details-block');
+
+  let $card = $block.find('.payment-card');
+  let $bank = $block.find('.payment-bank');
+
+  // всё скрываем
+  $block.hide();
+  $card.hide();
+  $bank.hide();
+
+  // отключаем всё
+  $block.find('input').prop('disabled', true).prop('required', false);
+
+  if (type === 'Перевод') {
+
+    $block.show();
+    $card.show();
+
+    $card.find('input')
+      .prop('disabled', false)
+      .prop('required', true);
+
+  }
+
+  else if (type === 'Расчетный (банковский) счет') {
+
+    $block.show();
+    $bank.show();
+
+    $bank.find('input')
+      .prop('disabled', false)
+      .prop('required', true);
+
+  }
+
+  // Наличные → ничего не показываем
+
+}
+
   /* =========================
     EVENTS
   ========================= */
@@ -1234,6 +1281,7 @@ function updateNDSText() {
     updateProgress();
     toggleWarranty();
     toggleConfidentiality();
+    togglePaymentDetails();
     
   });
 
@@ -1251,7 +1299,7 @@ function updateNDSText() {
   updateNDSText();
   renderContract();
   updateProgress();
-  
+  togglePaymentDetails();
 
 });
 
