@@ -404,7 +404,7 @@
                       <div class="col-12 col-lg-6 mb-16">
                         <div class="label-title">Страна</div>
                         <label>
-                          <input type="text" data-field="country" placeholder="Украина / Германия">
+                          <input type="text" data-field="country" placeholder="Украина / Германия" data-sync="country_customer">
                         </label>
                       </div>
 
@@ -412,7 +412,7 @@
                       <div class="col-12 mb-16">
                         <div class="label-title">Разрешение на работу</div>
                         <label>
-                          <input type="text" data-field="work_permission" placeholder="№ документа / кем выдано">
+                          <input type="text" data-field="work_permission" placeholder="№ документа / кем выдано" data-sync="work_permission_customer">
                         </label>
                       </div>
 
@@ -491,7 +491,8 @@
                       <div class="col-12 mb-16">
                         <div class="label-title">Разрешение на работу</div>
                         <label>
-                          <input type="text" data-field="work_permission" data-sync="work_permission" placeholder="Документ">
+                          <input type="text" data-field="work_permission" data-sync="work_permission_executor"
+                            placeholder="Документ">
                         </label>
                       </div>
 
@@ -1417,7 +1418,7 @@
                 <p>г.<span class="input-value-text" data-output="city"></span></p>
               </div>
 
-              <p><span class="input-value-text" data-output="name_customer"></span>, действующий как <span
+              <!-- <p><span class="input-value-text" data-output="name_customer"></span>, действующий как <span
                   class="input-value-text" data-output="type_customer"></span>
                 (далее – "Заказчик"), с одной стороны, и
                 <span class="input-value-text" data-output="name_executor"></span>, зарегистрированный в <span
@@ -1425,6 +1426,29 @@
                   data-output="document_executor"></span> (далее –
                 "Исполнитель"), с другой стороны,
                 вместе именуемые «Стороны», а индивидуально – «Сторона», заключили настоящий договор
+                оказания услуг (далее – «Договор») о нижеследующем:
+              </p> -->
+
+              <p>
+                <span data-block="customer-text">
+                  <span class="input-value-text" data-output="name_customer"></span>,
+                  действующий как
+                  <span class="input-value-text" data-output="type_customer"></span>
+                  (далее – "Заказчик")
+                </span>,
+
+                с одной стороны, и
+
+                <span data-block="executor-text">
+                  <span class="input-value-text" data-output="name_executor"></span>,
+                  зарегистрированный в
+                  <span class="input-value-text" data-output="type_executor"></span>
+                  под
+                  <span class="input-value-text" data-output="document_executor"></span>
+                  (далее – "Исполнитель")
+                </span>,
+
+                с другой стороны, вместе именуемые «Стороны», а индивидуально – «Сторона», заключили настоящий договор
                 оказания услуг (далее – «Договор») о нижеследующем:
               </p>
 
@@ -1576,7 +1600,7 @@
               <p class="text-center font-600">11. Подписи и реквизиты сторон</p>
               <p>Заказчик <span class="input-value-text" data-output="name_customer"></span></p>
               <p>Тип: <span class="input-value-text" data-output="type_customer"></span></p>
-              
+
 
               <p>Адрес: <span class="input-value-text" data-output="city_imprisonment"></span></p>
               <p>Паспорт: <span class="input-value-text" data-output="document_customer"></span></p>
@@ -1592,7 +1616,7 @@
               <p>Тип: <span class="input-value-text" data-output="type_executor"></span></p>
               <p>Адрес регистрации: <span class="input-value-text" data-output="address_executor"></span></p>
               <p>ОГРНИП <span class="input-value-text" data-output="document_executor"></span>, ИНН <span
-                  class="input-value-text" data-output="document_executor"></span></p>
+                  class="input-value-text" data-output="inn_executor"></span></p>
               <p>Банк <span class="input-value-text" data-output="executor_ks"></span>, БИК <span
                   class="input-value-text" data-output="executor_bik"></span>, кор/счет <span class="input-value-text"
                   data-output="executor_ks"></span></p>

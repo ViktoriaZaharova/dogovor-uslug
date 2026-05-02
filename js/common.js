@@ -1161,88 +1161,173 @@ $(function () {
   NDS TEXT
 ========================= */
 
-function updateNDSText() {
+  function updateNDSText() {
 
-  let type = $('[data-sync="nds_select"]').val();
-  let percent = $('[data-sync="nds_cost"]').val();
+    let type = $('[data-sync="nds_select"]').val();
+    let percent = $('[data-sync="nds_cost"]').val();
 
-  let sum = getNumber($('[data-sync="total_cost"]').val());
-  let vat = calcVAT(sum, percent);
+    let sum = getNumber($('[data-sync="total_cost"]').val());
+    let vat = calcVAT(sum, percent);
 
-  let html = '';
+    let html = '';
 
-  if (type === 'Нет') {
+    if (type === 'Нет') {
 
-    html = `
+      html = `
       2.2. НДС не применяется в соответствии с действующим законодательством.
     `;
 
-  } else if (type === 'Включен') {
+    } else if (type === 'Включен') {
 
-    html = `
+      html = `
       2.2. НДС составляет ${percent}% и включен в стоимость Услуг.
       Сумма НДС: ${vat.toLocaleString('ru-RU')} (${numberToWords(vat)}) руб.
     `;
 
-  } else {
+    } else {
 
-    html = `
+      html = `
       2.2. НДС составляет ${percent}% в размере 
       ${vat.toLocaleString('ru-RU')} (${numberToWords(vat)}) руб.
       и не включен в стоимость Услуг.
     `;
 
+    }
+
+    $('.nds-text').html(html);
   }
 
-  $('.nds-text').html(html);
-}
+  /* =========================
+    PAYMENT METHOD
+  ========================= */
 
-/* =========================
-  PAYMENT METHOD
-========================= */
+  function togglePaymentDetails() {
 
-function togglePaymentDetails() {
+    let type = $('[data-sync="variable_payment_select"]').val();
 
-  let type = $('[data-sync="variable_payment_select"]').val();
+    let $block = $('.payment-details-block');
 
-  let $block = $('.payment-details-block');
+    let $card = $block.find('.payment-card');
+    let $bank = $block.find('.payment-bank');
 
-  let $card = $block.find('.payment-card');
-  let $bank = $block.find('.payment-bank');
+    // всё скрываем
+    $block.hide();
+    $card.hide();
+    $bank.hide();
 
-  // всё скрываем
-  $block.hide();
-  $card.hide();
-  $bank.hide();
+    // отключаем всё
+    $block.find('input').prop('disabled', true).prop('required', false);
 
-  // отключаем всё
-  $block.find('input').prop('disabled', true).prop('required', false);
+    if (type === 'Перевод') {
 
-  if (type === 'Перевод') {
+      $block.show();
+      $card.show();
 
-    $block.show();
-    $card.show();
+      $card.find('input')
+        .prop('disabled', false)
+        .prop('required', true);
 
-    $card.find('input')
-      .prop('disabled', false)
-      .prop('required', true);
+    }
+
+    else if (type === 'Расчетный (банковский) счет') {
+
+      $block.show();
+      $bank.show();
+
+      $bank.find('input')
+        .prop('disabled', false)
+        .prop('required', true);
+
+    }
+
+    // Наличные → ничего не показываем
 
   }
 
-  else if (type === 'Расчетный (банковский) счет') {
+  /* =========================
+    PARTICIPANTS TEXT (SMART)
+  ========================= */
 
-    $block.show();
-    $bank.show();
+  function updateParticipantsText() {
 
-    $bank.find('input')
-      .prop('disabled', false)
-      .prop('required', true);
+    /* ===== ЗАКАЗЧИК ===== */
+    let typeC = $('[data-sync="type_customer"]').val();
+    let nameC = $('[data-sync="name_customer"]').val() || '____________';
+    let docC = $('[data-sync="document_customer"]').val() || '____________';
+
+    let customerHTML = '';
+
+    if (typeC === 'ИП') {
+
+      customerHTML = `
+      Индивидуальный предприниматель ${nameC},
+      зарегистрированный в реестре индивидуальных предпринимателей под № ${docC}
+      (далее – "Заказчик")
+    `;
+
+    } else {
+      // физ / юр / самозанятый — как было
+      customerHTML = `
+      ${nameC}, действующий как ${typeC}
+      (далее – "Заказчик")
+    `;
+    }
+
+    $('[data-block="customer-text"]').html(customerHTML);
+
+
+    /* ===== ИСПОЛНИТЕЛЬ ===== */
+    let typeE = $('[data-sync="type_executor"]').val();
+    let nameE = $('[data-sync="name_executor"]').val() || '____________';
+    let docE = $('[data-sync="document_executor"]').val() || '____________';
+    let countryE = $('[data-sync="country_executor"]').val() || '____________';
+    let workE = $('[data-sync="work_permission_executor"]').val() || '____________';
+
+    let executorHTML = '';
+
+    if (typeE === 'ИП') {
+
+      executorHTML = `
+      Индивидуальный предприниматель ${nameE},
+      зарегистрированный в реестре индивидуальных предпринимателей под № ${docE}
+      (далее – "Исполнитель")
+    `;
+
+    }
+
+    else if (typeE === 'Самозанятый') {
+
+      executorHTML = `
+      ${nameE}, действующий как физическое лицо с применением налогового режима
+      "налог на профессиональный доход"
+      (далее – "Исполнитель")
+    `;
+
+    }
+
+    else if (typeE === 'Иностранный гражданин') {
+
+      executorHTML = `
+      ${nameE}, гражданин ${countryE},
+      основанием пребывания на территории Российской Федерации является ${docE},
+      наличие разрешения на работу подтверждается ${workE}
+      (далее – "Исполнитель")
+    `;
+
+    }
+
+    else {
+      // физ лицо / юр лицо — как было
+      executorHTML = `
+      ${nameE}, зарегистрированный в ${typeE}
+      под № ${docE}
+      (далее – "Исполнитель")
+    `;
+    }
+
+    $('[data-block="executor-text"]').html(executorHTML);
 
   }
-
-  // Наличные → ничего не показываем
-
-}
 
   /* =========================
     EVENTS
@@ -1282,7 +1367,8 @@ function togglePaymentDetails() {
     toggleWarranty();
     toggleConfidentiality();
     togglePaymentDetails();
-    
+    updateParticipantsText();
+
   });
 
 
@@ -1300,7 +1386,7 @@ function togglePaymentDetails() {
   renderContract();
   updateProgress();
   togglePaymentDetails();
-
+  updateParticipantsText();
 });
 
 
