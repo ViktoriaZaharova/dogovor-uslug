@@ -1,4 +1,4 @@
-$('[name="phone"]').mask('+7 (999) 999-99-99');
+// $('[name="phone"]').mask('+7 (999) 999-99-99');
 
 // animate scroll to top
 $('.btn-top-scroll').on('click', function (e) {
@@ -31,571 +31,6 @@ $(document).ready(function () {
 });
 //плавный скролл end
 
-// $('.nav-menu a').on('click', function () {
-//     $('.btn-burger').removeClass('click');      
-//     $('.nav-menu').fadeOut();
-// });
-
-// $(function () {
-
-//     $(".slider-range").each(function () {
-
-//         let slider = $(this);
-
-//         slider.slider({
-//             min: 0,
-//             max: 1,
-//             step: 0.1,
-//             value: 0.1,
-//             range: "min",
-
-//             create: function () {
-
-//                 let currentValue = slider.slider("value");
-
-//                 slider.find(".ui-slider-handle").append(
-//                     '<div class="slider-value">' + currentValue.toFixed(1) + '%</div>'
-//                 );
-//             },
-
-//             slide: function (event, ui) {
-//                 slider.find(".slider-value").text(ui.value.toFixed(1) + "%");
-//             },
-
-//             change: function (event, ui) {
-//                 slider.find(".slider-value").text(
-//                     slider.slider("value").toFixed(1) + "%"
-//                 );
-//             }
-//         });
-
-//     });
-
-// });
-
-
-// $(function () {
-
-//   /* =========================
-//     DATE FORMAT
-//   ========================= */
-//   function formatDate(value) {
-//     if (!value) return '';
-
-//     let parts = value.split('-'); // YYYY-MM-DD
-//     if (parts.length !== 3) return value;
-
-//     return parts[2] + '.' + parts[1] + '.' + parts[0];
-//   }
-
-
-//   /* =========================
-//     NUMBER → WORDS
-//   ========================= */
-//   function morph(n, f1, f2, f5) {
-//     n = Math.abs(n) % 100;
-//     let n1 = n % 10;
-//     if (n > 10 && n < 20) return f5;
-//     if (n1 > 1 && n1 < 5) return f2;
-//     if (n1 == 1) return f1;
-//     return f5;
-//   }
-
-//   function numberToWords(num) {
-
-//     const units = [
-//       ['', ''], ['один', 'одна'], ['два', 'две'], ['три', 'три'],
-//       ['четыре', 'четыре'], ['пять', 'пять'], ['шесть', 'шесть'],
-//       ['семь', 'семь'], ['восемь', 'восемь'], ['девять', 'девять']
-//     ];
-
-//     const teens = [
-//       'десять', 'одиннадцать', 'двенадцать', 'тринадцать',
-//       'четырнадцать', 'пятнадцать', 'шестнадцать',
-//       'семнадцать', 'восемнадцать', 'девятнадцать'
-//     ];
-
-//     const tens = [
-//       '', 'десять', 'двадцать', 'тридцать', 'сорок',
-//       'пятьдесят', 'шестьдесят', 'семьдесят',
-//       'восемьдесят', 'девяносто'
-//     ];
-
-//     const hundreds = [
-//       '', 'сто', 'двести', 'триста', 'четыреста',
-//       'пятьсот', 'шестьсот', 'семьсот',
-//       'восемьсот', 'девятьсот'
-//     ];
-
-//     function parse(num, female = false) {
-//       let str = '';
-
-//       let h = Math.floor(num / 100);
-//       let t = Math.floor((num % 100) / 10);
-//       let u = num % 10;
-
-//       if (h) str += hundreds[h] + ' ';
-
-//       if (t === 1) {
-//         str += teens[u] + ' ';
-//       } else {
-//         if (t) str += tens[t] + ' ';
-//         if (u) str += units[u][female ? 1 : 0] + ' ';
-//       }
-
-//       return str.trim();
-//     }
-
-//     if (!num) return 'ноль рублей';
-
-//     let result = '';
-
-//     let millions = Math.floor(num / 1000000);
-//     let thousands = Math.floor((num % 1000000) / 1000);
-//     let rest = num % 1000;
-
-//     if (millions) {
-//       result += parse(millions) + ' ' +
-//         morph(millions, 'миллион', 'миллиона', 'миллионов') + ' ';
-//     }
-
-//     if (thousands) {
-//       result += parse(thousands, true) + ' ' +
-//         morph(thousands, 'тысяча', 'тысячи', 'тысяч') + ' ';
-//     }
-
-//     if (rest) {
-//       result += parse(rest) + ' ';
-//     }
-
-//     return (result + morph(num, 'рубль', 'рубля', 'рублей')).trim();
-//   }
-
-
-//   /* =========================
-//     FORMAT VALUE
-//   ========================= */
-//   function formatValue($field) {
-
-//     let value = $field.val();
-
-//     if ($field.attr('type') === 'date') {
-//       return formatDate(value);
-//     }
-
-//     if ($field.data('format') === 'money' && value) {
-//       return Number(String(value).replace(/\s/g, '') || 0)
-//         .toLocaleString('ru-RU');
-//     }
-
-//     return value;
-//   }
-
-
-//   /* =========================
-//     VALIDATION
-//   ========================= */
-//   function validateField($field) {
-
-//     let $label = $field.closest('label');
-//     if (!$label.length) return;
-
-//     let val = $field.val();
-
-//     if ($field.prop('required')) {
-
-//       if (!val || val === '' || val === 'Выберите') {
-//         $label.addClass('error-label');
-//       } else {
-//         $label.removeClass('error-label');
-//       }
-
-//     }
-//   }
-
-//   function validateItem($item) {
-//     $item.find('input, select, textarea').each(function () {
-//       validateField($(this));
-//     });
-//   }
-
-
-//   /* =========================
-//     SYNC ALL
-//   ========================= */
-//   function syncAll() {
-
-//     $('[data-sync]').each(function () {
-
-//       let $field = $(this);
-//       let key = $field.data('sync');
-//       let value = formatValue($field);
-
-//       if (!value || value === '' || value === 'Выберите') {
-//         value = '____________';
-//       }
-
-//       $('[data-output="' + key + '"]').text(value);
-
-//       if ($field.data('format') === 'money') {
-//         let num = parseFloat(value.replace(/\s/g, '').replace(',', '.'));
-//         if (!isNaN(num)) {
-//           $('[data-output-text="' + key + '"]')
-//             .text(numberToWords(Math.floor(num)));
-//         }
-//       }
-
-//     });
-
-//   }
-
-
-//   /* =========================
-//     VAT
-//   ========================= */
-//   function updateVAT() {
-
-//     $('[data-vat-output]').each(function () {
-
-//       let el = $(this);
-
-//       let sumKey = el.data("vat-output");
-//       let rateKey = el.data("rate");
-
-//       let total = $('[data-output="' + sumKey + '"]').text().replace(/\s/g, '');
-//       let rate = $('[data-output="' + rateKey + '"]').text();
-
-//       let totalNum = parseFloat(total);
-//       let rateNum = parseFloat(rate);
-
-//       if (isNaN(totalNum) || isNaN(rateNum)) return;
-
-//       let vat = totalNum * rateNum / (100 + rateNum);
-
-//       $('[data-vat-output="' + sumKey + '"]').text(vat.toFixed(2));
-//       $('[data-vat-output-text="' + sumKey + '"]')
-//         .text(numberToWords(Math.floor(vat)));
-
-//     });
-
-//   }
-
-
-//   /* =========================
-//     SLIDER
-//   ========================= */
-//   $(".slider-range").each(function () {
-
-//     let slider = $(this);
-//     if (slider.hasClass("ui-slider")) return;
-
-//     let key = slider.data("sync");
-
-//     slider.slider({
-//       min: 0,
-//       max: 1,
-//       step: 0.1,
-//       value: 0.1,
-//       range: "min",
-
-//       create: function () {
-//         if (!slider.find(".slider-value").length) {
-//           slider.find(".ui-slider-handle")
-//             .append('<div class="slider-value"></div>');
-//         }
-//         update(slider.slider("value"));
-//       },
-
-//       slide: function (e, ui) {
-//         update(ui.value);
-//       },
-
-//       change: function () {
-//         update(slider.slider("value"));
-//       }
-//     });
-
-//     function update(val) {
-//       let v = val.toFixed(1);
-
-//       slider.find(".slider-value").text(v + "%");
-
-//       if (key) {
-//         $('[data-output="' + key + '"]').text(v);
-//       }
-//     }
-
-//   });
-
-//   /* =========================
-//   CONDITIONAL BLOCKS (UNIVERSAL)
-// ========================= */
-//   function toggleConditionalBlocks() {
-
-//     $('[data-toggle]').each(function () {
-
-//       let $control = $(this);
-
-//       let key = $control.data('toggle');
-//       let requiredValue = $control.data('toggle-value');
-//       let currentValue = $control.val();
-
-//       let $targets = $('[data-toggle-target="' + key + '"]');
-
-//       if (currentValue === requiredValue) {
-
-//         $targets.stop(true, true).slideDown(200);
-
-//         $targets
-//           .find('input, select, textarea')
-//           .prop('disabled', false);
-
-//       } else {
-
-//         $targets.stop(true, true).slideUp(200);
-
-//         $targets
-//           .find('input, select, textarea')
-//           .prop('disabled', true)
-//           .val('');
-
-//         $targets.find('label').removeClass('error-label');
-//       }
-
-//     });
-
-//   }
-
-//   /* =========================
-//      STEPS LOGIC
-//   ========================= */
-
-//   // добавить этап
-//   function addStep($block) {
-//     let template = $('.step-template').html();
-//     $block.find('.steps-wrapper').append(template);
-//   }
-
-//   // показать / скрыть блок
-//   function toggleSteps($block) {
-
-//     let val = $block.find('[data-sync="payment_step_select"]').val();
-
-//     if (val === 'Да') {
-
-//       $block.find('.steps-wrapper, .btn-add-step').stop(true, true).slideDown(200);
-
-//       if (!$block.find('.step-item').length) {
-//         addStep($block);
-//       }
-
-//     } else {
-
-//       $block.find('.steps-wrapper, .btn-add-step').stop(true, true).slideUp(200);
-//       $block.find('.steps-wrapper').empty();
-
-//       updateStepsOutput($block);
-//     }
-//   }
-
-
-//   // генерация текста этапов
-//   function updateStepsOutput($block) {
-
-//     let result = [];
-
-//     $block.find('.step-item').each(function (index) {
-
-//       let name = $(this).find('.step-name').val();
-//       let sum = $(this).find('.step-sum').val();
-//       let date = $(this).find('.step-date').val();
-
-//       if (name && sum && date) {
-
-//         let num = Number(String(sum).replace(/\s/g, '') || 0);
-
-//         let sumFormatted = num.toLocaleString('ru-RU');
-//         let sumText = numberToWords(Math.floor(num));
-
-//         result.push(
-//           (index + 1) + ' этап — ' +
-//           name + ', ' +
-//           sumFormatted + ' руб. (' + sumText + '), срок: ' +
-//           date
-//         );
-
-//       }
-
-//     });
-
-//     let text = result.length ? result.join('\n') : '____________';
-
-//     $('[data-output="steps_text"]').text(text);
-//   }
-
-
-//   /* =========================
-//      EVENTS
-//   ========================= */
-
-//   // добавить этап
-//   $(document).on('click', '.btn-add-step', function () {
-//     let $block = $(this).closest('.payment-steps-block');
-//     addStep($block);
-//   });
-
-//   // удалить этап
-//   $(document).on('click', '.btn-remove-step', function () {
-
-//     let $block = $(this).closest('.payment-steps-block');
-
-//     if ($block.find('.step-item').length > 1) {
-//       $(this).closest('.step-item').remove();
-//     }
-
-//     updateStepsOutput($block);
-//   });
-
-
-//   // изменение любого поля внутри блока
-//   $(document).on('input change', '.payment-steps-block input, .payment-steps-block select', function () {
-
-//     let $block = $(this).closest('.payment-steps-block');
-
-//     toggleSteps($block);
-//     updateStepsOutput($block);
-
-//   });
-
-
-//   /* =========================
-//      INIT
-//   ========================= */
-
-//   $('.payment-steps-block').each(function () {
-//     let $block = $(this);
-//     toggleSteps($block);
-//     updateStepsOutput($block);
-//   });
-
-//   /* =========================
-//     CHECK STEP COMPLETE
-//   ========================= */
-//   function isComplete($item) {
-
-//     let ok = true;
-
-//     $item.find('input, select, textarea').each(function () {
-
-//       let $f = $(this);
-
-//       if ($f.prop('required') && !$f.prop('disabled')) {
-
-//         let val = $f.val();
-
-//         if (!val || val === '' || val === 'Выберите') {
-//           ok = false;
-//         }
-//       }
-
-//     });
-
-//     return ok;
-//   }
-
-
-//   /* =========================
-//     PROGRESS + CHECKED
-//   ========================= */
-//   function updateProgress() {
-
-//     let $items = $('.accordion-item');
-//     let total = $items.length;
-//     let completed = 0;
-
-//     $items.each(function () {
-
-//       let $item = $(this);
-
-//       if (isComplete($item)) {
-//         $item.addClass('checked').removeClass('no-checked');
-//         completed++;
-//       } else {
-//         $item.removeClass('checked');
-//       }
-
-//     });
-
-//     let percent = Math.round((completed / total) * 100);
-
-//     $('.completed-line__progress')
-//       .stop(true)
-//       .animate({ width: percent + '%' }, 200);
-
-//     $('.completed-line span').text(percent + '%');
-
-//     if (percent === 100) {
-//       $('.btn-contract').removeClass('disabled');
-//     } else {
-//       $('.btn-contract').addClass('disabled');
-//     }
-
-//   }
-
-
-//   /* =========================
-//     BLOCK NEXT STEP INPUT
-//   ========================= */
-//   $(document).on('focus mousedown', '.accordion-item input, .accordion-item select, .accordion-item textarea', function (e) {
-
-//     let $current = $(this).closest('.accordion-item');
-//     let $prev = $current.prev('.accordion-item');
-
-//     if ($prev.length && !isComplete($prev)) {
-
-//       $prev.addClass('no-checked');
-//       validateItem($prev);
-
-//       e.preventDefault();
-//       $(this).blur();
-
-//       $('html, body').animate({
-//         scrollTop: $prev.offset().top - 100
-//       }, 300);
-
-//       return false;
-//     }
-
-//   });
-
-
-//   /* =========================
-//     EVENTS
-//   ========================= */
-//   $(document).on('input change', '[data-sync]', function () {
-
-//     let $field = $(this);
-//     let $item = $field.closest('.accordion-item');
-
-//     validateField($field);
-
-//     if (isComplete($item)) {
-//       $item.removeClass('no-checked');
-//     }
-
-//     syncAll();
-//     updateVAT();
-//     updateProgress();
-
-//   });
-
-
-//   /* INIT */
-//   syncAll();
-//   updateVAT();
-//   updateProgress();
-
-// });
 
 
 $(function () {
@@ -1329,6 +764,84 @@ $(function () {
 
   }
 
+  function renderExecutorRequisites() {
+
+    let type = $('[data-sync="type_executor"]').val();
+    let payment = $('[data-sync="variable_payment_select"]').val();
+
+    let name = $('[data-sync="name_executor"]').val() || '____________';
+    let inn = $('[data-sync="inn_executor"]').val() || '____________';
+    let doc = $('[data-sync="document_executor"]').val() || '____________';
+    let address = $('[data-sync="address_executor"]').val() || '____________';
+
+    let bank = $('[data-sync="executor_bank"]').val() || '____________';
+    let bik = $('[data-sync="executor_bik"]').val() || '____________';
+    let ks = $('[data-sync="executor_ks"]').val() || '____________';
+    let account = $('[data-sync="executor_account"]').val() || '____________';
+
+    let html = `
+    <p>Исполнитель ${name}</p>
+    <p>Тип: ${type}</p>
+    <p>Адрес: ${address}</p>
+  `;
+
+    /* ===== ИНН / ОГРН ===== */
+
+    if (type === 'ИП') {
+
+      html += `<p>ОГРНИП ${doc}, ИНН ${inn}</p>`;
+
+    } else if (type === 'Самозанятый') {
+
+      // ❗ БЕЗ ОГРНИП
+      html += `<p>ИНН ${inn}</p>`;
+
+    } else if (type === 'Юр. лицо') {
+
+      html += `<p>ОГРН ${doc}, ИНН ${inn}</p>`;
+
+    } else if (type === 'Физ. лицо') {
+
+      html += `<p>Паспорт: ${doc}</p>`;
+
+    }
+
+    /* ===== БАНК (только если НЕ перевод) ===== */
+
+    if (payment === 'Расчетный (банковский) счет') {
+
+      html += `
+      <p>Банк: ${bank}</p>
+      <p>БИК: ${bik}</p>
+      <p>Кор/счет: ${ks}</p>
+      <p>Расчетный счет: ${account}</p>
+    `;
+
+    }
+
+    $('[data-block="executor-requisites"]').html(html);
+  }
+
+  function setTodayDate() {
+
+    let $date = $('[data-sync="contract_date"]'); // ← проверь ключ
+
+    if (!$date.length) return;
+
+    // если уже есть значение — не трогаем
+    if ($date.val()) return;
+
+    let now = new Date();
+
+    let year = now.getFullYear();
+    let month = String(now.getMonth() + 1).padStart(2, '0');
+    let day = String(now.getDate()).padStart(2, '0');
+
+    let formatted = `${year}-${month}-${day}`;
+
+    $date.val(formatted).trigger('change');
+  }
+
   /* =========================
     EVENTS
   ========================= */
@@ -1358,6 +871,8 @@ $(function () {
 
   $(document).on('input change', '[data-sync]', function () {
     let $block = $(this).closest('.payment-steps-block');
+    if ($(this).data('field') === 'card') return;
+    if ($(this).attr('name') === 'phone') return;
 
     toggleSteps($block);
     syncAll();
@@ -1368,6 +883,7 @@ $(function () {
     toggleConfidentiality();
     togglePaymentDetails();
     updateParticipantsText();
+    renderExecutorRequisites();
 
   });
 
@@ -1378,6 +894,7 @@ $(function () {
   ========================= */
 
   initSliders();
+  setTodayDate();
   syncAll();
   toggleSteps($('.payment-steps-block'));
   toggleWarranty();
@@ -1387,10 +904,39 @@ $(function () {
   updateProgress();
   togglePaymentDetails();
   updateParticipantsText();
+  renderExecutorRequisites();
 });
 
 
+$('[name="phone"]').on('input', function () {
 
+  let v = $(this).val().replace(/\D/g, '');
+
+  if (v.startsWith('8')) v = '7' + v.slice(1);
+  if (!v.startsWith('7')) v = '7' + v;
+
+  v = v.substring(0, 11);
+
+  let result = '+7';
+
+  if (v.length > 1) result += ' (' + v.substring(1, 4);
+  if (v.length >= 4) result += ') ' + v.substring(4, 7);
+  if (v.length >= 7) result += '-' + v.substring(7, 9);
+  if (v.length >= 9) result += '-' + v.substring(9, 11);
+
+  $(this).val(result);
+
+});
+
+$('[data-field="card"]').on('input', function () {
+
+  let v = $(this).val().replace(/\D/g, '').substring(0, 16);
+
+  let result = v.replace(/(\d{4})(?=\d)/g, '$1 ');
+
+  $(this).val(result);
+
+});
 
 // validate
 $(function () {

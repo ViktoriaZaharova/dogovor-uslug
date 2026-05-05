@@ -303,7 +303,7 @@
                         </div>
                       </div>
                       <label>
-                        <input type="text" name="contract_number" placeholder="123-45-ОФ" required
+                        <input type="text" name="contract_number" placeholder="123-45-ОФ" value="01" required
                           data-sync="contract_number">
                       </label>
                     </div>
@@ -404,7 +404,8 @@
                       <div class="col-12 col-lg-6 mb-16">
                         <div class="label-title">Страна</div>
                         <label>
-                          <input type="text" data-field="country" placeholder="Украина / Германия" data-sync="country_customer">
+                          <input type="text" data-field="country" placeholder="Украина / Германия"
+                            data-sync="country_customer">
                         </label>
                       </div>
 
@@ -412,7 +413,8 @@
                       <div class="col-12 mb-16">
                         <div class="label-title">Разрешение на работу</div>
                         <label>
-                          <input type="text" data-field="work_permission" placeholder="№ документа / кем выдано" data-sync="work_permission_customer">
+                          <input type="text" data-field="work_permission" placeholder="№ документа / кем выдано"
+                            data-sync="work_permission_customer">
                         </label>
                       </div>
 
@@ -635,8 +637,8 @@
                         </div>
                         <label>
                           <select name="nds_select" class="select-my" data-sync="nds_select">
+                             <option value="Нет">Нет</option>
                             <option value="Есть">Есть</option>
-                            <option value="Нет">Нет</option>
                             <option value="Включен">Включен</option>
                           </select>
                         </label>
@@ -752,8 +754,7 @@
                         <label>
                           <select name="currency_select" class="select-my" data-sync="currency_select">
                             <option value="РФ (рубль)">РФ (рубль)</option>
-                            <option value="РФ (рубль)">РФ (рубль)</option>
-                            <option value="РФ (рубль)">РФ (рубль)</option>
+                            <option value="США (доллар)">США (доллар)</option>
                           </select>
                         </label>
                       </div>
@@ -823,56 +824,8 @@
                         </div>
                       </div>
 
-                      <!-- <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">Название этапа<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="name_step" placeholder="Название этапа" required
-                            data-sync="name_step">
-                        </label>
-                      </div>
-
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">Сумма этапа<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="sum_step" placeholder="10000" required data-sync="sum_step">
-                        </label>
-                      </div>
-
-                      <div class="col-12 col-lg-6 mb-16">
-                        <div class="label-title">Срок оплаты<div class="tooltip-wrapper">
-                            <div class="btn-tooltip"><img src="img/question-icon.svg" alt=""></div>
-                            <div class="tooltip-box">
-                              <span>Текст поясняющий что нибудь о настоящему Договору Клиент поручает, а Исполнитель
-                                принимает на себя обязательство оказать услуги, предусмотренные соответствующим
-                                (определенным) Предметным заданием </span>
-                            </div>
-                          </div>
-                        </div>
-                        <label>
-                          <input type="text" name="date_step" placeholder="5 дней после приемки" required
-                            data-sync="date_step">
-                        </label>
-                      </div> -->
                     </div>
                   </div>
-
-
 
                   <div class="accordion-body__wrapper">
                     <div class="row">
@@ -894,8 +847,8 @@
                         </div>
                         <label>
                           <select name="warranty_select" class="select-my" data-sync="warranty_select">
-                            <option value="Да">Да</option>
                             <option value="Нет">Нет</option>
+                            <option value="Да">Да</option>
                           </select>
                         </label>
                       </div>
@@ -1063,7 +1016,7 @@
                           </div>
                         </div>
                         <label>
-                          <input type="text" name="limit_contractor" placeholder="10" required
+                          <input type="text" name="limit_contractor" placeholder="10" value="10" required
                             data-sync="limit_contractor">
                         </label>
                       </div>
@@ -1102,7 +1055,7 @@
                           </div>
                         </div>
                         <label>
-                          <input type="text" name="limit_customer" placeholder="10" required data-sync="limit_customer">
+                          <input type="text" name="limit_customer" placeholder="10" value="10" required data-sync="limit_customer">
                         </label>
                       </div>
                     </div>
@@ -1125,7 +1078,7 @@
                           </div>
                         </div>
                         <label>
-                          <input type="text" name="privacy_fine" placeholder="100 000" required
+                          <input type="text" name="privacy_fine" placeholder="100 000" value="100 000" required
                             data-sync="privacy_fine">
                         </label>
                       </div>
@@ -1149,7 +1102,7 @@
                           </div>
                         </div>
                         <label>
-                          <input type="text" name="elimination_period" placeholder="23" required
+                          <input type="text" name="elimination_period" placeholder="7" value="7" required
                             data-sync="elimination_period">
                         </label>
                       </div>
@@ -1175,8 +1128,8 @@
                         <label>
                           <select name="acceptance_certificate" class="select-my" data-sync="acceptance_certificate"
                             data-toggle="acceptance-block" data-toggle-value="Акт сдачи-приемки оказанных услуг">
-                            <option value="Акт сдачи-приемки оказанных услуг">Акт сдачи-приемки оказанных услуг</option>
                             <option value="Нет">Нет</option>
+                            <option value="Акт сдачи-приемки оказанных услуг">Акт сдачи-приемки оказанных услуг</option>
                           </select>
                         </label>
                       </div>
@@ -1200,7 +1153,7 @@
                           </div>
                         </div>
                         <label>
-                          <input type="text" name="signing_period" placeholder="5" required data-sync="signing_period">
+                          <input type="text" name="signing_period" placeholder="7" value="7" required data-sync="signing_period">
                         </label>
                       </div>
 
@@ -1512,7 +1465,7 @@
               <div class="warranty-text w-100">
                 <p class="text-center font-600">4. Гарантия качества оказанных услуг</p>
 
-                <p>4.1. Гарантия качества распространяется <span class="input-value-text"
+                <p>4.1. Гарантия качества распространяется на<span class="input-value-text"
                     data-output="warranty_description"></span>, не включают в себя гарантию на <span
                     class="input-value-text" data-output="warranty_exceptions"></span>.
                 </p>
@@ -1602,29 +1555,30 @@
               <p>Тип: <span class="input-value-text" data-output="type_customer"></span></p>
 
 
-              <p>Адрес: <span class="input-value-text" data-output="city_imprisonment"></span></p>
+              <p>Адрес: <span class="input-value-text" data-output="address_customer"></span></p>
               <p>Паспорт: <span class="input-value-text" data-output="document_customer"></span></p>
               <p>Банковские реквизиты: <span class="input-value-text" data-output="currency_select"></span></p>
               <p>E-mail: <span class="input-value-text" data-output="customer_email"></span></p>
               <p>Телефон: <span class="input-value-text" data-output="customer_phone"></span></p>
 
-              <p>Заказчик ________________________ <span class="input-value-text" data-output="name_customer"></span>
+              <p>Заказчик <span class="input-value-text" data-output="name_customer"></span>
               </p>
 
 
-              <p>Исполнитель <span class="input-value-text" data-output="name_executor"></span></p>
+              <!-- <p>Исполнитель <span class="input-value-text" data-output="name_executor"></span></p>
               <p>Тип: <span class="input-value-text" data-output="type_executor"></span></p>
               <p>Адрес регистрации: <span class="input-value-text" data-output="address_executor"></span></p>
               <p>ОГРНИП <span class="input-value-text" data-output="document_executor"></span>, ИНН <span
-                  class="input-value-text" data-output="inn_executor"></span></p>
-              <p>Банк <span class="input-value-text" data-output="executor_ks"></span>, БИК <span
+                  class="input-value-text" data-output="inn_executor"></span></p> -->
+              <div data-block="executor-requisites"></div>
+              <!-- <p>Банк <span class="input-value-text" data-output="executor_ks"></span>, БИК <span
                   class="input-value-text" data-output="executor_bik"></span>, кор/счет <span class="input-value-text"
-                  data-output="executor_ks"></span></p>
+                  data-output="executor_ks"></span></p> -->
               <p>Расчётный счёт <span class="input-value-text" data-output="executor_account"></span></p>
               <p>E-mail: <span class="input-value-text" data-output="contractor_email"></span></p>
               <p>Телефон: <span class="input-value-text" data-output="contractor_phone"></span></p>
 
-              <p>Исполнитель ________________________ <span class="input-value-text" data-output="name_executor"></span>
+              <p>Исполнитель <span class="input-value-text" data-output="name_executor"></span>
               </p>
 
             </div>
@@ -1728,8 +1682,7 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/slick.min.js"></script>
-  <script src="js/jquery.maskedinput.min.js"></script>
-  <script src="js/jquery.maskedinput.min.js"></script>
+  <!-- <script src="js/jquery.maskedinput.min.js"></script> -->
   <script src="js/jquery-ui.js"></script>
   <script src="js/jquery.ui.touch-punch.js"></script>
   <!-- add plugins js end-->
