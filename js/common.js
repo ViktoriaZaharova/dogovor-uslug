@@ -1,5 +1,3 @@
-// $('[name="phone"]').mask('+7 (999) 999-99-99');
-
 // animate scroll to top
 $('.btn-top-scroll').on('click', function (e) {
   e.preventDefault();
@@ -869,7 +867,56 @@ $(function () {
     renderContract();
   });
 
+  /* =========================
+  SAVE FORM DATA
+========================= */
+
+  const STORAGE_KEY = 'contract_form_data';
+
+  /* сохранить */
+  function saveFormData() {
+
+    let data = {};
+
+    $('[data-sync]').each(function () {
+
+      let key = $(this).data('sync');
+
+      data[key] = $(this).val();
+
+    });
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  /* загрузить */
+  function loadFormData() {
+
+    let saved = localStorage.getItem(STORAGE_KEY);
+
+    if (!saved) return;
+
+    let data = JSON.parse(saved);
+
+    $('[data-sync]').each(function () {
+
+      let key = $(this).data('sync');
+
+      if (data[key] !== undefined) {
+        $(this).val(data[key]);
+      }
+
+    });
+
+  }
+
+  /* очистка */
+  function clearFormData() {
+    localStorage.removeItem(STORAGE_KEY);
+  }
+
   $(document).on('input change', '[data-sync]', function () {
+    saveFormData();
     let $block = $(this).closest('.payment-steps-block');
     if ($(this).data('field') === 'card') return;
     if ($(this).attr('name') === 'phone') return;
@@ -893,6 +940,7 @@ $(function () {
     INIT
   ========================= */
 
+  loadFormData();
   initSliders();
   setTodayDate();
   syncAll();
@@ -927,6 +975,38 @@ $('[name="phone"]').on('input', function () {
   $(this).val(result);
 
 });
+
+$('[name="mail"]').on('input', function () {
+
+  let v = $(this).val();
+
+  // удаляем пробелы
+  v = v.replace(/\s/g, '');
+
+  // только латиница, цифры и допустимые символы email
+  v = v.replace(/[^a-zA-Z0-9@._\-]/g, '');
+
+  // только один символ @
+  let parts = v.split('@');
+  if (parts.length > 2) {
+    v = parts[0] + '@' + parts.slice(1).join('');
+  }
+
+  $(this).val(v.toLowerCase());
+
+});
+
+$('[name="mail"]').on('blur', function () {
+
+  let v = $(this).val();
+
+  if (v && !v.includes('@')) {
+    $(this).val(v + '@gmail.com');
+  }
+
+});
+
+
 
 $('[data-field="card"]').on('input', function () {
 
@@ -982,160 +1062,7 @@ $(function () {
 
 });
 
-// text price
-// $(function () {
 
-//     function morph(n, f1, f2, f5) {
-//         n = Math.abs(n) % 100;
-//         let n1 = n % 10;
-//         if (n > 10 && n < 20) return f5;
-//         if (n1 > 1 && n1 < 5) return f2;
-//         if (n1 == 1) return f1;
-//         return f5;
-//     }
-
-//     function numberToWords(num) {
-
-//         const units = [
-//             ['', ''],
-//             ['один', 'одна'],
-//             ['два', 'две'],
-//             ['три', 'три'],
-//             ['четыре', 'четыре'],
-//             ['пять', 'пять'],
-//             ['шесть', 'шесть'],
-//             ['семь', 'семь'],
-//             ['восемь', 'восемь'],
-//             ['девять', 'девять']
-//         ];
-
-//         const teens = [
-//             'десять','одиннадцать','двенадцать','тринадцать',
-//             'четырнадцать','пятнадцать','шестнадцать',
-//             'семнадцать','восемнадцать','девятнадцать'
-//         ];
-
-//         const tens = [
-//             '','десять','двадцать','тридцать','сорок',
-//             'пятьдесят','шестьдесят','семьдесят',
-//             'восемьдесят','девяносто'
-//         ];
-
-//         const hundreds = [
-//             '','сто','двести','триста','четыреста',
-//             'пятьсот','шестьсот','семьсот',
-//             'восемьсот','девятьсот'
-//         ];
-
-//         function parse(num, female = false) {
-//             let str = '';
-
-//             let h = Math.floor(num / 100);
-//             let t = Math.floor((num % 100) / 10);
-//             let u = num % 10;
-
-//             if (h) str += hundreds[h] + ' ';
-
-//             if (t === 1) {
-//                 str += teens[u] + ' ';
-//             } else {
-//                 if (t) str += tens[t] + ' ';
-//                 if (u) str += units[u][female ? 1 : 0] + ' ';
-//             }
-
-//             return str.trim();
-//         }
-
-//         if (!num) return 'ноль рублей';
-
-//         let result = '';
-
-//         let millions = Math.floor(num / 1000000);
-//         let thousands = Math.floor((num % 1000000) / 1000);
-//         let rest = num % 1000;
-
-//         if (millions) {
-//             result += parse(millions) + ' ' +
-//                 morph(millions, 'миллион', 'миллиона', 'миллионов') + ' ';
-//         }
-
-//         if (thousands) {
-//             result += parse(thousands, true) + ' ' +
-//                 morph(thousands, 'тысяча', 'тысячи', 'тысяч') + ' ';
-//         }
-
-//         if (rest) {
-//             result += parse(rest) + ' ';
-//         }
-
-//         return (result + morph(num, 'рубль', 'рубля', 'рублей')).trim();
-//     }
-
-
-//     /* синхронизация input → data-output */
-//     function syncInputs() {
-
-//         $("[data-sync]").each(function () {
-
-//             let key = $(this).data("sync");
-//             let val = $(this).val();
-
-//             $('[data-output="' + key + '"]').text(val);
-//         });
-//     }
-
-
-//     function updateVAT() {
-
-//         $("[data-vat-output]").each(function () {
-
-//             let el = $(this);
-
-//             let sumKey = el.data("vat-output");
-//             let rateKey = el.data("rate");
-
-//             let total = $('[data-output="' + sumKey + '"]').text()
-//                 .replace(/\s/g, '')
-//                 .replace(',', '.');
-
-//             let rate = $('[data-output="' + rateKey + '"]').text()
-//                 .replace(',', '.');
-
-//             let totalNum = parseFloat(total);
-//             let rateNum = parseFloat(rate);
-
-//             if (isNaN(totalNum) || isNaN(rateNum)) return;
-
-//             let vat = totalNum * rateNum / (100 + rateNum);
-
-//             let rub = Math.floor(vat);
-//             let kop = Math.round((vat - rub) * 100);
-
-//             $('[data-vat-output="' + sumKey + '"]').text(vat.toFixed(2));
-
-//             let text = numberToWords(rub) + ' ' + kop + ' копеек';
-
-//             $('[data-vat-output-text="' + sumKey + '"]').text(text);
-//         });
-//     }
-
-
-//     function updateAll() {
-//         syncInputs();
-//         updateVAT();
-//     }
-
-
-//     /* слушаем всё */
-//     $(document).on("input change", "[data-sync]", function () {
-//         updateAll();
-//     });
-
-
-//     /* первый запуск */
-//     updateAll();
-
-// });
 
 $(function () {
 

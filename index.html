@@ -265,9 +265,9 @@
 
                       <label>
                         <select name="type_contract" class="select-my" data-sync="contract_type">
-                          <option value="" disabled selected>Выберите тип договора</option>
+                          <!-- <option value="" disabled selected>Выберите тип договора</option> -->
+                           <option value="ДОГОВОР оказания услуг">ДОГОВОР оказания услуг</option>
                           <option value="ДОГОВОР купли продажи">ДОГОВОР купли продажи</option>
-                          <option value="ДОГОВОР оказания услуг">ДОГОВОР оказания услуг</option>
                           <option value="ДОГОВОР аренды квартиры">ДОГОВОР аренды квартиры</option>
                           <option value="ДОГОВОР займа">ДОГОВОР займа</option>
                           <option value="ДОГОВОР подряда">ДОГОВОР подряда</option>
@@ -864,8 +864,12 @@
                           </div>
                         </div>
                         <label>
-                          <input type="text" name="warranty_period" placeholder="5" required
-                            data-sync="warranty_period">
+                          <!-- <input type="text" name="warranty_period" placeholder="5" required
+                            data-sync="warranty_period"> -->
+                            <select name="warranty_period" class="select-my" data-sync="warranty_period">
+                            <option value="1 месяц">1 месяц</option>
+                            <option value="1 год">1 год</option>
+                          </select>
                         </label>
                       </div>
 
@@ -880,7 +884,7 @@
                           </div>
                         </div>
                         <label>
-                          <input type="text" name="warranty_description" placeholder="Только на работы" required
+                          <input type="text" name="warranty_description" placeholder="Только крыша" required
                             data-sync="warranty_description">
                         </label>
                       </div>
@@ -1574,7 +1578,8 @@
               <!-- <p>Банк <span class="input-value-text" data-output="executor_ks"></span>, БИК <span
                   class="input-value-text" data-output="executor_bik"></span>, кор/счет <span class="input-value-text"
                   data-output="executor_ks"></span></p> -->
-              <p>Расчётный счёт <span class="input-value-text" data-output="executor_account"></span></p>
+              <!-- <p>Расчётный счёт: <span class="input-value-text" data-output="executor_account"></span></p> -->
+              <p>Банковская карта: <span class="input-value-text" data-output="executor_card"></span></p>
               <p>E-mail: <span class="input-value-text" data-output="contractor_email"></span></p>
               <p>Телефон: <span class="input-value-text" data-output="contractor_phone"></span></p>
 
@@ -1593,7 +1598,7 @@
               </div>
 
               <div class="btn-group w-100 flex-wrap">
-                <a href="#" class="btn btn-accent w-100 disabled mb-8 btn-contract">
+                <a href="prices.html" class="btn btn-accent w-100 disabled mb-8 btn-contract">
                   <span>Получить договор</span>
                   <svg class="svg-icon btn-icon stroke-none">
                     <use xlink:href="img/sprite.svg#download-icon"></use>
